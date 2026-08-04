@@ -14,6 +14,44 @@
 @theme {
     --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
 
+    /* Primary brand color: #1a4d8d */
+    --color-primary-50: #f0f6fc;
+    --color-primary-100: #dcecff;
+    --color-primary-200: #bddcff;
+    --color-primary-300: #8fc2f5;
+    --color-primary-400: #5b9fde;
+    --color-primary-500: #2d72b9;
+    --color-primary-600: #1a4d8d;
+    --color-primary-700: #163f75;
+    --color-primary-800: #143762;
+    --color-primary-900: #132f52;
+    --color-primary-950: #0c1e36;
+
+    --color-blue-50: var(--color-primary-50);
+    --color-blue-100: var(--color-primary-100);
+    --color-blue-200: var(--color-primary-200);
+    --color-blue-300: var(--color-primary-300);
+    --color-blue-400: var(--color-primary-400);
+    --color-blue-500: var(--color-primary-500);
+    --color-blue-600: var(--color-primary-600);
+    --color-blue-700: var(--color-primary-700);
+    --color-blue-800: var(--color-primary-800);
+    --color-blue-900: var(--color-primary-900);
+    --color-blue-950: var(--color-primary-950);
+
+    /* Secondary brand color: #18bcbc */
+    --color-secondary-50: #effefd;
+    --color-secondary-100: #c7fffb;
+    --color-secondary-200: #90fff8;
+    --color-secondary-300: #51f7f0;
+    --color-secondary-400: #22ded9;
+    --color-secondary-500: #18bcbc;
+    --color-secondary-600: #10989a;
+    --color-secondary-700: #12787b;
+    --color-secondary-800: #155f63;
+    --color-secondary-900: #174f52;
+    --color-secondary-950: #082f32;
+
     /* Semantic Colors (Auto-adapt in dark mode via CSS variables below) */
     --color-primary: var(--semantic-primary);
     --color-secondary: var(--semantic-secondary);
@@ -21,26 +59,13 @@
     --color-danger: var(--semantic-danger);
     --color-warning: var(--semantic-warning);
     --color-info: var(--semantic-info);
-
-    /* Full primary scale mapped from Tailwind Blue */
-    --color-primary-50: var(--color-blue-50);
-    --color-primary-100: var(--color-blue-100);
-    --color-primary-200: var(--color-blue-200);
-    --color-primary-300: var(--color-blue-300);
-    --color-primary-400: var(--color-blue-400);
-    --color-primary-500: var(--color-blue-500);
-    --color-primary-600: var(--color-blue-600);
-    --color-primary-700: var(--color-blue-700);
-    --color-primary-800: var(--color-blue-800);
-    --color-primary-900: var(--color-blue-900);
-    --color-primary-950: var(--color-blue-950);
 }
 
 @layer base {
     :root {
         /* Light mode semantic colors */
-        --semantic-primary: var(--color-blue-600);
-        --semantic-secondary: var(--color-slate-600);
+        --semantic-primary: var(--color-primary-600);
+        --semantic-secondary: var(--color-secondary-500);
         --semantic-success: var(--color-emerald-600);
         --semantic-danger: var(--color-red-600);
         --semantic-warning: var(--color-amber-500);
@@ -49,8 +74,8 @@
 
     .dark {
         /* Dark mode semantic colors */
-        --semantic-primary: var(--color-blue-500);
-        --semantic-secondary: var(--color-slate-400);
+        --semantic-primary: var(--color-primary-400);
+        --semantic-secondary: var(--color-secondary-400);
         --semantic-success: var(--color-emerald-500);
         --semantic-danger: var(--color-red-500);
         --semantic-warning: var(--color-amber-400);

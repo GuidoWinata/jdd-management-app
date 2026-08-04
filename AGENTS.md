@@ -7,8 +7,14 @@
 
 ## Overview
 
-Aplikasi ini menggunakan pola arsitektur berlapis: **Controller → Usecase → View**.
+Aplikasi ini menggunakan pola arsitektur berlapis: **Controller → Usecase → View/API Response**.
 Tidak menggunakan Repository Pattern. Semua logika query langsung di Usecase menggunakan Query Builder.
+
+Controller dipisah berdasarkan surface:
+
+- **CMS/Admin Controller**: `app/Http/Controllers/Admin/`, route di `routes/web.php`, return `View` atau `RedirectResponse`.
+- **API Controller**: `app/Http/Controllers/Api/`, route di `routes/api.php`, return `JsonResponse`.
+- Keduanya boleh memakai Usecase yang sama. Jangan duplikasi business logic khusus untuk API jika Usecase yang sama sudah cukup.
 
 ---
 
@@ -101,6 +107,88 @@ public function detail(int $id): View|RedirectResponse|Response
 - Return type harus dideklarasikan eksplisit (`View|RedirectResponse|Response`)
 - Gunakan named arguments saat panggil usecase: `create(data: $request)`
 - Gunakan `ResponseConst` untuk pesan sukses/error, jangan hardcode string
+
+---
+
+## Layer: API Controller (`app/Http/Controllers/Api/`)
+
+### Tanggung Jawab
+
+- Menerima request HTTP stateless dari client API
+- Mengambil filter, parameter, dan payload dari request
+- Meneruskan data ke Usecase
+- Mengembalikan `JsonResponse`
+- **Tidak boleh** mengandung logika bisnis, query DB, atau formatting data kompleks
+
+### Struktur Wajib
+
+```php
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
+use App\Constants\ResponseConst;
+use App\Usecase\EventUsecase;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+
+class EventController extends Controller
+{
+    public function __construct(
+        protected EventUsecase $usecase
+    ) {}
+}
+```
+
+### Pola Method
+
+**index** — list data API:
+```php
+public function index(Request $request): JsonResponse
+{
+    $process = $this->usecase->getAll([
+        'keywords' => $request->get('keywords'),
+        'no_pagination' => $request->boolean('no_pagination'),
+    ]);
+
+    return response()->json($process, $process['code'] ?? ResponseConst::HTTP_SUCCESS);
+}
+```
+
+**show** — detail data API:
+```php
+public function show(int $id): JsonResponse
+{
+    $process = $this->usecase->getByID($id);
+
+    return response()->json($process, $process['code'] ?? ResponseConst::HTTP_SUCCESS);
+}
+```
+
+**store / update / destroy** — mutasi data API:
+```php
+public function store(Request $request): JsonResponse
+{
+    $process = $this->usecase->create(data: $request);
+
+    return response()->json($process, $process['code'] ?? ResponseConst::HTTP_CREATED);
+}
+```
+
+### Aturan
+
+- Route API ditulis di `routes/api.php`; gunakan `Route::apiResource()` jika endpoint mengikuti pola REST standar.
+- Jika `routes/api.php` belum ada, buat file tersebut dan register di `bootstrap/app.php` melalui `withRouting(api: __DIR__.'/../routes/api.php', ...)`.
+- Gunakan prefix bawaan Laravel `/api`; jangan tambahkan prefix `api` manual di route.
+- API controller menggunakan nama method REST standar: `index`, `show`, `store`, `update`, `destroy`.
+- CMS controller tetap boleh memakai pola existing: `add`, `doCreate`, `doUpdate`, `detail`.
+- Gunakan middleware `auth:sanctum` hanya untuk endpoint yang membutuhkan autentikasi API.
+- Public API untuk landing page boleh tanpa auth, tetapi tetap validasi input/filter.
+- API controller hanya mengubah array hasil Usecase menjadi `response()->json(...)`.
+- Jangan gunakan `view()`, redirect, flash message, atau session flow di API controller.
+- Format response tetap memakai `App\Http\Presenter\Response::build*()` dari Usecase.
+- Return type wajib eksplisit `JsonResponse`.
+- Gunakan named arguments saat panggil usecase: `create(data: $request)`, `update(data: $request, id: $id)`.
+- Untuk error API, pastikan aplikasi merender JSON untuk request `api/*` di `bootstrap/app.php` jika mulai menambahkan endpoint API.
 
 ---
 
@@ -391,6 +479,15 @@ Saat membuat fitur CRUD baru, ikuti urutan ini:
 4. Buat views: `_admin/nama/index.blade.php`, `add.blade.php`, `update.blade.php`, `detail.blade.php`
 5. Usecase: implement `getAll`, `getByID`, `create`, `update`, `delete`
 6. Controller: property `$page`, `$baseRedirect`, inject Usecase via constructor
+
+Jika fitur juga menyediakan API:
+
+1. Buat controller terpisah di `app/Http/Controllers/Api/NamaController`
+2. Buat `routes/api.php` jika belum ada, lalu register di `bootstrap/app.php`
+3. Tambah route di `routes/api.php`
+4. Reuse Usecase yang sama; jangan pindahkan business logic ke controller API
+5. Return `JsonResponse` dari array `Response::build*()`
+6. Tambahkan Feature Test API untuk response JSON, status code, validasi, dan auth bila endpoint protected
 
 === foundation rules ===
 

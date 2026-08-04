@@ -1437,12 +1437,12 @@
                             },
                         }, ],
                     }), {
-                        colors: ["#2563eb", "#d1d5db"],
+                        colors: ["#1a4d8d", "#d1d5db"],
                         grid: {
                             borderColor: "#e5e7eb",
                         },
                     }, {
-                        colors: ["#6b7280", "#2563eb"],
+                        colors: ["#6b7280", "#1a4d8d"],
                         grid: {
                             borderColor: "#404040",
                         },
@@ -1621,7 +1621,7 @@
                             },
                         }, ],
                     }), {
-                        colors: ["#2563eb", "#9333ea"],
+                        colors: ["#1a4d8d", "#9333ea"],
                         fill: {
                             gradient: {
                                 stops: [0, 90, 100],
@@ -1631,7 +1631,7 @@
                             borderColor: "#e5e7eb",
                         },
                     }, {
-                        colors: ["#3b82f6", "#a855f7"],
+                        colors: ["#2d72b9", "#a855f7"],
                         fill: {
                             gradient: {
                                 stops: [100, 90, 0],

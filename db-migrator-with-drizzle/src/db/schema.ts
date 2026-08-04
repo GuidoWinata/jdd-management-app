@@ -1,10 +1,16 @@
 import {
     bigint,
+    boolean,
+    datetime,
+    decimal,
     index,
     int,
+    json,
     longtext,
     mediumtext,
     mysqlTable,
+    mysqlEnum,
+    primaryKey,
     smallint,
     text,
     timestamp,
@@ -13,6 +19,17 @@ import {
     varchar,
 } from 'drizzle-orm/mysql-core';
 import type { AnyMySqlColumn } from 'drizzle-orm/mysql-core';
+
+const unsignedBigInt = () => bigint({ mode: 'number', unsigned: true });
+
+const auditColumns = () => ({
+    created_at: timestamp(),
+    created_by: unsignedBigInt(),
+    updated_at: timestamp(),
+    updated_by: unsignedBigInt(),
+    deleted_at: timestamp(),
+    deleted_by: unsignedBigInt(),
+});
 
 export const migrationsTable = mysqlTable('migrations', {
     id: int({ unsigned: true }).autoincrement().primaryKey(),
@@ -115,7 +132,7 @@ export const failedJobsTable = mysqlTable('failed_jobs', {
 export const sidebarMenuAccessesTable = mysqlTable('sidebar_menu_accesses', {
     id: bigint({ mode: 'number', unsigned: true }).autoincrement().primaryKey(),
     sidebar_menu_id: bigint({ mode: 'number', unsigned: true }).notNull(),
-    // 1=Superadmin,2=Pimpinan,3=Bendahara,4=Wali Murid,5=Staff
+    // 1=Superadmin,2=Kepala Sekolah,3=Bendahara,4=Wali Murid,5=Staff
     access_type: tinyint().notNull(),
     created_by: bigint({ mode: 'number', unsigned: true }),
     created_at: timestamp(),
@@ -158,4 +175,168 @@ export const sidebarMenusTable = mysqlTable('sidebar_menus', {
 }, (t) => [
     index('sidebar_menus_parent_id_index').on(t.parent_id),
     index('sidebar_menus_group_sort_order_index').on(t.group, t.sort_order),
+]);
+
+export const eventsTable = mysqlTable('events', {
+    id: unsignedBigInt().autoincrement().primaryKey(),
+    name: varchar({ length: 200 }).notNull(),
+    slug: varchar({ length: 200 }).notNull(),
+    description: text(),
+    starts_at: datetime(),
+    ends_at: datetime(),
+    location: varchar({ length: 255 }),
+    status: mysqlEnum(['draft', 'published', 'archived']).notNull().default('draft'),
+    ...auditColumns(),
+}, (t) => [
+    uniqueIndex('uq_events_slug').on(t.slug),
+    index('idx_events_status_date').on(t.status, t.starts_at),
+]);
+
+export const eventSectionsTable = mysqlTable('event_sections', {
+    id: unsignedBigInt().autoincrement().primaryKey(),
+    event_id: unsignedBigInt().notNull().references(() => eventsTable.id, { onDelete: 'cascade' }),
+    section_key: varchar({ length: 100 }).notNull(),
+    section_type: varchar({ length: 50 }).notNull(),
+    title: varchar({ length: 255 }),
+    description: text(),
+    image_path: varchar({ length: 500 }),
+    settings_json: json(),
+    sort_order: int({ unsigned: true }).notNull().default(0),
+    is_active: boolean().notNull().default(true),
+    ...auditColumns(),
+}, (t) => [
+    uniqueIndex('uq_event_section_key').on(t.event_id, t.section_key),
+    index('idx_event_sections_display').on(t.event_id, t.is_active, t.sort_order),
+    index('idx_event_sections_type').on(t.event_id, t.section_type),
+]);
+
+export const speakersTable = mysqlTable('speakers', {
+    id: unsignedBigInt().autoincrement().primaryKey(),
+    event_id: unsignedBigInt().notNull().references(() => eventsTable.id, { onDelete: 'cascade' }),
+    name: varchar({ length: 200 }).notNull(),
+    photo_path: varchar({ length: 500 }),
+    job_title: varchar({ length: 200 }),
+    company: varchar({ length: 200 }),
+    bio: text(),
+    speaker_group: varchar({ length: 50 }),
+    sort_order: int({ unsigned: true }).notNull().default(0),
+    is_active: boolean().notNull().default(true),
+    ...auditColumns(),
+}, (t) => [
+    index('idx_speakers_display').on(t.event_id, t.is_active, t.sort_order),
+    index('idx_speakers_name').on(t.event_id, t.name),
+]);
+
+export const materialsTable = mysqlTable('materials', {
+    id: unsignedBigInt().autoincrement().primaryKey(),
+    event_id: unsignedBigInt().notNull().references(() => eventsTable.id, { onDelete: 'cascade' }),
+    title: varchar({ length: 255 }).notNull(),
+    slug: varchar({ length: 255 }).notNull(),
+    description: text(),
+    label: varchar({ length: 100 }),
+    label_color: varchar({ length: 20 }),
+    sort_order: int({ unsigned: true }).notNull().default(0),
+    is_active: boolean().notNull().default(true),
+    ...auditColumns(),
+}, (t) => [
+    uniqueIndex('uq_material_event_slug').on(t.event_id, t.slug),
+    index('idx_materials_display').on(t.event_id, t.is_active, t.sort_order),
+    index('idx_materials_label').on(t.event_id, t.label),
+]);
+
+export const materialSpeakersTable = mysqlTable('material_speakers', {
+    material_id: unsignedBigInt().notNull().references(() => materialsTable.id, { onDelete: 'cascade' }),
+    speaker_id: unsignedBigInt().notNull().references(() => speakersTable.id, { onDelete: 'cascade' }),
+    role: varchar({ length: 50 }).notNull().default('speaker'),
+    sort_order: int({ unsigned: true }).notNull().default(0),
+    ...auditColumns(),
+}, (t) => [
+    primaryKey({ columns: [t.material_id, t.speaker_id] }),
+    index('idx_material_speakers_speaker').on(t.speaker_id),
+]);
+
+export const agendaItemsTable = mysqlTable('agenda_items', {
+    id: unsignedBigInt().autoincrement().primaryKey(),
+    event_id: unsignedBigInt().notNull().references(() => eventsTable.id, { onDelete: 'cascade' }),
+    material_id: unsignedBigInt().references(() => materialsTable.id, { onDelete: 'set null' }),
+    title: varchar({ length: 255 }),
+    category: varchar({ length: 100 }).notNull(),
+    starts_at: datetime().notNull(),
+    ends_at: datetime(),
+    place: varchar({ length: 255 }),
+    description: text(),
+    sort_order: int({ unsigned: true }).notNull().default(0),
+    is_active: boolean().notNull().default(true),
+    ...auditColumns(),
+}, (t) => [
+    index('idx_agenda_schedule').on(t.event_id, t.is_active, t.starts_at),
+    index('idx_agenda_category').on(t.event_id, t.category),
+    index('idx_agenda_material').on(t.material_id),
+]);
+
+export const merchandisesTable = mysqlTable('merchandises', {
+    id: unsignedBigInt().autoincrement().primaryKey(),
+    event_id: unsignedBigInt().notNull().references(() => eventsTable.id, { onDelete: 'cascade' }),
+    name: varchar({ length: 200 }).notNull(),
+    photo_path: varchar({ length: 500 }),
+    description: text(),
+    cta_label: varchar({ length: 100 }),
+    cta_url: varchar({ length: 1000 }),
+    sort_order: int({ unsigned: true }).notNull().default(0),
+    is_active: boolean().notNull().default(true),
+    ...auditColumns(),
+}, (t) => [
+    index('idx_merchandises_display').on(t.event_id, t.is_active, t.sort_order),
+    index('idx_merchandises_name').on(t.event_id, t.name),
+]);
+
+export const ticketsTable = mysqlTable('tickets', {
+    id: unsignedBigInt().autoincrement().primaryKey(),
+    event_id: unsignedBigInt().notNull().references(() => eventsTable.id, { onDelete: 'cascade' }),
+    name: varchar({ length: 200 }).notNull(),
+    slug: varchar({ length: 200 }).notNull(),
+    ticket_type: mysqlEnum(['single', 'bundle']).notNull().default('single'),
+    price: decimal({ precision: 15, scale: 2 }).notNull(),
+    compare_price: decimal({ precision: 15, scale: 2 }),
+    description_html: longtext(),
+    label: varchar({ length: 100 }),
+    label_color: varchar({ length: 20 }),
+    sales_starts_at: datetime(),
+    sales_ends_at: datetime(),
+    cta_label: varchar({ length: 100 }).notNull().default('Beli Tiket'),
+    cta_url: varchar({ length: 1000 }).notNull(),
+    sort_order: int({ unsigned: true }).notNull().default(0),
+    is_active: boolean().notNull().default(true),
+    ...auditColumns(),
+}, (t) => [
+    uniqueIndex('uq_ticket_event_slug').on(t.event_id, t.slug),
+    index('idx_tickets_display').on(t.event_id, t.is_active, t.sort_order),
+    index('idx_tickets_sales_period').on(t.event_id, t.sales_starts_at, t.sales_ends_at),
+    index('idx_tickets_label').on(t.event_id, t.label),
+]);
+
+export const ticketMerchandisesTable = mysqlTable('ticket_merchandises', {
+    ticket_id: unsignedBigInt().notNull().references(() => ticketsTable.id, { onDelete: 'cascade' }),
+    merchandise_id: unsignedBigInt().notNull().references(() => merchandisesTable.id, { onDelete: 'cascade' }),
+    quantity: int({ unsigned: true }).notNull().default(1),
+    ...auditColumns(),
+}, (t) => [
+    primaryKey({ columns: [t.ticket_id, t.merchandise_id] }),
+    index('idx_ticket_merchandise_merchandise').on(t.merchandise_id),
+]);
+
+export const partnersTable = mysqlTable('partners', {
+    id: unsignedBigInt().autoincrement().primaryKey(),
+    event_id: unsignedBigInt().notNull().references(() => eventsTable.id, { onDelete: 'cascade' }),
+    partner_type: mysqlEnum(['sponsor', 'media_partner', 'community_partner', 'supporting_partner']).notNull(),
+    sponsor_category: mysqlEnum(['gold', 'silver', 'bronze']),
+    name: varchar({ length: 200 }).notNull(),
+    logo_path: varchar({ length: 500 }),
+    website_url: varchar({ length: 1000 }),
+    sort_order: int({ unsigned: true }).notNull().default(0),
+    is_active: boolean().notNull().default(true),
+    ...auditColumns(),
+}, (t) => [
+    index('idx_partners_display').on(t.event_id, t.partner_type, t.sponsor_category, t.is_active, t.sort_order),
+    index('idx_partners_name').on(t.event_id, t.name),
 ]);

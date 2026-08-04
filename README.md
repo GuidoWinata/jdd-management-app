@@ -13,6 +13,7 @@ A modern Laravel starter kit with admin panel, built with Laravel 12, Bun for bu
 - ⚡ **Vite** - Lightning fast build tool
 - 🧪 **Pest** - Modern PHP testing framework
 - 🏗️ **Clean Architecture** - Usecase pattern for business logic
+- 🔌 **API Ready** - Separate CMS and API controllers sharing the same Usecase layer
 
 ## Requirements
 
@@ -60,9 +61,15 @@ app/
 ├── Entities/        # Data Transfer Objects
 ├── Http/
 │   └── Controllers/ # HTTP Controllers
+│       ├── Admin/   # CMS controllers returning views/redirects
+│       └── Api/     # API controllers returning JSON
 ├── Models/          # Eloquent Models
 ├── Usecase/         # Business Logic Layer
 └── Providers/       # Service Providers
+
+routes/
+├── web.php          # CMS routes
+└── api.php          # Stateless API routes, create when API endpoints are added
 
 resources/
 └── views/
@@ -71,6 +78,17 @@ resources/
         ├── users/   # User management views
         └── ...
 ```
+
+## Architecture
+
+Business logic lives in `app/Usecase`. Controllers stay thin and only adapt HTTP requests to Usecase calls.
+
+- CMS controllers live in `app/Http/Controllers/Admin` and return Blade views or redirects.
+- API controllers live in `app/Http/Controllers/Api` and return JSON responses.
+- Both controller types may use the same Usecase. Do not duplicate business logic for API endpoints.
+- API routes belong in `routes/api.php`; create and register it in `bootstrap/app.php` when the first API endpoint is added.
+- API responses should return the Usecase response array as JSON: `response()->json($process, $process['code'] ?? 200)`.
+- Use Sanctum middleware only for endpoints that require authenticated API consumers.
 
 ## Available Scripts
 

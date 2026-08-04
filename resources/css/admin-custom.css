@@ -1,7 +1,7 @@
 /* NProgress Customization */
 #nprogress .bar {
     height: 4px !important;
-    background: #2563eb !important;
+    background: var(--color-primary-600) !important;
 }
 
 /* Toast Animations */

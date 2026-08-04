@@ -103,7 +103,7 @@ class UserUsecase extends Usecase
                     'name' => $data['name'],
                     'email' => $data['email'],
                     'access_type' => $data['access_type'],
-                    'password' => UserConst::DEFAULT_PASSWORD,
+                    'password' => Hash::make(UserConst::DEFAULT_PASSWORD),
                     'is_active' => 1,
                     'created_by' => Auth::user()?->id,
                     'created_at' => now(),
