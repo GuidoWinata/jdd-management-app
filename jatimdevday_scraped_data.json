@@ -1,0 +1,1456 @@
+{
+  "metadata": {
+    "source_url": "https://jatimdevday.com",
+    "scraped_at": "2026-08-04T14:10:00+07:00",
+    "ticket_url_resolved": "https://tiptip.id/event/c2864cd7-8a84-4b49-ab98-8d2c85aa5b4e",
+    "sponsorship_url_resolved": "https://docs.google.com/forms/d/e/1FAIpQLScDJuVFTTcxql0ueEs6WJFb20vkiiFf2xHvMXnFq_Fja5RG8g/viewform?usp=dialog",
+    "notes": "Data diambil dari halaman publik. Beberapa nilai dinormalisasi untuk kebutuhan database dan seluruh normalisasi/konflik dicatat pada data_quality."
+  },
+  "schema_adjustments": [
+    {
+      "table": "speakers",
+      "change": "add speaker_group VARCHAR(50) NULL",
+      "reason": "Website memisahkan featured, parallel, dan agenda-only speaker."
+    },
+    {
+      "table": "partners",
+      "change": "expand partner_type with community_partner and supporting_partner",
+      "reason": "Website memiliki Dukungan Komunitas dan This Website Supported By."
+    },
+    {
+      "table": "ticket_merchandises",
+      "change": "allow merchandise relation for single ticket",
+      "reason": "Regular ticket menyertakan Sticker Pack Special JDD."
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "name": "Jatim Developer Day",
+      "slug": "jatim-developer-day-2025",
+      "description": "Jatim Developer Day adalah acara tahunan yang mengumpulkan talenta teknologi dari seluruh Jawa Timur. Terbentuk pada tahun 2019 melalui kolaborasi komunitas IT se-Jawa Timur, dengan dukungan dari industri dan startup.",
+      "starts_at": "2025-10-25 08:00:00",
+      "ends_at": "2025-10-25 15:10:00",
+      "location": "Gresik, Indonesia",
+      "status": "published"
+    }
+  ],
+  "event_sections": [
+    {
+      "id": 1,
+      "section_key": "hero",
+      "section_type": "hero",
+      "title": "Jatim Developer Day",
+      "description": "Sea of Tech Talent.",
+      "image_path": "https://framerusercontent.com/images/KFE9utW6b1hdnvNNf0w7OcvASE.svg?height=2336&scale-down-to=512&width=2336",
+      "settings_json": {
+        "event_date_label": "25 Oktober 2025",
+        "location_label": "Gresik Indonesia",
+        "ctas": [
+          {
+            "label": "Daftar Sekarang",
+            "url": "https://tiptip.id/event/c2864cd7-8a84-4b49-ab98-8d2c85aa5b4e",
+            "target": "_blank"
+          },
+          {
+            "label": "Jadi Sponsorship",
+            "url": "https://docs.google.com/forms/d/e/1FAIpQLScDJuVFTTcxql0ueEs6WJFb20vkiiFf2xHvMXnFq_Fja5RG8g/viewform?usp=dialog",
+            "target": "_blank"
+          }
+        ]
+      },
+      "sort_order": 1
+    },
+    {
+      "id": 2,
+      "section_key": "about-jdd",
+      "section_type": "custom",
+      "title": "Mengapa Anda Harus Menghadiri Jatim Developer Days",
+      "description": "Jatim Developer Day adalah acara tahunan yang mengumpulkan talenta teknologi dari seluruh Jawa Timur. Terbentuk pada tahun 2019 melalui kolaborasi komunitas IT se-Jawa Timur, dengan dukungan dari industri dan startup.",
+      "image_path": "https://framerusercontent.com/images/Me3KQp7SQftWBCJAms4ZZ7IdA.jpg?height=2832&width=4240",
+      "settings_json": {
+        "eyebrow": "About JDD",
+        "content_type": "about"
+      },
+      "sort_order": 2
+    },
+    {
+      "id": 3,
+      "section_key": "goal",
+      "section_type": "custom",
+      "title": "Goal",
+      "description": "“Jatim: Sea of Tech Talent.” Melalui tema ini, besar harapan kami agar JDD 2025 dapat menjadi jembatan yang mempertemukan berbagai pihak baik industri, akademisi, maupun profesional dalam satu ekosistem yang saling menguatkan. Bagi industri, momen ini menjadi peluang untuk melihat bahwa Jawa Timur adalah gudangnya talenta IT yang berkualitas dan siap bersaing. Bagi akademisi, ajang ini diharapkan menjadi refleksi atas kebutuhan dunia industri saat ini. Sementara bagi para profesional, JDD bisa menjadi ajang personal branding dan memperluas koneksi antar sesama pelaku teknologi.",
+      "image_path": "https://framerusercontent.com/images/DGdnq5UdocL3amis04SWbCkQY.jpg?height=2656&width=3984",
+      "settings_json": {
+        "content_type": "goal"
+      },
+      "sort_order": 3
+    },
+    {
+      "id": 4,
+      "section_key": "benefits",
+      "section_type": "custom",
+      "title": "Apa yang Akan Anda Dapatkan",
+      "description": "Inovasi . Jaringan . IT . Pembelajaran .",
+      "image_path": null,
+      "settings_json": {
+        "eyebrow": "Benefit",
+        "items": [
+          "Seminar",
+          "Workshop",
+          "Lightning Talk",
+          "Networking"
+        ]
+      },
+      "sort_order": 4
+    },
+    {
+      "id": 5,
+      "section_key": "featured-speakers",
+      "section_type": "speakers",
+      "title": "Pembicara Terhormat dan Pemimpin Pemikiran Industri Kami",
+      "description": null,
+      "image_path": null,
+      "settings_json": {
+        "eyebrow": "Meet Our Speakers",
+        "speaker_group": "featured"
+      },
+      "sort_order": 5
+    },
+    {
+      "id": 6,
+      "section_key": "parallel-speakers",
+      "section_type": "speakers",
+      "title": "Temui Pengembang dan Pelopor Teknologi Kami yang Hebat",
+      "description": null,
+      "image_path": null,
+      "settings_json": {
+        "eyebrow": "Our Parallel & Lightning Speakers",
+        "speaker_group": "parallel"
+      },
+      "sort_order": 6
+    },
+    {
+      "id": 7,
+      "section_key": "agenda",
+      "section_type": "agenda",
+      "title": "Agenda Acara JDD Lengkap",
+      "description": null,
+      "image_path": null,
+      "settings_json": {
+        "group_by": "category",
+        "show_parallel_tracks": true
+      },
+      "sort_order": 7
+    },
+    {
+      "id": 8,
+      "section_key": "tickets",
+      "section_type": "tickets",
+      "title": "Dapatkan Akses Eksklusif dengan Harga Terbaik!",
+      "description": null,
+      "image_path": null,
+      "settings_json": {
+        "cta_target": "_blank"
+      },
+      "sort_order": 8
+    },
+    {
+      "id": 9,
+      "section_key": "sponsors",
+      "section_type": "partners",
+      "title": "Dukungan Sponsor Kami",
+      "description": null,
+      "image_path": null,
+      "settings_json": {
+        "partner_type": "sponsor",
+        "group_by": "sponsor_category",
+        "category_order": [
+          "gold",
+          "silver",
+          "bronze"
+        ]
+      },
+      "sort_order": 9
+    },
+    {
+      "id": 10,
+      "section_key": "community-support",
+      "section_type": "partners",
+      "title": "Dukungan Komunitas",
+      "description": null,
+      "image_path": null,
+      "settings_json": {
+        "partner_type": "community_partner",
+        "layout": "logo_grid"
+      },
+      "sort_order": 10
+    },
+    {
+      "id": 11,
+      "section_key": "supported-by",
+      "section_type": "partners",
+      "title": "This Website Supported By",
+      "description": null,
+      "image_path": null,
+      "settings_json": {
+        "partner_type": "supporting_partner",
+        "layout": "logo_grid"
+      },
+      "sort_order": 11
+    }
+  ],
+  "speakers": [
+    {
+      "id": 1,
+      "name": "Ainun Najib",
+      "photo_path": "https://framerusercontent.com/images/szq0ihyvHAohwgWU0Anr0LcYNGI.png?height=844&width=1049",
+      "job_title": "Data & AI Practitioner",
+      "company": null,
+      "speaker_group": "featured",
+      "sort_order": 1
+    },
+    {
+      "id": 2,
+      "name": "Zain Fathoni",
+      "photo_path": "https://framerusercontent.com/images/0oNVWTwTyRaRRUInC3NcDhTC4Ck.png?height=907&width=907",
+      "job_title": "Senior Front-End Engineer",
+      "company": "BookThatApp",
+      "speaker_group": "featured",
+      "sort_order": 2
+    },
+    {
+      "id": 3,
+      "name": "Listiarso Wastuargo",
+      "photo_path": "https://framerusercontent.com/images/O0QqTzpQbYKNllUzZ0XXHooPeKs.png?height=791&width=757",
+      "job_title": "CROTO",
+      "company": "Metatech ID",
+      "speaker_group": "featured",
+      "sort_order": 3
+    },
+    {
+      "id": 4,
+      "name": "Surabaya Hacker Link",
+      "photo_path": "https://framerusercontent.com/images/T7WSILLDuXJyIzErwOdifHc82Q.jpg?height=2048&width=2048",
+      "job_title": "Cyber Security Community",
+      "company": null,
+      "speaker_group": "parallel",
+      "sort_order": 1
+    },
+    {
+      "id": 5,
+      "name": "Bagus Budi Cahyono",
+      "photo_path": "https://framerusercontent.com/images/sG7wfgzziBynSJNo3vnjCZfQTZs.png?height=3427&width=3427",
+      "job_title": "Senior Software Engineer",
+      "company": "The Business Tailor",
+      "speaker_group": "parallel",
+      "sort_order": 2
+    },
+    {
+      "id": 6,
+      "name": "Iqbal Aqaba",
+      "photo_path": "https://framerusercontent.com/images/rrL6aQXLAJegHQJacFSc4oIfqo.png?height=3340&width=3340",
+      "job_title": "UI/UX Designer - Top 3% Upwork Talent",
+      "company": null,
+      "speaker_group": "parallel",
+      "sort_order": 3
+    },
+    {
+      "id": 7,
+      "name": "Grandys F. Prassida",
+      "photo_path": "https://framerusercontent.com/images/tgl7P8QDh9a8HUkraMoaq4uX6s.png?height=3003&width=3003",
+      "job_title": "Lecturer at Information System",
+      "company": "UISI",
+      "speaker_group": "parallel",
+      "sort_order": 4
+    },
+    {
+      "id": 8,
+      "name": "Cynthia Cecilia",
+      "photo_path": "https://framerusercontent.com/images/RZMu9o0BJOM1GTClUSvAkoB93lc.png?height=2639&width=2639",
+      "job_title": "Co-founder",
+      "company": "Jobhun",
+      "speaker_group": "parallel",
+      "sort_order": 5
+    },
+    {
+      "id": 9,
+      "name": "Burhanuddin A",
+      "photo_path": "https://framerusercontent.com/images/6ny6FxNFgaKMCvNEJmiVloy8.png?height=1056&width=1056",
+      "job_title": "Software Engineer",
+      "company": "Tabsquare",
+      "speaker_group": "parallel",
+      "sort_order": 6
+    },
+    {
+      "id": 10,
+      "name": "Yusron Andrian",
+      "photo_path": "https://framerusercontent.com/images/N0EEuxv3t4AY8wouKKTCXKqzwg.png?height=2399&width=2399",
+      "job_title": "Technical Lead",
+      "company": "McEasy",
+      "speaker_group": "parallel",
+      "sort_order": 7
+    },
+    {
+      "id": 11,
+      "name": "Rahmat R Putra",
+      "photo_path": "https://framerusercontent.com/images/4otz5w3t0ZvTbwMEzBPZRS4Z4c.png?height=2773&width=2773",
+      "job_title": "Software Engineer",
+      "company": "SPE Solution",
+      "speaker_group": "parallel",
+      "sort_order": 8
+    },
+    {
+      "id": 12,
+      "name": "Yusuf Umar H",
+      "photo_path": "https://framerusercontent.com/images/0jue6kaw1jeZ88A6gODnxjD8f0o.png?height=1895&width=1895",
+      "job_title": "Senior Mobile Engineer (Flutter)",
+      "company": "Wolkk",
+      "speaker_group": "parallel",
+      "sort_order": 9
+    },
+    {
+      "id": 13,
+      "name": "Islam Nurul Y",
+      "photo_path": "https://framerusercontent.com/images/W9MrFgKd9ZoVpjIjMOebqtWKU.png?height=1332&width=1332",
+      "job_title": "DevOps Engineer",
+      "company": "SEVIMA",
+      "speaker_group": "parallel",
+      "sort_order": 10
+    },
+    {
+      "id": 14,
+      "name": "Vicky Adi F",
+      "photo_path": "https://framerusercontent.com/images/JLtV2IL6lHDTmwqZFvfnk8ac4.png?height=2891&width=2891",
+      "job_title": "Frontend Engineer",
+      "company": "Synapsis.id",
+      "speaker_group": "parallel",
+      "sort_order": 11
+    },
+    {
+      "id": 15,
+      "name": "Achmad Alif N",
+      "photo_path": "https://framerusercontent.com/images/oFse40h5lQA3oYW0E6vcTt84Cak.png?height=2666&width=2666",
+      "job_title": "OpSec",
+      "company": "SEVIMA",
+      "speaker_group": "parallel",
+      "sort_order": 12
+    },
+    {
+      "id": 16,
+      "name": "Iskandar Sholeh",
+      "photo_path": "https://framerusercontent.com/images/482Mru7eNM0flpQ36tKp7uRGo64.png?height=2708&width=2708",
+      "job_title": "Sr. Spv. Application Development",
+      "company": "PT Interbat",
+      "speaker_group": "parallel",
+      "sort_order": 13
+    },
+    {
+      "id": 17,
+      "name": "Miftahul Huda",
+      "photo_path": "https://framerusercontent.com/images/uUTPLFN25CcdIzJbVSjuI2FWk.png?height=2397&width=2397",
+      "job_title": "Backend Developer & Co-Lead",
+      "company": "SurabayaDev",
+      "speaker_group": "parallel",
+      "sort_order": 14
+    },
+    {
+      "id": 18,
+      "name": "Doni Rubiagatra",
+      "photo_path": "https://framerusercontent.com/images/oLBFEHIejHPCo1FGwoMrMuZCb0.png?height=800&width=800",
+      "job_title": "Partner & VP of Engineering",
+      "company": "Zero One Group",
+      "speaker_group": "agenda_only",
+      "sort_order": 1
+    },
+    {
+      "id": 19,
+      "name": "Ahmad Fatoni",
+      "photo_path": "https://framerusercontent.com/images/cqbt5O2kAEhBFXtjry4ZBq60yXo.jpeg?height=800&width=800",
+      "job_title": "Project Director",
+      "company": "DOT Indonesia",
+      "speaker_group": "agenda_only",
+      "sort_order": 2
+    }
+  ],
+  "materials": [
+    {
+      "id": 1,
+      "title": "Sponsor Stage - Zero One Group",
+      "slug": "sponsor-stage-zero-one-group",
+      "description": null,
+      "label": "Sponsor Stage",
+      "label_color": null,
+      "sort_order": 1
+    },
+    {
+      "id": 2,
+      "title": "Future AI Impact on Freedom, Work, and Humanity",
+      "slug": "future-ai-impact-on-freedom-work-and-humanity",
+      "description": null,
+      "label": "Keynote",
+      "label_color": null,
+      "sort_order": 2
+    },
+    {
+      "id": 3,
+      "title": "Vibe Coding: Fast Delivery, Rapid Feedback",
+      "slug": "vibe-coding-fast-delivery-rapid-feedback",
+      "description": null,
+      "label": "Keynote",
+      "label_color": null,
+      "sort_order": 3
+    },
+    {
+      "id": 4,
+      "title": "Be a 10% Engineer with AI",
+      "slug": "be-a-10-engineer-with-ai",
+      "description": null,
+      "label": "Keynote",
+      "label_color": null,
+      "sort_order": 4
+    },
+    {
+      "id": 5,
+      "title": "AI-Proof Your Software Engineering Job Search",
+      "slug": "ai-proof-your-software-engineering-job-search",
+      "description": null,
+      "label": "Keynote",
+      "label_color": null,
+      "sort_order": 5
+    },
+    {
+      "id": 6,
+      "title": "What Companies Really Look for in IT Talent",
+      "slug": "what-companies-really-look-for-in-it-talent",
+      "description": null,
+      "label": "Lightning Talk #1",
+      "label_color": null,
+      "sort_order": 6
+    },
+    {
+      "id": 7,
+      "title": "Intro Full-Text Search PostgreSQL",
+      "slug": "intro-full-text-search-postgresql",
+      "description": null,
+      "label": "Lightning Talk #1",
+      "label_color": null,
+      "sort_order": 7
+    },
+    {
+      "id": 8,
+      "title": "Unlocking the Power of PHP & Laravel: Developing Modern PHP Apps in 2025–2026",
+      "slug": "unlocking-the-power-of-php-and-laravel-developing-modern-php-apps-in-20252026",
+      "description": null,
+      "label": "Lightning Talk #1",
+      "label_color": null,
+      "sort_order": 8
+    },
+    {
+      "id": 9,
+      "title": "Skill Web Dev 2025: Tools & Tech yang Lagi Hype di Industri",
+      "slug": "skill-web-dev-2025-tools-and-tech-yang-lagi-hype-di-industri",
+      "description": null,
+      "label": "Lightning Talk #1",
+      "label_color": null,
+      "sort_order": 9
+    },
+    {
+      "id": 10,
+      "title": "Meet AI at Your Flutter App",
+      "slug": "meet-ai-at-your-flutter-app",
+      "description": null,
+      "label": "Lightning Talk #1",
+      "label_color": null,
+      "sort_order": 10
+    },
+    {
+      "id": 11,
+      "title": "Easy deployment in your VPS using Coolify",
+      "slug": "easy-deployment-in-your-vps-using-coolify",
+      "description": null,
+      "label": "Lightning Talk #2",
+      "label_color": null,
+      "sort_order": 11
+    },
+    {
+      "id": 12,
+      "title": "From Local to Global: Fortify your Infrastructure",
+      "slug": "from-local-to-global-fortify-your-infrastructure",
+      "description": null,
+      "label": "Lightning Talk #2",
+      "label_color": null,
+      "sort_order": 12
+    },
+    {
+      "id": 13,
+      "title": "Building a 3D Interior Architectural Visualization with Three.js",
+      "slug": "building-a-3d-interior-architectural-visualization-with-three-js",
+      "description": null,
+      "label": "Lightning Talk #2",
+      "label_color": null,
+      "sort_order": 13
+    },
+    {
+      "id": 14,
+      "title": "Implementasi Monitoring Aplikasi Menggunakan Solusi Open Source",
+      "slug": "implementasi-monitoring-aplikasi-menggunakan-solusi-open-source",
+      "description": null,
+      "label": "Lightning Talk #2",
+      "label_color": null,
+      "sort_order": 14
+    },
+    {
+      "id": 15,
+      "title": "Introduction to Security Monitoring with Wazuh",
+      "slug": "introduction-to-security-monitoring-with-wazuh",
+      "description": null,
+      "label": "Lightning Talk #2",
+      "label_color": null,
+      "sort_order": 15
+    },
+    {
+      "id": 16,
+      "title": "Web Hacking for Beginners",
+      "slug": "web-hacking-for-beginners",
+      "description": null,
+      "label": "Workshop",
+      "label_color": null,
+      "sort_order": 16
+    },
+    {
+      "id": 17,
+      "title": "The Art of Project Governance in Software Development",
+      "slug": "the-art-of-project-governance-in-software-development",
+      "description": null,
+      "label": "Workshop",
+      "label_color": null,
+      "sort_order": 17
+    },
+    {
+      "id": 18,
+      "title": "Design & Publish Landing Page in 90 minutes with Framer",
+      "slug": "design-and-publish-landing-page-in-90-minutes-with-framer",
+      "description": null,
+      "label": "Workshop",
+      "label_color": null,
+      "sort_order": 18
+    },
+    {
+      "id": 19,
+      "title": "Building AI Agents with RAG in n8n",
+      "slug": "building-ai-agents-with-rag-in-n8n",
+      "description": null,
+      "label": "Workshop",
+      "label_color": null,
+      "sort_order": 19
+    }
+  ],
+  "material_speakers": [
+    {
+      "material_id": 1,
+      "speaker_id": 18,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 2,
+      "speaker_id": 1,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 3,
+      "speaker_id": 19,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 4,
+      "speaker_id": 2,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 5,
+      "speaker_id": 3,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 6,
+      "speaker_id": 8,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 7,
+      "speaker_id": 17,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 8,
+      "speaker_id": 11,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 9,
+      "speaker_id": 16,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 10,
+      "speaker_id": 12,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 11,
+      "speaker_id": 9,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 12,
+      "speaker_id": 10,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 13,
+      "speaker_id": 14,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 14,
+      "speaker_id": 13,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 15,
+      "speaker_id": 15,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 16,
+      "speaker_id": 4,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 17,
+      "speaker_id": 7,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 18,
+      "speaker_id": 6,
+      "role": "speaker",
+      "sort_order": 1
+    },
+    {
+      "material_id": 19,
+      "speaker_id": 5,
+      "role": "speaker",
+      "sort_order": 1
+    }
+  ],
+  "agenda_items": [
+    {
+      "id": 1,
+      "material_id": null,
+      "title": "Open Registration",
+      "category": "Registration",
+      "starts_at": "2025-10-25 08:00:00",
+      "ends_at": null,
+      "place": null,
+      "description": null,
+      "sort_order": 1,
+      "is_active": true
+    },
+    {
+      "id": 2,
+      "material_id": null,
+      "title": "Opening",
+      "category": "Opening",
+      "starts_at": "2025-10-25 09:00:00",
+      "ends_at": "2025-10-25 09:30:00",
+      "place": null,
+      "description": null,
+      "sort_order": 2,
+      "is_active": true
+    },
+    {
+      "id": 3,
+      "material_id": 1,
+      "title": null,
+      "category": "Sponsor Stage",
+      "starts_at": "2025-10-25 09:30:00",
+      "ends_at": "2025-10-25 09:40:00",
+      "place": null,
+      "description": null,
+      "sort_order": 3,
+      "is_active": true
+    },
+    {
+      "id": 4,
+      "material_id": 2,
+      "title": null,
+      "category": "Keynote",
+      "starts_at": "2025-10-25 09:40:00",
+      "ends_at": "2025-10-25 10:20:00",
+      "place": null,
+      "description": null,
+      "sort_order": 4,
+      "is_active": true
+    },
+    {
+      "id": 5,
+      "material_id": 3,
+      "title": null,
+      "category": "Keynote",
+      "starts_at": "2025-10-25 10:20:00",
+      "ends_at": "2025-10-25 10:40:00",
+      "place": null,
+      "description": null,
+      "sort_order": 5,
+      "is_active": true
+    },
+    {
+      "id": 6,
+      "material_id": 4,
+      "title": null,
+      "category": "Keynote",
+      "starts_at": "2025-10-25 10:40:00",
+      "ends_at": "2025-10-25 11:20:00",
+      "place": null,
+      "description": null,
+      "sort_order": 6,
+      "is_active": true
+    },
+    {
+      "id": 7,
+      "material_id": 5,
+      "title": null,
+      "category": "Keynote",
+      "starts_at": "2025-10-25 11:20:00",
+      "ends_at": "2025-10-25 12:00:00",
+      "place": null,
+      "description": null,
+      "sort_order": 7,
+      "is_active": true
+    },
+    {
+      "id": 8,
+      "material_id": null,
+      "title": "QnA Keynote Speakers",
+      "category": "Keynote",
+      "starts_at": "2025-10-25 12:00:00",
+      "ends_at": "2025-10-25 12:20:00",
+      "place": null,
+      "description": null,
+      "sort_order": 8,
+      "is_active": true
+    },
+    {
+      "id": 9,
+      "material_id": null,
+      "title": "Sponsor Stage - Biznet Gio",
+      "category": "Sponsor Stage",
+      "starts_at": "2025-10-25 12:20:00",
+      "ends_at": "2025-10-25 12:30:00",
+      "place": null,
+      "description": null,
+      "sort_order": 9,
+      "is_active": true
+    },
+    {
+      "id": 10,
+      "material_id": null,
+      "title": "Lunch & Pray",
+      "category": "Break",
+      "starts_at": "2025-10-25 12:30:00",
+      "ends_at": "2025-10-25 13:30:00",
+      "place": null,
+      "description": null,
+      "sort_order": 10,
+      "is_active": true
+    },
+    {
+      "id": 11,
+      "material_id": 6,
+      "title": null,
+      "category": "Lightning Talk #1",
+      "starts_at": "2025-10-25 13:30:00",
+      "ends_at": "2025-10-25 13:50:00",
+      "place": null,
+      "description": null,
+      "sort_order": 11,
+      "is_active": true
+    },
+    {
+      "id": 12,
+      "material_id": 7,
+      "title": null,
+      "category": "Lightning Talk #1",
+      "starts_at": "2025-10-25 13:50:00",
+      "ends_at": "2025-10-25 14:10:00",
+      "place": null,
+      "description": null,
+      "sort_order": 12,
+      "is_active": true
+    },
+    {
+      "id": 13,
+      "material_id": 8,
+      "title": null,
+      "category": "Lightning Talk #1",
+      "starts_at": "2025-10-25 14:10:00",
+      "ends_at": "2025-10-25 14:30:00",
+      "place": null,
+      "description": null,
+      "sort_order": 13,
+      "is_active": true
+    },
+    {
+      "id": 14,
+      "material_id": 9,
+      "title": null,
+      "category": "Lightning Talk #1",
+      "starts_at": "2025-10-25 14:30:00",
+      "ends_at": "2025-10-25 14:50:00",
+      "place": null,
+      "description": null,
+      "sort_order": 14,
+      "is_active": true
+    },
+    {
+      "id": 15,
+      "material_id": 10,
+      "title": null,
+      "category": "Lightning Talk #1",
+      "starts_at": "2025-10-25 14:50:00",
+      "ends_at": "2025-10-25 15:10:00",
+      "place": null,
+      "description": null,
+      "sort_order": 15,
+      "is_active": true
+    },
+    {
+      "id": 16,
+      "material_id": 11,
+      "title": null,
+      "category": "Lightning Talk #2",
+      "starts_at": "2025-10-25 13:30:00",
+      "ends_at": "2025-10-25 13:50:00",
+      "place": null,
+      "description": null,
+      "sort_order": 16,
+      "is_active": true
+    },
+    {
+      "id": 17,
+      "material_id": 12,
+      "title": null,
+      "category": "Lightning Talk #2",
+      "starts_at": "2025-10-25 13:50:00",
+      "ends_at": "2025-10-25 14:10:00",
+      "place": null,
+      "description": null,
+      "sort_order": 17,
+      "is_active": true
+    },
+    {
+      "id": 18,
+      "material_id": 13,
+      "title": null,
+      "category": "Lightning Talk #2",
+      "starts_at": "2025-10-25 14:10:00",
+      "ends_at": "2025-10-25 14:30:00",
+      "place": null,
+      "description": null,
+      "sort_order": 18,
+      "is_active": true
+    },
+    {
+      "id": 19,
+      "material_id": 14,
+      "title": null,
+      "category": "Lightning Talk #2",
+      "starts_at": "2025-10-25 14:30:00",
+      "ends_at": "2025-10-25 14:50:00",
+      "place": null,
+      "description": null,
+      "sort_order": 19,
+      "is_active": true
+    },
+    {
+      "id": 20,
+      "material_id": 15,
+      "title": null,
+      "category": "Lightning Talk #2",
+      "starts_at": "2025-10-25 14:50:00",
+      "ends_at": "2025-10-25 15:10:00",
+      "place": null,
+      "description": null,
+      "sort_order": 20,
+      "is_active": true
+    },
+    {
+      "id": 21,
+      "material_id": 16,
+      "title": null,
+      "category": "Parallel Class (Workshop)",
+      "starts_at": "2025-10-25 13:30:00",
+      "ends_at": "2025-10-25 15:00:00",
+      "place": null,
+      "description": null,
+      "sort_order": 21,
+      "is_active": true
+    },
+    {
+      "id": 22,
+      "material_id": 17,
+      "title": null,
+      "category": "Parallel Class (Workshop)",
+      "starts_at": "2025-10-25 13:30:00",
+      "ends_at": "2025-10-25 15:00:00",
+      "place": null,
+      "description": null,
+      "sort_order": 22,
+      "is_active": true
+    },
+    {
+      "id": 23,
+      "material_id": 18,
+      "title": null,
+      "category": "Parallel Class (Workshop)",
+      "starts_at": "2025-10-25 13:30:00",
+      "ends_at": "2025-10-25 15:00:00",
+      "place": null,
+      "description": null,
+      "sort_order": 23,
+      "is_active": true
+    },
+    {
+      "id": 24,
+      "material_id": 19,
+      "title": null,
+      "category": "Parallel Class (Workshop)",
+      "starts_at": "2025-10-25 13:30:00",
+      "ends_at": "2025-10-25 15:00:00",
+      "place": null,
+      "description": null,
+      "sort_order": 24,
+      "is_active": true
+    },
+    {
+      "id": 25,
+      "material_id": null,
+      "title": "Closing",
+      "category": "Closing",
+      "starts_at": "2025-10-25 15:00:00",
+      "ends_at": null,
+      "place": null,
+      "description": null,
+      "sort_order": 25,
+      "is_active": true
+    }
+  ],
+  "merchandises": [
+    {
+      "id": 1,
+      "name": "Sticker Pack Special JDD",
+      "photo_path": null,
+      "description": "Sticker pack yang termasuk dalam benefit tiket Regular.",
+      "cta_label": null,
+      "cta_url": null,
+      "sort_order": 1
+    },
+    {
+      "id": 2,
+      "name": "Kaos JDD",
+      "photo_path": null,
+      "description": "Kaos JDD dengan ukuran sesuai permintaan.",
+      "cta_label": null,
+      "cta_url": null,
+      "sort_order": 2
+    },
+    {
+      "id": 3,
+      "name": "Keychain",
+      "photo_path": null,
+      "description": "Keychain yang termasuk dalam paket Special Bundling.",
+      "cta_label": null,
+      "cta_url": null,
+      "sort_order": 3
+    },
+    {
+      "id": 4,
+      "name": "Pouch Special JDD",
+      "photo_path": null,
+      "description": "Pouch Special JDD yang termasuk dalam paket Special Bundling.",
+      "cta_label": null,
+      "cta_url": null,
+      "sort_order": 4
+    }
+  ],
+  "tickets": [
+    {
+      "id": 1,
+      "name": "[Flash Sale] Regular",
+      "slug": "flash-sale-regular",
+      "ticket_type": "single",
+      "price": 35000,
+      "compare_price": 50000,
+      "description_html": "<p>Enjoy full access to all the main areas of the event, including the main stage, exhibitions, and networking sessions.</p><ul><li>Snack</li><li>Lunch</li><li>e-Certificate</li><li>Sticker Pack Special JDD</li><li>Seminar, Workshop/Lightning Talks</li></ul><p>Tiket masuk perorangan.</p>",
+      "label": "Flash Sale",
+      "label_color": null,
+      "sales_starts_at": null,
+      "sales_ends_at": null,
+      "cta_label": "Beli Sekarang",
+      "cta_url": "https://tiptip.id/event/c2864cd7-8a84-4b49-ab98-8d2c85aa5b4e",
+      "sort_order": 1
+    },
+    {
+      "id": 2,
+      "name": "[Flash Sale] Special Bundling",
+      "slug": "flash-sale-special-bundling",
+      "ticket_type": "bundle",
+      "price": 185000,
+      "compare_price": 200000,
+      "description_html": "<p>Get all the benefits of the Regular plus an exclusive merchandise package to complete your experience.</p><ul><li>All Regular Ticket Benefits Included</li><li>Kaos (dengan ukuran sesuai permintaan)</li><li>Keychain</li><li>Pouch Special JDD</li></ul><p>Tiket masuk perorangan.</p>",
+      "label": "Flash Sale",
+      "label_color": null,
+      "sales_starts_at": null,
+      "sales_ends_at": null,
+      "cta_label": "Beli Sekarang",
+      "cta_url": "https://tiptip.id/event/c2864cd7-8a84-4b49-ab98-8d2c85aa5b4e",
+      "sort_order": 2
+    }
+  ],
+  "ticket_merchandises": [
+    {
+      "ticket_id": 1,
+      "merchandise_id": 1,
+      "quantity": 1
+    },
+    {
+      "ticket_id": 2,
+      "merchandise_id": 1,
+      "quantity": 1
+    },
+    {
+      "ticket_id": 2,
+      "merchandise_id": 2,
+      "quantity": 1
+    },
+    {
+      "ticket_id": 2,
+      "merchandise_id": 3,
+      "quantity": 1
+    },
+    {
+      "ticket_id": 2,
+      "merchandise_id": 4,
+      "quantity": 1
+    }
+  ],
+  "partners": [
+    {
+      "id": 1,
+      "name": "DOT Indonesia",
+      "partner_type": "sponsor",
+      "sponsor_category": "gold",
+      "logo_path": "https://framerusercontent.com/images/DlabRS9nkmGeYz6AN26qZ8HjrRc.png?height=405&width=1150",
+      "is_active": true,
+      "website_url": null,
+      "sort_order": 1
+    },
+    {
+      "id": 2,
+      "name": "Zero One Group",
+      "partner_type": "sponsor",
+      "sponsor_category": "silver",
+      "logo_path": "https://framerusercontent.com/images/nUbAUmCB4bVAaCY8LIm24DA3n0.png?height=1113&width=3363",
+      "is_active": true,
+      "website_url": null,
+      "sort_order": 2
+    },
+    {
+      "id": 3,
+      "name": "NVMEVPSPRO",
+      "partner_type": "sponsor",
+      "sponsor_category": "silver",
+      "logo_path": "https://framerusercontent.com/images/TX6pNIupK06D4cxtswUktbiKDc.png?height=172&width=666",
+      "is_active": true,
+      "website_url": null,
+      "sort_order": 3
+    },
+    {
+      "id": 4,
+      "name": "Biznet GioCloud",
+      "partner_type": "sponsor",
+      "sponsor_category": "silver",
+      "logo_path": "https://framerusercontent.com/images/FzVRPEG9xsTJHqQqqYUMh8vnutI.png?height=1063&width=2367",
+      "is_active": true,
+      "website_url": null,
+      "sort_order": 4
+    },
+    {
+      "id": 5,
+      "name": "Cloudee",
+      "partner_type": "sponsor",
+      "sponsor_category": "bronze",
+      "logo_path": "https://framerusercontent.com/images/dy1etZXGR2xF7kUNy0qTs4NNZk.png?height=175&width=746",
+      "is_active": true,
+      "website_url": null,
+      "sort_order": 5
+    },
+    {
+      "id": 6,
+      "name": "[REVIEW] Unidentified Bronze Sponsor",
+      "partner_type": "sponsor",
+      "sponsor_category": "bronze",
+      "logo_path": "https://framerusercontent.com/images/pSSINVOSMIf4PhqxNRckBByjw.webp?height=1156&scale-down-to=1024&width=1931",
+      "is_active": false,
+      "website_url": null,
+      "sort_order": 6
+    },
+    {
+      "id": 7,
+      "name": "Jagoan Hosting",
+      "partner_type": "supporting_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/56Wd2ZHKNHdNdsiv1pPhByqI0.png?height=228&width=943",
+      "is_active": true,
+      "website_url": null,
+      "sort_order": 7
+    },
+    {
+      "id": 8,
+      "name": "Android DEV Surabaya",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/ex8r4GWBlgc5cVNL1BMjycGEVI.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 1,
+      "is_active": true
+    },
+    {
+      "id": 9,
+      "name": "Bangkalan Dev",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/KBFA8A2RDOjryTMG5XZuAK396xg.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 2,
+      "is_active": true
+    },
+    {
+      "id": 10,
+      "name": "Data Science Indonesia",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/FQr4eLeGqvzqoO9HbFe2tmykQOE.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 3,
+      "is_active": true
+    },
+    {
+      "id": 11,
+      "name": "Google Developer Groups Surabaya",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/c9FcxcuhRyDy6A6LqcCSgePtIkw.png?height=80&width=480",
+      "website_url": null,
+      "sort_order": 4,
+      "is_active": true
+    },
+    {
+      "id": 12,
+      "name": "GresikDev",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/DZBbrEBFmYIkQj1nAtCpiPmOYA.png?height=528&width=480",
+      "website_url": null,
+      "sort_order": 5,
+      "is_active": true
+    },
+    {
+      "id": 13,
+      "name": "ISQA Soerabaja",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/8mXk4W4nl272BxtxJlvZbCqJHjA.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 6,
+      "is_active": true
+    },
+    {
+      "id": 14,
+      "name": "KLAS",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/JOUm4jdweE2Gujm3miJZ0dkfSh8.png?height=260&width=480",
+      "website_url": null,
+      "sort_order": 7,
+      "is_active": true
+    },
+    {
+      "id": 15,
+      "name": "LamonganDev",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/WjKBxRyzvQUftb6sC3taEfStamo.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 8,
+      "is_active": true
+    },
+    {
+      "id": 16,
+      "name": "Madura.Dev",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/MMggJJnxBYl6EiBSbqAb9kdSMqQ.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 9,
+      "is_active": true
+    },
+    {
+      "id": 17,
+      "name": "MojokertoDev",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/4p83QAwndrhyNRkQUrIF8LxWxg.png?height=420&width=480",
+      "website_url": null,
+      "sort_order": 10,
+      "is_active": true
+    },
+    {
+      "id": 18,
+      "name": "[REVIEW] Community Partner 11",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/Jkwi065AxpwyDr9OzWOkISiKHmo.png?height=160&width=480",
+      "website_url": null,
+      "sort_order": 11,
+      "is_active": false
+    },
+    {
+      "id": 19,
+      "name": "PacitanDev",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/f8zy664RcBzQU9Ivui8HzrUdu0c.png?height=272&width=480",
+      "website_url": null,
+      "sort_order": 12,
+      "is_active": true
+    },
+    {
+      "id": 20,
+      "name": "PasuruanDev",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/ueESzIbcpxPb4BSP7VeyIaVNPM.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 13,
+      "is_active": true
+    },
+    {
+      "id": 21,
+      "name": "Kelas Mobile Malang",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/aaHJpkQtPRm1qb4JDZLxl6ChS1E.png?height=582&width=2116",
+      "website_url": null,
+      "sort_order": 14,
+      "is_active": true
+    },
+    {
+      "id": 22,
+      "name": "Patria Developer",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/saIUNYYNKGUZqloUYvh2Y3Jdk4.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 15,
+      "is_active": true
+    },
+    {
+      "id": 23,
+      "name": "Programming Frontend",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/bQ0qciNVhBwkMM9fIep4TbWvuY4.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 16,
+      "is_active": true
+    },
+    {
+      "id": 24,
+      "name": "[REVIEW] Community Partner 17",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/by902p8qcqv7mFgUO2SKAFbj0MA.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 17,
+      "is_active": false
+    },
+    {
+      "id": 25,
+      "name": "[REVIEW] Community Partner 18",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/Mwl8KI7rjyTJ3l7QMzQMu8PJZ68.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 18,
+      "is_active": false
+    },
+    {
+      "id": 26,
+      "name": "SidoarjoDev",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/Gy27XWgQA7EySk8vqcGaypBrR3U.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 19,
+      "is_active": true
+    },
+    {
+      "id": 27,
+      "name": "Surabaya.js",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/Q9Zy6xABwhFFvXFG3wDRTHg5k.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 20,
+      "is_active": true
+    },
+    {
+      "id": 28,
+      "name": "Surabaya Web Community",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/QEOeU7H3DGGkVaiC7uWYuSmWFE.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 21,
+      "is_active": true
+    },
+    {
+      "id": 29,
+      "name": "SurabayaDev",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/9ID9fYpmCiuz6zcAxFTAKF2wsc.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 22,
+      "is_active": true
+    },
+    {
+      "id": 30,
+      "name": "Tulungagung Developer",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/RPRqSzjJsdCr1ez600PmgcQa1w.png?height=600&width=2800",
+      "website_url": null,
+      "sort_order": 23,
+      "is_active": true
+    },
+    {
+      "id": 31,
+      "name": "Malang Hacker Link",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/YPb6Qfx6KimsmcyR1AtJPspsT4.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 24,
+      "is_active": true
+    },
+    {
+      "id": 32,
+      "name": "surabaya.py",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/EqnbLVPx2YaImV1SeDmJUUrlm0.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 25,
+      "is_active": true
+    },
+    {
+      "id": 33,
+      "name": "Google Developer Groups Cloud Surabaya",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/q7YA2rhXclZgPCYozIZyS94ZRCk.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 26,
+      "is_active": true
+    },
+    {
+      "id": 34,
+      "name": "Jombang Dev",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/pXDJpcQc0wotRMDFCFaWM5hgdE.png?height=480&width=480",
+      "website_url": null,
+      "sort_order": 27,
+      "is_active": true
+    },
+    {
+      "id": 35,
+      "name": "PamekasanDev",
+      "partner_type": "community_partner",
+      "sponsor_category": null,
+      "logo_path": "https://framerusercontent.com/images/jPmkPX58g1G5F2vtLKnSdKR2Hl8.png?height=1024&width=1024",
+      "website_url": null,
+      "sort_order": 28,
+      "is_active": true
+    }
+  ],
+  "data_quality": [
+    {
+      "severity": "high",
+      "item": "Agenda overlap",
+      "detail": "Closing ditulis mulai pukul 15.00, sedangkan dua Lightning Talk terakhir berakhir pukul 15.10.",
+      "action": "Konfirmasi waktu Closing sebelum publikasi ulang."
+    },
+    {
+      "severity": "medium",
+      "item": "Zain Fathoni company mismatch",
+      "detail": "Kartu speaker menulis BookThatApp, agenda menulis Relay Commerce.",
+      "action": "Seed menggunakan BookThatApp karena berasal dari kartu profil speaker; konfirmasi data terbaru."
+    },
+    {
+      "severity": "medium",
+      "item": "Venue incomplete",
+      "detail": "Website hanya menulis Gresik, Indonesia dan tidak menuliskan venue/ruang setiap agenda.",
+      "action": "Kolom place dibiarkan NULL. Sumber resmi eksternal menyebut UISI, tetapi tidak otomatis dimasukkan."
+    },
+    {
+      "severity": "medium",
+      "item": "Unidentified partner assets",
+      "detail": "Satu logo sponsor Bronze dan tiga logo community partner tidak dapat diidentifikasi dari teks situs.",
+      "action": "Record dibuat nonaktif dengan prefix [REVIEW]."
+    },
+    {
+      "severity": "low",
+      "item": "Ticket sales period unavailable",
+      "detail": "Tanggal mulai dan akhir Flash Sale tidak terlihat pada halaman.",
+      "action": "sales_starts_at dan sales_ends_at dibiarkan NULL."
+    },
+    {
+      "severity": "low",
+      "item": "Remote images",
+      "detail": "photo_path/logo_path menggunakan URL Framer CDN.",
+      "action": "Unduh ke object storage/server sendiri sebelum production untuk menghindari hotlink dan URL berubah."
+    }
+  ]
+}
