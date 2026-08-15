@@ -26,18 +26,32 @@ class EventSidebarMenuSeeder extends Seeder
             ['label' => 'Utama', 'color' => 'blue', 'sort_order' => 10, 'updated_at' => $now],
         );
 
-        $parentId = $this->upsertMenu([
-            'label' => 'Konten Event',
+        DB::table(DatabaseConst::SIDEBAR_MENU())
+            ->whereNull('route_name')
+            ->where('label', 'Konten Event')
+            ->update(['is_active' => 0, 'deleted_at' => $now, 'updated_at' => $now]);
+
+        $eventParentId = $this->upsertMenu([
+            'label' => 'Manajemen Event',
             'route_name' => null,
-            'icon' => '_admin._layout.icons.sidebar.data_master',
+            'icon' => '_admin._layout.icons.sidebar.calendar',
             'group' => 'utama',
-            'sort_order' => 60,
+            'sort_order' => 20,
             'is_active' => 1,
         ], $now);
+        $this->syncAccess($eventParentId, $roles, $now);
 
-        $this->syncAccess($parentId, $roles, $now);
+        $commercialParentId = $this->upsertMenu([
+            'label' => 'Manajemen Komersial',
+            'route_name' => null,
+            'icon' => '_admin._layout.icons.sidebar.wallet',
+            'group' => 'utama',
+            'sort_order' => 30,
+            'is_active' => 1,
+        ], $now);
+        $this->syncAccess($commercialParentId, $roles, $now);
 
-        foreach ($this->menus($parentId) as $menu) {
+        foreach ($this->menus($eventParentId, $commercialParentId) as $menu) {
             $menuId = $this->upsertMenu($menu, $now);
             $this->syncAccess($menuId, $roles, $now);
         }
@@ -46,17 +60,17 @@ class EventSidebarMenuSeeder extends Seeder
     /**
      * @return list<array<string, mixed>>
      */
-    private function menus(int $parentId): array
+    private function menus(int $eventParentId, int $commercialParentId): array
     {
         return [
-            ['parent_id' => $parentId, 'label' => 'Event', 'route_name' => 'admin.events.index', 'sort_order' => 61],
-            ['parent_id' => $parentId, 'label' => 'Section Event', 'route_name' => 'admin.event_sections.index', 'sort_order' => 62],
-            ['parent_id' => $parentId, 'label' => 'Speaker', 'route_name' => 'admin.event_speakers.index', 'sort_order' => 63],
-            ['parent_id' => $parentId, 'label' => 'Materi', 'route_name' => 'admin.event_materials.index', 'sort_order' => 64],
-            ['parent_id' => $parentId, 'label' => 'Agenda', 'route_name' => 'admin.event_agenda_groups.index', 'sort_order' => 65],
-            ['parent_id' => $parentId, 'label' => 'Merchandise', 'route_name' => 'admin.event_merchandises.index', 'sort_order' => 66],
-            ['parent_id' => $parentId, 'label' => 'Tiket', 'route_name' => 'admin.event_tickets.index', 'sort_order' => 67],
-            ['parent_id' => $parentId, 'label' => 'Partner', 'route_name' => 'admin.event_partners.index', 'sort_order' => 68],
+            ['parent_id' => $eventParentId, 'label' => 'Event', 'route_name' => 'admin.events.index', 'sort_order' => 10],
+            ['parent_id' => $eventParentId, 'label' => 'Section Event', 'route_name' => 'admin.event_sections.index', 'sort_order' => 20],
+            ['parent_id' => $eventParentId, 'label' => 'Agenda', 'route_name' => 'admin.event_agenda_groups.index', 'sort_order' => 30],
+            ['parent_id' => $eventParentId, 'label' => 'Materi', 'route_name' => 'admin.event_materials.index', 'sort_order' => 40],
+            ['parent_id' => $eventParentId, 'label' => 'Speaker', 'route_name' => 'admin.event_speakers.index', 'sort_order' => 50],
+            ['parent_id' => $commercialParentId, 'label' => 'Tiket', 'route_name' => 'admin.event_tickets.index', 'sort_order' => 10],
+            ['parent_id' => $commercialParentId, 'label' => 'Partner', 'route_name' => 'admin.event_partners.index', 'sort_order' => 20],
+            ['parent_id' => $commercialParentId, 'label' => 'Merchandise', 'route_name' => 'admin.event_merchandises.index', 'sort_order' => 30],
         ];
     }
 
@@ -100,6 +114,11 @@ class EventSidebarMenuSeeder extends Seeder
      */
     private function syncAccess(int $menuId, array $roles, mixed $now): void
     {
+        DB::table(DatabaseConst::SIDEBAR_MENU_ACCESS())
+            ->where('sidebar_menu_id', $menuId)
+            ->whereNotIn('access_type', $roles)
+            ->delete();
+
         $existingRoles = DB::table(DatabaseConst::SIDEBAR_MENU_ACCESS())
             ->where('sidebar_menu_id', $menuId)
             ->pluck('access_type')
