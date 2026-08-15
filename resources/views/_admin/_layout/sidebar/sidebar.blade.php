@@ -16,8 +16,8 @@
     <div class="relative flex flex-col h-full max-h-full">
         <div class="px-2 pt-0 flex items-center bg-primary/3">
             <a class="flex-none rounded-xl text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80"
-                href="#" aria-label="Smart NIBS">
-                <img src="{{ asset('images/logo-light.png') }}" alt="Logo Smart NIBS" class="w-56 h-auto p-4">
+                href="#" aria-label="Jatim Dev Day">
+                <img src="{{ asset('images/jdd-logo.png') }}" alt="Logo Jatim Dev Day" class="w-56 h-auto p-4">
             </a>
         </div>
 

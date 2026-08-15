@@ -12,53 +12,6 @@
             $today->hour < 18 => 'Selamat Sore',
             default => 'Selamat Malam',
         };
-
-        $accentPalette = ['blue', 'emerald', 'purple', 'orange', 'indigo', 'violet'];
-
-        $accent = [
-            'blue' => [
-                'bg' => 'from-blue-500/10 via-blue-500/5 to-transparent',
-                'icon' => 'bg-gradient-to-br from-blue-500 to-blue-600 text-white',
-                'icon_shadow' => 'shadow-blue-500/25',
-                'arrow_hover' => 'group-hover:text-blue-400',
-                'glow' => 'group-hover:shadow-blue-500/10',
-            ],
-            'emerald' => [
-                'bg' => 'from-emerald-500/10 via-emerald-500/5 to-transparent',
-                'icon' => 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white',
-                'icon_shadow' => 'shadow-emerald-500/25',
-                'arrow_hover' => 'group-hover:text-emerald-400',
-                'glow' => 'group-hover:shadow-emerald-500/10',
-            ],
-            'purple' => [
-                'bg' => 'from-purple-500/10 via-purple-500/5 to-transparent',
-                'icon' => 'bg-gradient-to-br from-purple-500 to-purple-600 text-white',
-                'icon_shadow' => 'shadow-purple-500/25',
-                'arrow_hover' => 'group-hover:text-purple-400',
-                'glow' => 'group-hover:shadow-purple-500/10',
-            ],
-            'orange' => [
-                'bg' => 'from-orange-500/10 via-orange-500/5 to-transparent',
-                'icon' => 'bg-gradient-to-br from-orange-500 to-orange-600 text-white',
-                'icon_shadow' => 'shadow-orange-500/25',
-                'arrow_hover' => 'group-hover:text-orange-400',
-                'glow' => 'group-hover:shadow-orange-500/10',
-            ],
-            'indigo' => [
-                'bg' => 'from-indigo-500/10 via-indigo-500/5 to-transparent',
-                'icon' => 'bg-gradient-to-br from-indigo-500 to-indigo-600 text-white',
-                'icon_shadow' => 'shadow-indigo-500/25',
-                'arrow_hover' => 'group-hover:text-indigo-400',
-                'glow' => 'group-hover:shadow-indigo-500/10',
-            ],
-            'violet' => [
-                'bg' => 'from-violet-500/10 via-violet-500/5 to-transparent',
-                'icon' => 'bg-gradient-to-br from-violet-500 to-violet-600 text-white',
-                'icon_shadow' => 'shadow-violet-500/25',
-                'arrow_hover' => 'group-hover:text-violet-400',
-                'glow' => 'group-hover:shadow-violet-500/10',
-            ],
-        ];
     @endphp
 
     <div class="space-y-8">
@@ -75,8 +28,6 @@
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-violet-500/5 blur-3xl rounded-full"
                      style="animation: blob3 14s ease-in-out infinite;"></div>
             </div>
-
-
 
             <div class="relative px-8 lg:px-10 py-10 lg:py-12">
 
@@ -101,7 +52,7 @@
                         </h1>
 
                         <p class="mt-4 text-[15px] leading-7 text-neutral-500 dark:text-neutral-400 max-w-xl">
-                            Selamat datang kembali di Aplikasi Smart NIBS
+                            Selamat datang kembali di Aplikasi <strong>Jatim Developer Day</strong>
                         </p>
 
                     </div>
@@ -114,106 +65,60 @@
                             {{ $today->format('H:i') }}
                         </div>
 
-
                     </div>
 
                 </div>
             </div>
         </section>
 
-        {{-- MENU --}}
-        <section>
+        {{-- STATS SUMMARY --}}
+        <section class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
 
-            <div class="flex items-center justify-between mb-5">
-                <div>
-                    <h2 class="text-lg font-semibold text-neutral-900 dark:text-white">
-                        Modul Aplikasi
-                    </h2>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-
-                @forelse ($modules as $index => $menu)
-                    @php
-                        $accentKey = $accentPalette[$index % count($accentPalette)];
-                        $c = $accent[$accentKey];
-
-                        try {
-                            $moduleUrl = route($menu->route_name);
-                        } catch (\Exception $e) {
-                            $moduleUrl = '#';
-                        }
-
-                        $moduleDesc = ! empty($menu->children)
-                            ? collect($menu->children)->pluck('label')->join(', ')
-                            : 'Buka modul ' . $menu->label . '.';
-                    @endphp
-
-                    <a navigate
-                       href="{{ $moduleUrl }}"
-                       class="group relative overflow-hidden rounded-[28px] bg-white dark:bg-neutral-900 border border-neutral-200/70 dark:border-white/5 p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg shadow-black/5 {{ $c['glow'] }}">
-
-                        {{-- Gradient Layer --}}
-                        <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br {{ $c['bg'] }}"></div>
-
-                        <div class="relative flex flex-col h-full">
-
-                            {{-- TOP --}}
-                            <div class="flex items-start justify-between">
-
-                                <div class="size-14 rounded-2xl {{ $c['icon'] }} flex items-center justify-center shadow-lg {{ $c['icon_shadow'] }} ring-1 ring-white/20 ring-inset transition-all duration-300 group-hover:shadow-xl group-hover:scale-[1.03] [&_svg]:size-6">
-                                    @if ($menu->icon)
-                                        @include($menu->icon)
-                                    @endif
-                                </div>
-
-                                <div class="translate-x-0 group-hover:translate-x-1 transition duration-300">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="size-5 text-neutral-300 dark:text-neutral-600 transition-colors {{ $c['arrow_hover'] }}"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor">
-
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M9 5l7 7-7 7"
-                                        />
-
-                                    </svg>
-                                </div>
-
-                            </div>
-
-                            {{-- CONTENT --}}
-                            <div class="mt-10">
-
-                                <h3 class="text-2xl font-semibold tracking-tight text-neutral-900 dark:text-white">
-                                    Aplikasi {{ $menu->label }}
-                                </h3>
-
-                                <p class="mt-1 text-md text-neutral-400 dark:text-neutral-400">
-                                    {{ $moduleDesc }}
-                                </p>
-
-                            </div>
-
+            {{-- SPEAKER STAT CARD --}}
+            <a navigate href="{{ route('admin.event_speakers.index') }}"
+               class="group relative overflow-hidden rounded-[28px] bg-white dark:bg-neutral-900 border border-neutral-200/70 dark:border-white/5 p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg shadow-black/5 hover:shadow-blue-500/10">
+                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-blue-500/10 via-blue-500/5 to-transparent"></div>
+                <div class="relative flex items-center justify-between">
+                    <div class="space-y-2">
+                        <p class="text-sm font-medium text-neutral-500 dark:text-neutral-400">Total Speaker</p>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white tabular-nums">
+                                {{ $stats['total_speakers'] ?? 0 }}
+                            </span>
+                            <span class="text-sm font-medium text-neutral-400">pembicara</span>
                         </div>
-
-                    </a>
-
-                @empty
-                    <div class="col-span-full rounded-[28px] border border-dashed border-neutral-200 dark:border-neutral-700 p-10 text-center">
-                        <p class="text-sm text-neutral-500 dark:text-neutral-400">
-                            Tidak ada modul tersedia untuk akun Anda.
+                        <p class="text-xs text-blue-600 dark:text-blue-400 font-medium pt-1 flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                            Lihat semua speaker &rarr;
                         </p>
                     </div>
-                @endforelse
+                    <div class="size-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 text-white flex items-center justify-center shadow-lg shadow-blue-500/25 ring-1 ring-white/20 ring-inset group-hover:scale-105 transition-transform duration-300 [&_svg]:size-8 shrink-0">
+                        @include('_admin._layout.icons.sidebar.speaker')
+                    </div>
+                </div>
+            </a>
 
-            </div>
+            {{-- PARTNER STAT CARD --}}
+            <a navigate href="{{ route('admin.event_partners.index') }}"
+               class="group relative overflow-hidden rounded-[28px] bg-white dark:bg-neutral-900 border border-neutral-200/70 dark:border-white/5 p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg shadow-black/5 hover:shadow-emerald-500/10">
+                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-emerald-500/10 via-emerald-500/5 to-transparent"></div>
+                <div class="relative flex items-center justify-between">
+                    <div class="space-y-2">
+                        <p class="text-sm font-medium text-neutral-500 dark:text-neutral-400">Total Partner & Sponsor</p>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-4xl lg:text-5xl font-bold tracking-tight text-neutral-900 dark:text-white tabular-nums">
+                                {{ $stats['total_partners'] ?? 0 }}
+                            </span>
+                            <span class="text-sm font-medium text-neutral-400">mitra</span>
+                        </div>
+                        <p class="text-xs text-emerald-600 dark:text-emerald-400 font-medium pt-1 flex items-center gap-1 group-hover:translate-x-0.5 transition-transform">
+                            Lihat semua partner &rarr;
+                        </p>
+                    </div>
+                    <div class="size-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 text-white flex items-center justify-center shadow-lg shadow-emerald-500/25 ring-1 ring-white/20 ring-inset group-hover:scale-105 transition-transform duration-300 [&_svg]:size-8 shrink-0">
+                        @include('_admin._layout.icons.sidebar.hand-shake')
+                    </div>
+                </div>
+            </a>
 
         </section>
 

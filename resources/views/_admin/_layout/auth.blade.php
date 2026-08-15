@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ env('APP_ENV') == 'local' ? '[LOCAL] ' : '' }}Smart NIBS</title>
+    <title>{{ env('APP_ENV') == 'local' ? '[LOCAL] ' : '' }}Jatim Developer Day</title>
 
     {{-- Favicon --}}
     @include('_admin._layout.favicon')

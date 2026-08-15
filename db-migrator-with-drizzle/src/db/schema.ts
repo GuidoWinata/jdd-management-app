@@ -13,6 +13,7 @@ import {
     primaryKey,
     smallint,
     text,
+    time,
     timestamp,
     tinyint,
     uniqueIndex,
@@ -255,14 +256,28 @@ export const materialSpeakersTable = mysqlTable('material_speakers', {
     index('idx_material_speakers_speaker').on(t.speaker_id),
 ]);
 
+export const agendaGroupsTable = mysqlTable('agenda_groups', {
+    id: unsignedBigInt().autoincrement().primaryKey(),
+    event_id: unsignedBigInt().notNull().references(() => eventsTable.id, { onDelete: 'cascade' }),
+    title: varchar({ length: 255 }).notNull(),
+    place: varchar({ length: 255 }),
+    description: text(),
+    sort_order: int({ unsigned: true }).notNull().default(0),
+    is_active: boolean().notNull().default(true),
+    ...auditColumns(),
+}, (t) => [
+    index('idx_agenda_groups_display').on(t.event_id, t.is_active, t.sort_order),
+]);
+
 export const agendaItemsTable = mysqlTable('agenda_items', {
     id: unsignedBigInt().autoincrement().primaryKey(),
     event_id: unsignedBigInt().notNull().references(() => eventsTable.id, { onDelete: 'cascade' }),
+    agenda_group_id: unsignedBigInt().notNull().references(() => agendaGroupsTable.id, { onDelete: 'cascade' }),
     material_id: unsignedBigInt().references(() => materialsTable.id, { onDelete: 'set null' }),
     title: varchar({ length: 255 }),
     category: varchar({ length: 100 }).notNull(),
-    starts_at: datetime().notNull(),
-    ends_at: datetime(),
+    starts_at: time().notNull(),
+    ends_at: time(),
     place: varchar({ length: 255 }),
     description: text(),
     sort_order: int({ unsigned: true }).notNull().default(0),
@@ -270,6 +285,7 @@ export const agendaItemsTable = mysqlTable('agenda_items', {
     ...auditColumns(),
 }, (t) => [
     index('idx_agenda_schedule').on(t.event_id, t.is_active, t.starts_at),
+    index('idx_agenda_group').on(t.agenda_group_id),
     index('idx_agenda_category').on(t.event_id, t.category),
     index('idx_agenda_material').on(t.material_id),
 ]);
@@ -299,6 +315,7 @@ export const ticketsTable = mysqlTable('tickets', {
     price: decimal({ precision: 15, scale: 2 }).notNull(),
     compare_price: decimal({ precision: 15, scale: 2 }),
     description_html: longtext(),
+    benefits_json: json(),
     label: varchar({ length: 100 }),
     label_color: varchar({ length: 20 }),
     sales_starts_at: datetime(),

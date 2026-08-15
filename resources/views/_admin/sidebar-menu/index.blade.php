@@ -119,17 +119,17 @@
                         </x-admin.table.td>
                         <x-admin.table.td innerClass="px-6 py-1.5 flex items-center justify-end gap-x-1">
                             <a navigate
-                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-indigo-200 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 hover:border-indigo-300 focus:outline-none disabled:opacity-50 disabled:pointer-events-none dark:border-indigo-800 dark:bg-indigo-900/20 dark:text-indigo-400"
+                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-indigo-200 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 hover:border-indigo-300 focus:outline-none focus:bg-indigo-100 disabled:opacity-50 disabled:pointer-events-none dark:border-indigo-800/80 dark:bg-indigo-900/30 dark:text-indigo-400 dark:hover:bg-indigo-800/50 dark:hover:border-indigo-700 dark:hover:text-indigo-300 dark:focus:bg-indigo-800/50 transition-colors"
                                 href="{{ route('admin.sidebar_menu.access', $d->id) }}" title="Kelola Akses">
                                 @include('_admin._layout.icons.sidebar.change-password')
                             </a>
                             <a navigate
-                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-blue-200 bg-blue-50 text-blue-600 hover:bg-blue-100 hover:border-blue-300 focus:outline-none disabled:opacity-50 disabled:pointer-events-none dark:border-blue-800 dark:bg-blue-900/20 dark:text-blue-500"
+                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-blue-200 bg-blue-50 text-blue-600 hover:bg-blue-100 hover:border-blue-300 focus:outline-none focus:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none dark:border-blue-800/80 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-800/50 dark:hover:border-blue-700 dark:hover:text-blue-300 dark:focus:bg-blue-800/50 transition-colors"
                                 href="{{ route('admin.sidebar_menu.update', $d->id) }}" title="Edit">
                                 @include('_admin._layout.icons.pencil')
                             </a>
                             <button type="button"
-                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 hover:border-red-300 focus:outline-none disabled:opacity-50 disabled:pointer-events-none dark:border-red-800 dark:bg-red-900/20 dark:text-red-500 cursor-pointer"
+                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 hover:border-red-300 focus:outline-none focus:bg-red-100 disabled:opacity-50 disabled:pointer-events-none dark:border-red-800/80 dark:bg-red-900/30 dark:text-red-400 dark:hover:bg-red-800/50 dark:hover:border-red-700 dark:hover:text-red-300 dark:focus:bg-red-800/50 transition-colors cursor-pointer"
                                 title="Hapus" data-hs-overlay="#delete-modal"
                                 onclick="setDeleteData('{{ $d->id }}', '{{ $d->label }}')">
                                 @include('_admin._layout.icons.trash')

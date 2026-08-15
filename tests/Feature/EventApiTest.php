@@ -10,7 +10,7 @@ test('event list is exposed as json', function () {
     $this->mock(EventUsecase::class, function ($mock) use ($process) {
         $mock->shouldReceive('getAll')
             ->once()
-            ->with(['keywords' => null, 'no_pagination' => false])
+            ->with(['keywords' => null, 'no_pagination' => true])
             ->andReturn($process);
     });
 
@@ -40,6 +40,51 @@ test('event detail is exposed as json', function () {
     });
 
     $this->getJson('/api/events/1')
+        ->assertSuccessful()
+        ->assertExactJson($process);
+});
+
+test('event agenda is exposed with grouped structure as json', function () {
+    $process = Response::buildSuccess([
+        'event' => [
+            'id' => 6,
+            'name' => 'Jatim Developer Day',
+        ],
+        'agenda_groups' => [
+            [
+                'id' => 3,
+                'title' => 'Morning Session',
+                'items' => [
+                    [
+                        'id' => 129,
+                        'title' => 'Future AI Impact on Freedom, Work, and Humanity',
+                        'starts_at' => '09:40:00',
+                        'ends_at' => '10:20:00',
+                        'place' => null,
+                        'description' => null,
+                        'sort_order' => 4,
+                        'material' => [
+                            'id' => 97,
+                            'title' => 'Future AI Impact on Freedom, Work, and Humanity',
+                            'slug' => 'future-ai-impact-on-freedom-work-and-humanity',
+                            'label' => 'Keynote',
+                            'label_color' => null,
+                        ],
+                        'speakers' => [],
+                    ],
+                ],
+            ],
+        ],
+    ]);
+
+    $this->mock(EventUsecase::class, function ($mock) use ($process) {
+        $mock->shouldReceive('getAgenda')
+            ->once()
+            ->with(6)
+            ->andReturn($process);
+    });
+
+    $this->getJson('/api/events/6/agenda')
         ->assertSuccessful()
         ->assertExactJson($process);
 });
@@ -97,7 +142,11 @@ test('event content list endpoints are exposed as json', function (string $uri, 
             ->with($resource, [
                 'event_id' => null,
                 'keywords' => null,
-                'no_pagination' => false,
+                'partner_type' => null,
+                'sponsor_category' => null,
+                'speaker_group' => null,
+                'ticket_type' => null,
+                'no_pagination' => true,
             ])
             ->andReturn($process);
     });
@@ -106,6 +155,29 @@ test('event content list endpoints are exposed as json', function (string $uri, 
         ->assertSuccessful()
         ->assertExactJson($process);
 })->with('event content resources');
+
+test('partners list can be filtered by partner_type and sponsor_category', function () {
+    $process = Response::buildSuccess(['list' => [['id' => 1, 'name' => 'Google', 'partner_type' => 'sponsor', 'sponsor_category' => 'gold']]]);
+
+    $this->mock(EventContentUsecase::class, function ($mock) use ($process) {
+        $mock->shouldReceive('getAll')
+            ->once()
+            ->with('partners', [
+                'event_id' => '1',
+                'keywords' => null,
+                'partner_type' => 'sponsor',
+                'sponsor_category' => 'gold',
+                'speaker_group' => null,
+                'ticket_type' => null,
+                'no_pagination' => true,
+            ])
+            ->andReturn($process);
+    });
+
+    $this->getJson('/api/partners?event_id=1&partner_type=sponsor&sponsor_category=gold')
+        ->assertSuccessful()
+        ->assertExactJson($process);
+});
 
 test('event content detail endpoints are exposed as json', function (string $uri, string $resource) {
     $process = Response::buildSuccess(['id' => 1]);
@@ -144,6 +216,7 @@ dataset('event content resources', [
     'event sections' => ['event-sections', 'sections'],
     'speakers' => ['speakers', 'speakers'],
     'materials' => ['materials', 'materials'],
+    'agenda groups' => ['agenda-groups', 'agenda_groups'],
     'agenda items' => ['agenda-items', 'agenda_items'],
     'merchandises' => ['merchandises', 'merchandises'],
     'tickets' => ['tickets', 'tickets'],

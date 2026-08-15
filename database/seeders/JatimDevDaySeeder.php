@@ -6,6 +6,7 @@ use App\Constants\DatabaseConst;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
@@ -63,12 +64,27 @@ class JatimDevDaySeeder extends Seeder
             ], $data['material_speakers']);
             DB::table(DatabaseConst::MATERIAL_SPEAKER())->insert($materialSpeakers);
 
+            $agendaGroupIds = [];
+            foreach (collect($data['agenda_items'])->groupBy('category') as $category => $items) {
+                $agendaGroupIds[$category] = DB::table(DatabaseConst::AGENDA_GROUP())->insertGetId([
+                    'event_id' => $eventId,
+                    'title' => $category,
+                    'sort_order' => $items->min('sort_order'),
+                    'is_active' => true,
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
+            }
+
             $agendaItems = array_map(fn (array $agendaItem): array => [
                 ...Arr::except($agendaItem, 'id'),
                 'event_id' => $eventId,
+                'agenda_group_id' => $agendaGroupIds[$agendaItem['category']],
                 'material_id' => $agendaItem['material_id'] === null
                     ? null
                     : $materialIds[$agendaItem['material_id']],
+                'starts_at' => Carbon::parse($agendaItem['starts_at'])->format('H:i:s'),
+                'ends_at' => $agendaItem['ends_at'] === null ? null : Carbon::parse($agendaItem['ends_at'])->format('H:i:s'),
                 'created_at' => $now,
                 'updated_at' => $now,
             ], $data['agenda_items']);

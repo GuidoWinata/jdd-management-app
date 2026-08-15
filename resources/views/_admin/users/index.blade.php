@@ -76,23 +76,23 @@
                         </x-admin.table.td>
                         <x-admin.table.td innerClass="px-6 py-1.5 flex items-center justify-end gap-x-1">
                             <a navigate
-                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-gray-200 bg-white text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:hover:bg-neutral-700"
+                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-gray-200 bg-white text-gray-700 hover:bg-gray-100 hover:border-gray-300 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-white dark:hover:border-neutral-600 dark:focus:bg-neutral-700 transition-colors"
                                 href="{{ route('admin.users.detail', $d->id) }}" title="View">
                                 @include('_admin._layout.icons.view_detail')
                             </a>
                             <a navigate
-                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-blue-200 bg-blue-50 text-blue-600 hover:bg-blue-100 hover:border-blue-300 focus:outline-none focus:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none dark:border-blue-800 dark:bg-blue-900/20 dark:text-blue-500 dark:hover:bg-blue-800/30 dark:hover:border-blue-700"
+                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-blue-200 bg-blue-50 text-blue-600 hover:bg-blue-100 hover:border-blue-300 focus:outline-none focus:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none dark:border-blue-800/80 dark:bg-blue-900/30 dark:text-blue-400 dark:hover:bg-blue-800/50 dark:hover:border-blue-700 dark:hover:text-blue-300 dark:focus:bg-blue-800/50 transition-colors"
                                 href="{{ route('admin.users.update', $d->id) }}" title="Edit">
                                 @include('_admin._layout.icons.pencil')
                             </a>
                             <button type="button"
-                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-yellow-200 bg-yellow-50 text-yellow-600 hover:bg-yellow-100 hover:border-yellow-300 focus:outline-none focus:bg-yellow-100 disabled:opacity-50 disabled:pointer-events-none dark:border-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-500 dark:hover:bg-yellow-800/30 dark:hover:border-yellow-700 cursor-pointer"
+                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-yellow-200 bg-yellow-50 text-yellow-600 hover:bg-yellow-100 hover:border-yellow-300 focus:outline-none focus:bg-yellow-100 disabled:opacity-50 disabled:pointer-events-none dark:border-yellow-800/80 dark:bg-yellow-900/30 dark:text-yellow-400 dark:hover:bg-yellow-800/50 dark:hover:border-yellow-700 dark:hover:text-yellow-300 dark:focus:bg-yellow-800/50 transition-colors cursor-pointer"
                                 title="Reset Password" data-hs-overlay="#reset-modal"
                                 onclick="setResetData('{{ $d->id }}', '{{ $d->name }}')">
                                 @include('_admin._layout.icons.sidebar.change-password')
                             </button>
                             <button type="button"
-                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 hover:border-red-300 focus:outline-none focus:bg-red-100 disabled:opacity-50 disabled:pointer-events-none dark:border-red-800 dark:bg-red-900/20 dark:text-red-500 dark:hover:bg-red-800/30 dark:hover:border-red-700 cursor-pointer"
+                                class="inline-flex items-center justify-center size-8 text-sm font-semibold rounded-lg border border-red-200 bg-red-50 text-red-600 hover:bg-red-100 hover:border-red-300 focus:outline-none focus:bg-red-100 disabled:opacity-50 disabled:pointer-events-none dark:border-red-800/80 dark:bg-red-900/30 dark:text-red-400 dark:hover:bg-red-800/50 dark:hover:border-red-700 dark:hover:text-red-300 dark:focus:bg-red-800/50 transition-colors cursor-pointer"
                                 title="Delete" data-hs-overlay="#delete-modal"
                                 onclick="setDeleteData('{{ $d->id }}', '{{ $d->name }}')">
                                 @include('_admin._layout.icons.trash')

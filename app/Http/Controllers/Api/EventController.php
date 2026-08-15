@@ -18,7 +18,7 @@ class EventController extends Controller
     {
         $process = $this->usecase->getAll([
             'keywords' => $request->get('keywords'),
-            'no_pagination' => $request->boolean('no_pagination'),
+            'no_pagination' => true,
         ]);
 
         return response()->json($process, $process['code'] ?? ResponseConst::HTTP_SUCCESS);
@@ -27,6 +27,13 @@ class EventController extends Controller
     public function show(int $id): JsonResponse
     {
         $process = $this->usecase->getByID($id);
+
+        return response()->json($process, $process['code'] ?? ResponseConst::HTTP_SUCCESS);
+    }
+
+    public function agenda(?int $id = null): JsonResponse
+    {
+        $process = $this->usecase->getAgenda($id);
 
         return response()->json($process, $process['code'] ?? ResponseConst::HTTP_SUCCESS);
     }

@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             SidebarMenuSeeder::class,
-            JatimDevDaySeeder::class,
+            EventSidebarMenuSeeder::class,
+            // JatimDevDaySeeder::class,
         ]);
     }
 }

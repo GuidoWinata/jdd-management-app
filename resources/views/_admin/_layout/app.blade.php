@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ env('APP_ENV') == 'local' ? '[LOCAL] ' : '' }}Smart NIBS</title>
+    <title>{{ env('APP_ENV') == 'local' ? '[LOCAL] ' : '' }}Jatim Developer Day</title>
 
     {{-- Favicon --}}
     @include('_admin._layout.favicon')
@@ -16,12 +16,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 
-    <!-- Styles / Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/admin-custom.css', 'resources/js/admin-custom.js'])
-
-    <!-- NProgress -->
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" />
 
+    <!-- Styles / Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/admin-custom.css', 'resources/js/admin-custom.js'])
 </head>
 
 <body>
@@ -48,7 +48,7 @@
                 <!-- Logo -->
                 <a class="flex-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80"
                     href="#" aria-label="Preline">
-                    <img src="{{ asset('images/logo-light.png') }}" alt="Logo Smart NIBS" class="w-40 h-auto p-4">
+                    <img src="{{ asset('images/jdd-logo.png') }}" alt="Logo Jatim Developer Day" class="w-40 h-auto p-4">
                 </a>
                 <!-- End Logo -->
 

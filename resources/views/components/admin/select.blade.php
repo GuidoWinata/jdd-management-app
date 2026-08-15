@@ -34,7 +34,7 @@
         </label>
     @endif
     <select id="{{ $selectId }}" name="{{ $name }}" class="{{ $selectClass }}"
-        {{ $disabled ? 'disabled' : '' }}>
+        {{ $attributes->except('class') }} {{ $disabled ? 'disabled' : '' }}>
         @if ($placeholder)
             <option value="">{{ $placeholder }}</option>
         @endif

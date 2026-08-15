@@ -56,6 +56,11 @@ class DatabaseConst
         return self::DB_CORE().'.agenda_items';
     }
 
+    public static function AGENDA_GROUP(): string
+    {
+        return self::DB_CORE().'.agenda_groups';
+    }
+
     public static function MERCHANDISE(): string
     {
         return self::DB_CORE().'.merchandises';
@@ -76,8 +81,13 @@ class DatabaseConst
         return self::DB_CORE().'.partners';
     }
 
+    public static function VALIDATION_TABLE(string $table): string
+    {
+        return 'mysql.'.$table;
+    }
+
     public static function DB_CORE(): string
     {
-        return config('database.connections.mysql.database', 'db_nibs');
+        return config('database.connections.mysql.database', 'jdd_db_v2');
     }
 }
