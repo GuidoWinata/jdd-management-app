@@ -19,6 +19,18 @@ Route::get('test', function () {
     });
 });
 
+Route::get('/__debug-proxy', function (Request $request) {
+    return response()->json([
+        'scheme' => $request->getScheme(),
+        'is_secure' => $request->isSecure(),
+        'x_forwarded_proto' => $request->header('x-forwarded-proto'),
+        'x_forwarded_host' => $request->header('x-forwarded-host'),
+        'host' => $request->getHost(),
+        'url' => url('/'),
+        'app_url' => config('app.url'),
+    ]);
+});
+
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'doLogin'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
