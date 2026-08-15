@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\SidebarMenuController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Benchmark;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
