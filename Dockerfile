@@ -51,4 +51,6 @@ RUN chown -R www-data:www-data storage bootstrap/cache
 ENV FRANKENPHP_THREADS=8
 ENV OP_CACHE_ENABLE=1
 
-EXPOSE 80
+EXPOSE 8000
+
+CMD ["sh", "-c", "rm -f bootstrap/cache/*.php && php artisan config:clear && php artisan route:clear && (php artisan storage:link || true) && OCTANE_SERVER=frankenphp php artisan optimize && php artisan octane:start --workers=8 --task-workers=4 --server=frankenphp --host=0.0.0.0 --port=8000"]
