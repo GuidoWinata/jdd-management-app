@@ -51,6 +51,9 @@ RUN chown -R www-data:www-data storage bootstrap/cache
 ENV FRANKENPHP_THREADS=8
 ENV OP_CACHE_ENABLE=1
 
-EXPOSE 80
+EXPOSE 8000
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:8000/up || exit 1
 
 CMD ["php", "/var/www/html/artisan", "serve", "--host=0.0.0.0", "--port=8000"]
