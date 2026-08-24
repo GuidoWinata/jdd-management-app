@@ -51,6 +51,6 @@ RUN chown -R www-data:www-data storage bootstrap/cache
 ENV FRANKENPHP_THREADS=8
 ENV OP_CACHE_ENABLE=1
 
-EXPOSE 8000
+EXPOSE 80
 
 CMD ["php", "/var/www/html/artisan", "serve", "--host=0.0.0.0", "--port=8000"]
