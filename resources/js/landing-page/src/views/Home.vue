@@ -1,5 +1,4 @@
 <script setup>
-import { useReveal } from "../composables/useReveal";
 import Navbar from "../components/Navbar.vue";
 import Hero from "../components/Hero.vue";
 import CommunityPartners from "../components/CommunityPartners.vue";
@@ -13,6 +12,7 @@ import Gallery from "../components/Gallery.vue";
 import Sponsors from "../components/Sponsors.vue";
 import Cta from "../components/Cta.vue";
 import Footer from "../components/Footer.vue";
+import { useReveal } from "@/composables/useReveal.ts";
 
 useReveal();
 </script>
