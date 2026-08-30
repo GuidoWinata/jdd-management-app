@@ -1,0 +1,17 @@
+---
+- name: Provision server with Nginx, PHP 8.4, and Docker
+  hosts: all
+  become: yes
+
+  roles:
+    - role: nginx
+      tags: [nginx]
+    - role: php
+      tags: [php]
+    - role: node
+      tags: [node]
+    - role: docker
+      tags: [docker]
+    # - role: certbot
+    #   tags: [certbot]
+    #   when: nginx_server_name != '_'
