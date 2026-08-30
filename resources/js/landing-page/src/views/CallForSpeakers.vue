@@ -1,4 +1,5 @@
 <script setup>
+import { useReveal } from "../composables/useReveal";
 import Navbar from "../components/Navbar.vue";
 import Hero from "../components/Hero.vue";
 import CommunityPartners from "../components/CommunityPartners.vue";
@@ -6,7 +7,6 @@ import Vision from "../components/Vision.vue";
 import CfsHowItWorks from "../components/CfsHowItWorks.vue";
 import Cta from "../components/Cta.vue";
 import Footer from "../components/Footer.vue";
-import { useReveal } from "@/composables/useReveal.ts";
 
 const formUrl = import.meta.env.VITE_SPEAKER_FORM_URL || "#"
 
