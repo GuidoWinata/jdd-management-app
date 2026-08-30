@@ -10,10 +10,6 @@ use Illuminate\Support\Benchmark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return redirect()->route('admin.dashboard');
-});
-
 Route::get('test', function () {
     Benchmark::dd(function () {
         (string) view('welcome');
@@ -31,6 +27,10 @@ Route::get('/__debug-proxy', function (Request $request) {
         'app_url' => config('app.url'),
     ]);
 });
+
+Route::get('/', function () {
+    return view('landing');
+})->name('landing');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'doLogin'])->name('login.post');
