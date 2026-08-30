@@ -1,6 +1,15 @@
 // Data statis sementara. Saat CMS siap, ganti nilai-nilai di bawah
 // dengan hasil fetch dari src/api/cms.ts tanpa mengubah struktur tipe.
 
+import gallerySpLeftPt from '../assets/gallery/sp-left-pt.webp'
+import galleryGroupTopLsc from '../assets/gallery/group-top-lsc.webp'
+import gallerySpRight1x1 from '../assets/gallery/sp-right-1x1.webp'
+import galleryDscsMidLsc from '../assets/gallery/dscs-mid-lsc.webp'
+import galleryGroupRight1x1 from '../assets/gallery/group-right-1x1.webp'
+import gallerySpBtm1x1 from '../assets/gallery/sp-btm-1x1.webp'
+import gallerySpLeftbtmLsc from '../assets/gallery/sp-leftbtm-lsc.webp'
+import galleryDscsBtm1x1 from '../assets/gallery/dscs-btm-1x1.webp'
+
 export interface Speaker {
   id: number
   name: string
@@ -51,6 +60,7 @@ export interface GalleryItem {
   label: string
   resolutionHint: string
   gridClass: string
+  image: string
 }
 
 export interface CommunityPartner {
@@ -78,66 +88,114 @@ export const speakers: Speaker[] = [
 
 export const agendaGroups: AgendaGroup[] = [
   {
-    category: 'REGISTRATION',
+    category: 'OPENING',
     sessions: [
       {
-        time: '08:00 — 09:00',
-        location: 'GRAND HERITAGE LOBBY',
-        type: 'REGISTRATION',
-        title: 'Registration & Welcome Morning Coffee',
+        time: '08:00 — 09:25',
+        location: 'MAIN HALL',
+        type: 'OPENING',
+        title: 'Opening Ceremony',
         speaker: null,
       },
     ],
   },
   {
-    category: 'KEYNOTE & SESSIONS',
+    category: 'KEYNOTE SESSIONS',
     sessions: [
       {
-        time: '09:00 — 10:00',
-        location: 'GRAND HALL',
-        type: 'KEYNOTE ADDRESS',
-        title: 'The Future of Software Engineering in Indonesia',
-        speaker: 'Ainun Najib',
+        time: '09:25 — 09:55',
+        location: 'MAIN HALL',
+        type: 'KEYNOTE',
+        title: 'Keynote Session',
+        speaker: null,
       },
       {
-        time: '10:15 — 11:15',
-        location: 'GRAND HALL',
-        type: 'ARCHITECTURE TALK',
-        title: 'Microservices Architecture at Scale: Lessons from Production',
-        speaker: 'Zain Fathoni',
+        time: '10:05 — 10:35',
+        location: 'MAIN HALL',
+        type: 'KEYNOTE',
+        title: 'Keynote Session',
+        speaker: null,
       },
       {
-        time: '11:30 — 12:30',
-        location: 'GRAND HALL',
-        type: 'CLOUD TALK',
-        title: 'Building Resilient & Distributed Cloud Systems',
-        speaker: 'Listiarso Wastuargo',
+        time: '11:50 — 12:20',
+        location: 'MAIN HALL',
+        type: 'KEYNOTE',
+        title: 'Keynote Session',
+        speaker: null,
       },
     ],
   },
   {
-    category: 'MASTERCLASS WORKSHOPS',
+    category: 'SPONSOR STAGE',
     sessions: [
       {
-        time: '13:30 — 15:00',
-        location: 'WORKSHOP ROOM A',
-        type: 'MASTERCLASS',
-        title: 'Kubernetes in Production: A Hands-On Deep Dive',
-        speaker: 'Listiarso Wastuargo',
+        time: '09:55 — 10:05',
+        location: 'MAIN HALL',
+        type: 'SPONSOR',
+        title: 'Sponsor Stage',
+        speaker: null,
       },
       {
-        time: '13:30 — 15:00',
-        location: 'WORKSHOP ROOM B',
-        type: 'MASTERCLASS',
-        title: 'CI/CD & Platform Engineering Best Practices',
-        speaker: 'Zain Fathoni',
+        time: '10:35 — 11:50',
+        location: 'MAIN HALL',
+        type: 'SPONSOR',
+        title: 'Sponsor Stage',
+        speaker: null,
       },
       {
-        time: '15:15 — 16:15',
-        location: 'GRAND HALL',
-        type: 'PANEL DISCUSSION',
-        title: 'Open Source Ecosystem in East Java',
-        speaker: 'All Headliners',
+        time: '12:20 — 12:40',
+        location: 'MAIN HALL',
+        type: 'SPONSOR',
+        title: 'Sponsor Stage',
+        speaker: null,
+      },
+    ],
+  },
+  {
+    category: 'Q&A SESSION',
+    sessions: [
+      {
+        time: '12:40 — 13:20',
+        location: 'MAIN HALL',
+        type: 'Q&A',
+        title: 'QnA Session',
+        speaker: null,
+      },
+    ],
+  },
+  {
+    category: 'BREAK',
+    sessions: [
+      {
+        time: '13:20 — 14:20',
+        location: 'MAIN HALL',
+        type: 'ISHOMA',
+        title: 'ISHOMA',
+        speaker: null,
+      },
+    ],
+  },
+  {
+    category: 'PARALLEL SESSIONS',
+    sessions: [
+      {
+        time: '14:20 — 16:20',
+        location: 'MULTIPLE ROOMS',
+        type: 'PARALLEL',
+        title: 'Parallel Session & Class',
+        speaker: null,
+      },
+    ],
+  },
+  {
+    category: 'CLOSING',
+    sessions: [
+      {
+        time: '16:20 — 16:30',
+        location: 'MAIN HALL',
+        type: 'CLOSING',
+        title: 'Documentation & Closing',
+        speaker: null,
       },
     ],
   },
@@ -189,14 +247,14 @@ export const sponsors: SponsorTiers = {
 }
 
 export const galleryItems: GalleryItem[] = [
-  { id: 1, label: 'Speaker (Kiri)', resolutionHint: 'Potret / Vertikal', gridClass: 'col-span-1 md:col-span-1 lg:col-span-1 lg:row-span-2' },
-  { id: 2, label: 'Grup Foto Atas', resolutionHint: 'Lanskap / Lebar', gridClass: 'col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-1' },
-  { id: 3, label: 'Speaker (Kanan Atas)', resolutionHint: 'Lanskap Standar', gridClass: 'col-span-1 md:col-span-1 lg:col-span-1 lg:row-span-1' },
-  { id: 4, label: 'Diskusi Sesi Tengah', resolutionHint: 'Lanskap / Lebar', gridClass: 'col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-1' },
-  { id: 5, label: 'Grup Kanan Tengah', resolutionHint: 'Lanskap Standar', gridClass: 'col-span-1 md:col-span-1 lg:col-span-1 lg:row-span-1' },
-  { id: 6, label: 'Foto Panggung Besar', resolutionHint: 'Lanskap / Sangat Lebar', gridClass: 'col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-1' },
-  { id: 7, label: 'Speaker Layar', resolutionHint: 'Lanskap Standar', gridClass: 'col-span-1 md:col-span-1 lg:col-span-1 lg:row-span-1' },
-  { id: 8, label: 'Sesi Diskusi Bawah', resolutionHint: 'Lanskap Standar', gridClass: 'col-span-1 md:col-span-1 lg:col-span-1 lg:row-span-1' },
+  { id: 1, label: 'Speaker (Kiri)', resolutionHint: 'Potret / Vertikal', gridClass: 'col-span-1 md:col-span-1 lg:col-span-1 lg:row-span-2', image: gallerySpLeftPt },
+  { id: 2, label: 'Grup Foto Atas', resolutionHint: 'Lanskap / Lebar', gridClass: 'col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-1', image: galleryGroupTopLsc },
+  { id: 3, label: 'Speaker (Kanan Atas)', resolutionHint: 'Lanskap Standar', gridClass: 'col-span-1 md:col-span-1 lg:col-span-1 lg:row-span-1', image: gallerySpRight1x1 },
+  { id: 4, label: 'Diskusi Sesi Tengah', resolutionHint: 'Lanskap / Lebar', gridClass: 'col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-1', image: galleryDscsMidLsc },
+  { id: 5, label: 'Grup Kanan Tengah', resolutionHint: 'Lanskap Standar', gridClass: 'col-span-1 md:col-span-1 lg:col-span-1 lg:row-span-1', image: galleryGroupRight1x1 },
+  { id: 6, label: 'Foto Panggung Besar', resolutionHint: 'Lanskap / Sangat Lebar', gridClass: 'col-span-1 md:col-span-2 lg:col-span-2 lg:row-span-1', image: gallerySpBtm1x1 },
+  { id: 7, label: 'Speaker Layar', resolutionHint: 'Lanskap Standar', gridClass: 'col-span-1 md:col-span-1 lg:col-span-1 lg:row-span-1', image: gallerySpLeftbtmLsc },
+  { id: 8, label: 'Sesi Diskusi Bawah', resolutionHint: 'Lanskap Standar', gridClass: 'col-span-1 md:col-span-1 lg:col-span-1 lg:row-span-1', image: galleryDscsBtm1x1 },
 ]
 
 export const communityPartners: CommunityPartner[] = [
