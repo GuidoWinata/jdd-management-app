@@ -1,0 +1,24 @@
+services:
+  mariadb:
+    image: mariadb:{{ mariadb_version }}
+    container_name: mariadb
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:{{ mariadb_port }}:3306"
+    environment:
+      MARIADB_ROOT_PASSWORD: "{{ mariadb_root_password }}"
+      MARIADB_DATABASE: "{{ mariadb_database }}"
+      MARIADB_USER: "{{ mariadb_user }}"
+      MARIADB_PASSWORD: "{{ mariadb_password }}"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
+
+volumes:
+  mariadb_data:
+    driver: local

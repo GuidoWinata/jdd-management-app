@@ -1,0 +1,77 @@
+---
+- name: Update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Start and enable Nginx
+  systemd:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: Create sites-available directory
+  file:
+    path: /etc/nginx/sites-available
+    state: directory
+    mode: "0755"
+
+- name: Create sites-enabled directory
+  file:
+    path: /etc/nginx/sites-enabled
+    state: directory
+    mode: "0755"
+
+- name: Ensure nginx.conf is properly configured
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+    mode: "0644"
+  notify: Reload Nginx
+
+- name: Remove all existing site configs from sites-enabled
+  shell: rm -f /etc/nginx/sites-enabled/*
+  changed_when: false
+
+- name: Deploy default catch-all config (redirect to main domain)
+  template:
+    src: default.conf.j2
+    dest: /etc/nginx/sites-available/00-default.conf
+    mode: "0644"
+  notify: Reload Nginx
+
+- name: Enable default catch-all
+  file:
+    src: /etc/nginx/sites-available/00-default.conf
+    dest: /etc/nginx/sites-enabled/00-default.conf
+    state: link
+  notify: Reload Nginx
+
+- name: Deploy per-site Nginx configs
+  template:
+    src: "site-{{ item.type | default('php') }}.conf.j2"
+    dest: "/etc/nginx/sites-available/{{ item.server_name }}.conf"
+    mode: "0644"
+  loop: "{{ nginx_sites }}"
+  notify: Reload Nginx
+
+- name: Enable per-site configs
+  file:
+    src: "/etc/nginx/sites-available/{{ item.server_name }}.conf"
+    dest: "/etc/nginx/sites-enabled/{{ item.server_name }}.conf"
+    state: link
+  loop: "{{ nginx_sites }}"
+  notify: Reload Nginx
+
+- name: Create site root directories
+  file:
+    path: "{{ item.root }}"
+    state: directory
+    mode: "0755"
+    recurse: yes
+  loop: "{{ nginx_sites }}"

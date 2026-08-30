@@ -1,0 +1,79 @@
+---
+- name: Install snapd
+  apt:
+    name: snapd
+    state: present
+    update_cache: yes
+
+- name: Ensure snapd is running
+  systemd:
+    name: snapd
+    state: started
+    enabled: yes
+
+- name: Install Certbot via snap
+  snap:
+    name: certbot
+    classic: yes
+    state: present
+
+- name: Create symlink for certbot
+  file:
+    src: /snap/bin/certbot
+    dest: /usr/bin/certbot
+    state: link
+
+- name: Obtain SSL certificate (dry-run first)
+  shell: |
+    certbot --nginx --non-interactive --agree-tos \
+      --email {{ certbot_email }} \
+      {% for domain in certbot_domains %}--domain {{ domain }} {% endfor %} \
+      --redirect --hsts
+  args:
+    creates: /etc/letsencrypt/live/{{ certbot_domains | first }}
+  notify: Reload Nginx
+  when: not ssl_self_signed
+
+- name: Set up automatic Certbot renewal via systemd timer
+  shell: |
+    certbot renew --dry-run
+  args:
+    creates: /etc/systemd/system/certbot-renew.timer
+  ignore_errors: yes
+
+- name: Create certbot renewal timer
+  copy:
+    dest: /etc/systemd/system/certbot-renew.service
+    content: |
+      [Unit]
+      Description=Certbot Renewal
+
+      [Service]
+      Type=oneshot
+      ExecStart=/usr/bin/certbot renew --quiet --agree-tos
+      ExecStartPost=/bin/systemctl reload nginx
+    mode: "0644"
+
+- name: Create certbot renewal timer trigger
+  copy:
+    dest: /etc/systemd/system/certbot-renew.timer
+    content: |
+      [Unit]
+      Description=Run Certbot twice daily
+
+      [Timer]
+      OnCalendar=*-*-* 00:00:00
+      OnCalendar=*-*-* 12:00:00
+      RandomizedDelaySec=3600
+      Persistent=true
+
+      [Install]
+      WantedBy=timers.target
+    mode: "0644"
+
+- name: Enable and start certbot renewal timer
+  systemd:
+    name: certbot-renew.timer
+    state: started
+    enabled: yes
+    daemon_reload: yes

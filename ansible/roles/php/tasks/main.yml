@@ -1,0 +1,67 @@
+---
+- name: Add PHP repository (Ondřej Surý)
+  apt_repository:
+    repo: ppa:ondrej/php
+    update_cache: yes
+
+- name: Install PHP {{ php_version }} and extensions
+  apt:
+    name: "{{ php_packages }}"
+    state: present
+    update_cache: yes
+
+- name: Start and enable PHP {{ php_version }}-FPM
+  systemd:
+    name: php{{ php_version }}-fpm
+    state: started
+    enabled: yes
+
+- name: Configure PHP-FPM pool settings
+  lineinfile:
+    path: /etc/php/{{ php_version }}/fpm/pool.d/www.conf
+    regexp: "^{{ item.key }} ="
+    line: "{{ item.key }} = {{ item.value }}"
+    state: present
+  loop:
+    - { key: "pm.max_children", value: "50" }
+    - { key: "pm.start_servers", value: "5" }
+    - { key: "pm.min_spare_servers", value: "5" }
+    - { key: "pm.max_spare_servers", value: "35" }
+    - { key: "pm.max_requests", value: "500" }
+  notify: Restart PHP-FPM
+
+- name: Configure PHP production settings (CLI)
+  template:
+    src: php.ini.j2
+    dest: /etc/php/{{ php_version }}/cli/php.ini
+    mode: "0644"
+
+- name: Configure PHP production settings (FPM)
+  template:
+    src: php.ini.j2
+    dest: /etc/php/{{ php_version }}/fpm/php.ini
+    mode: "0644"
+  notify: Restart PHP-FPM
+
+- name: Ensure PHP-FPM socket directory exists
+  file:
+    path: /run/php
+    state: directory
+    mode: "0755"
+
+- name: Download Composer installer
+  shell: |
+    curl -fsSL https://getcomposer.org/installer -o /tmp/composer-setup.php
+  args:
+    creates: /tmp/composer-setup.php
+
+- name: Install Composer globally
+  shell: |
+    php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer --quiet
+  args:
+    creates: /usr/local/bin/composer
+
+- name: Remove Composer installer
+  file:
+    path: /tmp/composer-setup.php
+    state: absent
