@@ -9,6 +9,9 @@
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.11",
         "@tailwindcss/vite": "^4.0.0",
+        "@tsconfig/node24": "^24.0.0",
+        "@vitejs/plugin-vue": "^6.0.0",
+        "@vue/tsconfig": "^0.9.0",
         "axios": "^1.11.0",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^2.0.0",
@@ -16,10 +19,14 @@
         "vite": "^7.0.7"
     },
     "dependencies": {
+        "@lucide/vue": "^1.26.0",
+        "@tanstack/vue-query": "^5.101.4",
         "croppie": "^2.6.5",
         "flatpickr": "^4.6.13",
         "preline": "^4.2.0",
         "toastify-js": "^1.12.0",
-        "viewerjs": "^1.11.7"
+        "viewerjs": "^1.11.7",
+        "vue": "^3.5.40",
+        "vue-router": "^4.6.4"
     }
 }
