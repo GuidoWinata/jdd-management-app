@@ -9,13 +9,13 @@
     </SectionHeader>
 
     <!-- SPEAKERS GRID -->
-    <div v-if="speakersData && speakersData.length" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div
-        v-for="(speaker, index) in speakersData"
+        v-for="(speaker, index) in speakers"
         :key="speaker.id"
         :class="[
-          'relative rounded-2xl overflow-hidden h-[420px] flex flex-col justify-between p-6 group transition-transform duration-300 hover:-translate-y-2 cursor-pointer shadow-lg',
-          speaker.is_active ? 'bg-jd-cyan' : 'bg-[#22313b]',
+          'relative rounded-2xl overflow-hidden h-[420px] flex flex-col justify-between p-6 group transition-transform duration-300 hover:-translate-y-2 cursor-pointer shadow-lg reveal-scale',
+          speaker.highlighted ? 'bg-jd-cyan' : 'bg-[#22313b]',
         ]"
         :style="{ transitionDelay: `${(index % 3) * 0.1}s` }"
       >
@@ -23,14 +23,11 @@
         <div class="absolute inset-x-0 bottom-0 top-12 flex justify-center z-0 pointer-events-none">
           <div
             class="w-full h-full bg-center bg-cover bg-no-repeat opacity-60"
-            :style="speakerPhoto(speaker.photo_path)
-              ? { backgroundImage: `url('${speakerPhoto(speaker.photo_path)}')` }
-              : {}"
+            style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><rect fill=\'%23ffffff\' fill-opacity=\'0.05\' width=\'100\' height=\'100\'/></svg>');"
           >
             <span
-              v-if="!speakerPhoto(speaker.photo_path)"
               class="absolute inset-0 flex items-center justify-center text-xs font-medium opacity-50"
-              :class="speaker.is_active ? 'text-black' : 'text-white'"
+              :class="speaker.highlighted ? 'text-black' : 'text-white'"
             >
               [Foto Grayscale]
             </span>
@@ -39,7 +36,7 @@
           <div
             class="absolute inset-0 bg-gradient-to-t"
             :class="
-              speaker.is_active
+              speaker.highlighted
                 ? 'from-jd-cyan via-jd-cyan/30 to-transparent'
                 : 'from-[#22313b] via-[#22313b]/30 to-transparent'
             "
@@ -49,9 +46,9 @@
         <!-- TOP LEFT: Category -->
         <div
           class="relative z-10 text-[10px] tracking-[0.2em] uppercase font-bold"
-          :class="speaker.is_active ? 'text-white/80' : 'text-gray-400'"
+          :class="speaker.highlighted ? 'text-white/80' : 'text-gray-400'"
         >
-          {{ speaker.speaker_group || 'SPEAKER' }}
+          {{ speaker.category }}
         </div>
 
         <!-- BOTTOM: Info & Logo -->
@@ -60,9 +57,9 @@
             <h3 class="text-xl font-bold text-white mb-1">{{ speaker.name }}</h3>
             <p
               class="text-xs font-semibold"
-              :class="speaker.is_active ? 'text-[#0b4251]' : 'text-jd-cyan'"
+              :class="speaker.highlighted ? 'text-[#0b4251]' : 'text-jd-cyan'"
             >
-              {{ speaker.job_title }}
+              {{ speaker.role }}
             </p>
           </div>
 
@@ -76,17 +73,8 @@
   </Section>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import Section from './ui/Section.vue'
 import SectionHeader from './ui/SectionHeader.vue'
-import { useSpeakers } from '../composables/useEventData'
-import { useConfig } from '../config'
-
-const speakersData = useSpeakers()
-const { baseUrl } = useConfig()
-
-function speakerPhoto(photoPath: string | null): string {
-  if (!photoPath) return ''
-  return photoPath.startsWith('http') ? photoPath : `${baseUrl}/storage/${photoPath}`
-}
+import { speakers } from '../data/content'
 </script>

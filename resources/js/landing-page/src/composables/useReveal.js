@@ -1,23 +1,23 @@
 import { onMounted, onUnmounted } from 'vue'
 
-export function useReveal(): void {
-  let observer: IntersectionObserver | null = null
+export function useReveal() {
+  let observer = null
 
   onMounted(() => {
     observer = new IntersectionObserver(
-      (entries: IntersectionObserverEntry[]) => {
+      (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('revealed')
-            observer?.unobserve(entry.target)
+            observer.unobserve(entry.target)
           }
         })
       },
       { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
     )
     document
-      .querySelectorAll<HTMLElement>('.reveal, .reveal-left, .reveal-right, .reveal-scale')
-      .forEach((el) => observer?.observe(el))
+      .querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale')
+      .forEach((el) => observer.observe(el))
   })
 
   onUnmounted(() => {
