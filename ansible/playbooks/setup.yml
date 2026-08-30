@@ -12,6 +12,5 @@
       tags: [node]
     - role: docker
       tags: [docker]
-    # - role: certbot
-    #   tags: [certbot]
-    #   when: nginx_server_name != '_'
+    - role: certbot
+      tags: [certbot]
