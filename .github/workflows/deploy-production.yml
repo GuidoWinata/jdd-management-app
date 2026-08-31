@@ -18,7 +18,7 @@ jobs:
         run: |
           echo "${{ vars.ENV_FILE }}" | base64 -d > .env
 
-      - name: Copy .env to server
+      - name: Copy .env
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.DEPLOY_HOST }}
