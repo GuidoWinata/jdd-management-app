@@ -23,6 +23,6 @@ jobs:
           port: 22
           script: |
             cd /var/www/2026.jatimdevday.com/public
-            echo "${{ secrets.ENV_FILE }}" | base64 -d > .env
+            echo "${{ vars.ENV_FILE }}" | base64 -d > .env
             git pull origin master
             bun run build
