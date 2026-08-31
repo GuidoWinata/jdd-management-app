@@ -3,7 +3,7 @@ name: Deploy to Production
 on:
   push:
     branches:
-      - feat/add-github-workflow
+      - master
 
 jobs:
   deploy:
@@ -14,7 +14,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to server
+      - name: Create .env file from variable
+        run: |
+          echo "${{ vars.ENV_FILE }}" | base64 -d > .env
+
+      - name: Copy .env to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          port: 22
+          source: ".env"
+          target: "/var/www/2026.jatimdevday.com/public/"
+
+      - name: Run deploy commands
         uses: appleboy/ssh-action@v1.2.2
         with:
           host: ${{ secrets.DEPLOY_HOST }}
@@ -23,6 +37,5 @@ jobs:
           port: 22
           script: |
             cd /var/www/2026.jatimdevday.com/public
-            echo "${{ vars.ENV_FILE }}" | base64 -d > .env
             git pull origin master
             bun run build
