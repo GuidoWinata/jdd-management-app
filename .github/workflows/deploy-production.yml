@@ -3,7 +3,7 @@ name: Deploy to Production
 on:
   push:
     branches:
-      - feat/add-github-workflow
+      - master
 
 jobs:
   deploy:
