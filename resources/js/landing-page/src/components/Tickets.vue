@@ -39,7 +39,7 @@
             {{ ticket.title }}
           </h3>
           <div class="text-4xl md:text-[2.5rem] font-black" :class="priceClass(ticket.type)">
-            {{ ticket.price }}
+            {{ ticket.price === 0 ? 'TBA' : ticket.price }}
           </div>
         </div>
 

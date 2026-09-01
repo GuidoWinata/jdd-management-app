@@ -23,12 +23,13 @@ defineProps({
   items: {
     type: Array,
     default: () => [
-      'JDD 2026',
-      '25 OCTOBER · PASURUAN',
-      'EAST JAVA DEVELOPER DAY',
-      '1,000+ DEVELOPERS',
-      '20+ SPEAKERS',
-      'EXCLUSIVE CONFERENCE',
+      'JATIM DEVELOPER DAY',
+      '7 NOVEMBER · PASURUAN',
+      'INCLUSIVE CONFERENCE',
+      '500+ DEVELOPERS',
+      '500+ TECH LEADERS & DEVS',
+      '1 DAY OF SESSIONS',
+      '7 SESSION TRACKS',
     ],
   },
   speed: {

@@ -13,8 +13,8 @@ const props = defineProps({
       { label: 'TICKETS', href: '#tickets' },
     ],
   },
-  ctaLabel: { type: String, default: 'BELI TIKET' },
-  ctaHref: { type: String, default: '#tickets' },
+  ctaLabel: { type: String, default: 'JADI MEDIA PARTNER' },
+  ctaHref: { type: String, default: 'https://s.id/partnershipjdd2026' },
 })
 
 const navLinks = props.links

@@ -78,12 +78,12 @@ export interface Stat {
 }
 
 export const speakers: Speaker[] = [
-  { id: 1, name: 'Ainun Najib', role: 'Tech Leader & Data Innovator', category: 'KEYNOTE SPEAKER', company: 'Tarsquare', highlighted: true },
-  { id: 2, name: 'Zain Fathoni', role: 'Software Engineer', category: 'KEYNOTE SPEAKER', company: 'Tarsquare', highlighted: true },
-  { id: 3, name: 'Listiarso Wastuargo', role: 'Tech Professional', category: 'KEYNOTE SPEAKER', company: 'Tarsquare', highlighted: true },
-  { id: 4, name: 'Dewi Lestari', role: 'Platform Engineer', category: 'COMMUNITY SPEAKER', company: 'Gojek', highlighted: false },
-  { id: 5, name: 'Budi Santoso', role: 'Cloud Architect', category: 'COMMUNITY SPEAKER', company: 'AWS', highlighted: false },
-  { id: 6, name: 'Rina Wijaya', role: 'Frontend Engineer', category: 'COMMUNITY SPEAKER', company: 'Tokopedia', highlighted: false },
+  { id: 1, name: 'Eko Kurniawan Khannedy', role: 'Programmer Zaman Now | Technical Architect', category: 'KEYNOTE SPEAKER', company: '', highlighted: true },
+  { id: 2, name: 'Sandhika Galih', role: 'Web Programming Unpas | GDE Web & UI', category: 'KEYNOTE SPEAKER', company: '', highlighted: true },
+  { id: 3, name: 'Nosa Shandy', role: 'Cyber Security Professional | Local Rockstar', category: 'KEYNOTE SPEAKER', company: '', highlighted: true },
+  { id: 4, name: 'TBA', role: 'TBA', category: 'COMMUNITY SPEAKER', company: '', highlighted: false },
+  { id: 5, name: 'TBA', role: 'TBA', category: 'COMMUNITY SPEAKER', company: '', highlighted: false },
+  { id: 6, name: 'TBA', role: 'TBA', category: 'COMMUNITY SPEAKER', company: '', highlighted: false },
 ]
 
 export const agendaGroups: AgendaGroup[] = [
@@ -91,10 +91,10 @@ export const agendaGroups: AgendaGroup[] = [
     category: 'OPENING',
     sessions: [
       {
-        time: '08:00 — 09:25',
+        time: '08:00 — 09:20',
         location: 'MAIN HALL',
-        type: 'OPENING',
-        title: 'Opening Ceremony',
+        type: 'REGISTRATION',
+        title: 'Registration',
         speaker: null,
       },
     ],
@@ -103,75 +103,25 @@ export const agendaGroups: AgendaGroup[] = [
     category: 'KEYNOTE SESSIONS',
     sessions: [
       {
-        time: '09:25 — 09:55',
+        time: '09:20 — 09:50',
         location: 'MAIN HALL',
         type: 'KEYNOTE',
-        title: 'Keynote Session',
-        speaker: null,
+        title: 'TBA',
+        speaker: 'Nosa Shandy',
       },
       {
-        time: '10:05 — 10:35',
+        time: '10:00 — 10:30',
         location: 'MAIN HALL',
         type: 'KEYNOTE',
-        title: 'Keynote Session',
-        speaker: null,
+        title: 'TBA',
+        speaker: 'Eko Kurniawan Khannedy',
       },
       {
-        time: '11:50 — 12:20',
+        time: '10:50 — 11:20',
         location: 'MAIN HALL',
         type: 'KEYNOTE',
-        title: 'Keynote Session',
-        speaker: null,
-      },
-    ],
-  },
-  {
-    category: 'SPONSOR STAGE',
-    sessions: [
-      {
-        time: '09:55 — 10:05',
-        location: 'MAIN HALL',
-        type: 'SPONSOR',
-        title: 'Sponsor Stage',
-        speaker: null,
-      },
-      {
-        time: '10:35 — 11:50',
-        location: 'MAIN HALL',
-        type: 'SPONSOR',
-        title: 'Sponsor Stage',
-        speaker: null,
-      },
-      {
-        time: '12:20 — 12:40',
-        location: 'MAIN HALL',
-        type: 'SPONSOR',
-        title: 'Sponsor Stage',
-        speaker: null,
-      },
-    ],
-  },
-  {
-    category: 'Q&A SESSION',
-    sessions: [
-      {
-        time: '12:40 — 13:20',
-        location: 'MAIN HALL',
-        type: 'Q&A',
-        title: 'QnA Session',
-        speaker: null,
-      },
-    ],
-  },
-  {
-    category: 'BREAK',
-    sessions: [
-      {
-        time: '13:20 — 14:20',
-        location: 'MAIN HALL',
-        type: 'ISHOMA',
-        title: 'ISHOMA',
-        speaker: null,
+        title: 'TBA',
+        speaker: 'Sandhika Galih',
       },
     ],
   },
@@ -179,10 +129,31 @@ export const agendaGroups: AgendaGroup[] = [
     category: 'PARALLEL SESSIONS',
     sessions: [
       {
-        time: '14:20 — 16:20',
+        time: '13:20 — 15:20',
         location: 'MULTIPLE ROOMS',
         type: 'PARALLEL',
-        title: 'Parallel Session & Class',
+        title: 'Interactive Session 1',
+        speaker: null,
+      },
+      {
+        time: '13:20 — 15:20',
+        location: 'MULTIPLE ROOMS',
+        type: 'PARALLEL',
+        title: 'Interactive Session 2',
+        speaker: null,
+      },
+      {
+        time: '13:20 — 15:20',
+        location: 'MULTIPLE ROOMS',
+        type: 'WORKSHOP',
+        title: 'Workshop',
+        speaker: null,
+      },
+      {
+        time: '13:20 — 15:20',
+        location: 'MULTIPLE ROOMS',
+        type: 'LIGHTNING TALK',
+        title: 'Lightning Talk',
         speaker: null,
       },
     ],
@@ -191,7 +162,7 @@ export const agendaGroups: AgendaGroup[] = [
     category: 'CLOSING',
     sessions: [
       {
-        time: '16:20 — 16:30',
+        time: '15:20 — 15:30',
         location: 'MAIN HALL',
         type: 'CLOSING',
         title: 'Documentation & Closing',
@@ -206,7 +177,7 @@ export const tickets: Ticket[] = [
     type: 'regular',
     subtitle: 'STANDARD ACCESS',
     title: 'REGULAR PASS',
-    price: 'Rp 35.000',
+    price: 'TBA',
     buttonText: 'REGISTER NOW',
     features: [
       '1 Full Day Symposium Access',
@@ -218,7 +189,7 @@ export const tickets: Ticket[] = [
     type: 'vip',
     subtitle: 'BEST VALUE PACKAGE',
     title: 'BUNDLING VIP PASS',
-    price: 'Rp 185.000',
+    price: 'TBA',
     buttonText: 'RESERVE VIP BUNDLE',
     ribbon: 'VIP MERCH',
     features: [

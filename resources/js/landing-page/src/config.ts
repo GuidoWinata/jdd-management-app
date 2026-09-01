@@ -7,3 +7,9 @@ export const config = {
 export function useConfig() {
   return config
 }
+
+export function isApiEnabled(entity: string): boolean {
+  const val = config.useApiData
+  if (typeof val === 'boolean') return val
+  return val[entity] ?? false
+}

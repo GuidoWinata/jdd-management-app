@@ -1,7 +1,9 @@
+type ApiDataConfig = Record<string, boolean>
+
 interface AppConfig {
   apiBaseUrl: string
   appType: string
-  useApiData: boolean
+  useApiData: boolean | ApiDataConfig
   eventDate: string
   speakerFormUrl: string
   mediaPartnerFormUrl: string
