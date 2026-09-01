@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JDD 2026 - Jatim Developer Day</title>
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon/jdd-logo.svg') }}" />
+    <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico') }}" />
     <meta name="description" content="JDD 2026 - Konferensi teknologi terbesar untuk developer Jawa Timur. 3 hari penuh insight, workshop, dan networking.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
