@@ -2,7 +2,7 @@
 import Home from './views/Home.vue'
 import CallForSpeakers from './views/CallForSpeakers.vue'
 
-const isSpeakersMode = import.meta.env.VITE_APP_TYPE === 'speakers'
+const isSpeakersMode = window.APP_CONFIG?.appType === 'speakers'
 </script>
 
 <template>

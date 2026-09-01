@@ -49,9 +49,9 @@ import Section from './ui/Section.vue'
 import AppButton from './ui/AppButton.vue'
 
 defineProps({
-  primaryLabel: { type: String, default: 'DAPATKAN TIKET' },
-  primaryHref: { type: String, default: '#tickets' },
-  secondaryLabel: { type: String, default: 'JADI SPONSORSHIP' },
-  secondaryHref: { type: String, default: '#sponsors' },
+  primaryLabel: { type: String, default: 'JADI MEDIA PARTNER' },
+  primaryHref: { type: String, default: 'https://s.id/partnershipjdd2026' },
+  secondaryLabel: { type: String, default: 'JADI SPONSOR' },
+  secondaryHref: { type: String, default: 'https://s.id/sponsorshipjdd2026' },
 })
 </script>

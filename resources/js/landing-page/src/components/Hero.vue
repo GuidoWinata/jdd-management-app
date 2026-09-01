@@ -107,7 +107,7 @@ import mascotImg from '../assets/mascot-double.png'
 const props = defineProps({
   badgeText: {
     type: String,
-    default: 'East Java Premier Tech Gathering · Oct 25, 2026',
+    default: 'East Java Premier Tech Gathering · Nov 7, 2026',
   },
   titleLine1: { type: String, default: 'Jatim Tech Hub' },
   titleLine2: { type: String, default: 'Inclusive Tech ' },
@@ -115,18 +115,18 @@ const props = defineProps({
   description: {
     type: String,
     default:
-      'Konferensi eksklusif bagi para arsitek teknologi, developer, dan pemimpin industri Jawa Timur. Membangun masa depan digital dengan standar keunggulan kelas dunia.',
+      'Konferensi teknologi terbesar di Jawa Timur yang menghubungkan talenta, industri, dan masyarakat demi ekosistem digital yang inklusif dan berdampak nyata.',
   },
-  primaryLabel: { type: String, default: 'DAPATKAN TIKET' },
-  primaryHref: { type: String, default: '#tickets' },
-  secondaryLabel: { type: String, default: 'JADI MEDIA PARTNER' },
+  primaryLabel: { type: String, default: 'JADI MEDIA PARTNER' },
+  primaryHref: { type: String, default: 'https://s.id/partnershipjdd2026' },
+  secondaryLabel: { type: String, default: 'JADI SPONSOR' },
   secondaryHref: {
     type: String,
-    default: import.meta.env.VITE_MEDIA_PARTNER_FORM_URL || '#',
+    default: 'https://s.id/sponsorshipjdd2026',
   },
 })
 
-const eventDate = new Date(import.meta.env.VITE_EVENT_DATE).getTime()
+const eventDate = new Date(window.APP_CONFIG?.eventDate || '2026-11-07').getTime()
 const now = ref(Date.now())
 let timer = null
 

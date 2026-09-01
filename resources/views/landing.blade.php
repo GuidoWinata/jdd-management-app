@@ -10,6 +10,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet"/>
+    <script>
+        window.APP_CONFIG = {
+            apiBaseUrl: '{{ env('APP_API_URL', config('app.url')) }}',
+            appType: '{{ env('VITE_APP_TYPE', 'landingpage') }}',
+            useApiData: {
+                speakers: true,
+                event: false,
+                materials: false,
+                agenda: false,
+                tickets: false,
+                merchandises: false,
+                partners: false,
+                sections: false,
+                sponsors: false,
+                communityPartners: false,
+                schedule: false,
+            },
+            eventDate: '{{ env('VITE_EVENT_DATE', '2026-11-07') }}',
+            speakerFormUrl: '{{ env('VITE_SPEAKER_FORM_URL', '') }}',
+            mediaPartnerFormUrl: '{{ env('VITE_MEDIA_PARTNER_FORM_URL', '') }}',
+        }
+    </script>
     @vite(['resources/js/landing-page/src/main.ts'])
 </head>
 <body>
