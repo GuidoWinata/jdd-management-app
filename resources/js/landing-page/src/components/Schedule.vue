@@ -9,7 +9,31 @@
     </SectionHeader>
 
     <!-- AGENDA LIST -->
-    <div class="flex flex-col gap-8">
+    <div v-if="!agendaGroups" class="flex flex-col gap-8">
+      <div v-for="i in 3" :key="i" class="flex flex-col animate-pulse">
+        <div class="bg-gray-800 text-transparent font-bold text-xs tracking-[0.2em] uppercase py-3 px-6 rounded-md mb-2 w-48">
+          Loading...
+        </div>
+        <div class="flex flex-col">
+          <div v-for="j in 3" :key="j" class="flex flex-col md:flex-row items-start md:items-center py-6 px-4 md:px-6 border-b border-gray-900 gap-6">
+            <div class="w-full md:w-1/4 flex flex-col md:text-right flex-shrink-0 gap-2">
+              <div class="h-4 bg-gray-800 rounded w-32 ml-auto"></div>
+              <div class="h-3 bg-gray-800 rounded w-24 ml-auto"></div>
+            </div>
+            <div class="w-full md:w-auto flex-1 flex flex-col gap-2">
+              <div class="h-3 bg-gray-800 rounded w-20"></div>
+              <div class="h-5 bg-gray-800 rounded w-64"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-else-if="agendaGroups.length === 0" class="text-center py-12">
+      <p class="text-gray-500">Jadwal belum tersedia.</p>
+    </div>
+
+    <div v-else class="flex flex-col gap-8">
       <div v-for="group in agendaGroups" :key="group.category" class="flex flex-col">
         <!-- Category Bar -->
         <div class="bg-jd-cyan text-black font-bold text-xs tracking-[0.2em] uppercase py-3 px-6 rounded-md mb-2">
@@ -77,5 +101,7 @@
 import Section from './ui/Section.vue'
 import SectionHeader from './ui/SectionHeader.vue'
 import AppButton from './ui/AppButton.vue'
-import { agendaGroups } from '../data/content'
+import { useSchedule } from '../composables/useEventData'
+
+const agendaGroups = useSchedule()
 </script>
