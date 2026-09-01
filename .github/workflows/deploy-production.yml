@@ -38,4 +38,5 @@ jobs:
           script: |
             cd /var/www/2026.jatimdevday.com/public
             git pull origin master
+            php artisan storage:link
             bun run build
