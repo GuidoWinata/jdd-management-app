@@ -56,7 +56,7 @@ import Section from './ui/Section.vue'
 import SectionHeader from './ui/SectionHeader.vue'
 import AppButton from './ui/AppButton.vue'
 
-const formUrl = import.meta.env.VITE_SPEAKER_FORM_URL || '#'
+const formUrl = window.APP_CONFIG?.speakerFormUrl || '#'
 
 const steps = [
   {

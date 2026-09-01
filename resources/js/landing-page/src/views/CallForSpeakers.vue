@@ -8,7 +8,7 @@ import Cta from "../components/Cta.vue";
 import Footer from "../components/Footer.vue";
 import { useReveal } from "@/composables/useReveal.ts";
 
-const formUrl = import.meta.env.VITE_SPEAKER_FORM_URL || "#"
+const formUrl = window.APP_CONFIG?.speakerFormUrl || "#"
 
 useReveal();
 </script>

@@ -122,11 +122,11 @@ const props = defineProps({
   secondaryLabel: { type: String, default: 'JADI MEDIA PARTNER' },
   secondaryHref: {
     type: String,
-    default: import.meta.env.VITE_MEDIA_PARTNER_FORM_URL || '#',
+    default: window.APP_CONFIG?.mediaPartnerFormUrl || '#',
   },
 })
 
-const eventDate = new Date(import.meta.env.VITE_EVENT_DATE).getTime()
+const eventDate = new Date(window.APP_CONFIG?.eventDate || '2026-11-07').getTime()
 const now = ref(Date.now())
 let timer = null
 
