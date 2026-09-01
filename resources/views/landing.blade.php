@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet"/>
     <script>
         window.APP_CONFIG = {
-            apiBaseUrl: '{{ env('APP_API_URL', config('app.url')) }}',
+            apiBaseUrl: '{{ env('APP_URL', config('app.url')) }}',
             appType: '{{ env('VITE_APP_TYPE', 'landingpage') }}',
             useApiData: {
                 speakers: true,
