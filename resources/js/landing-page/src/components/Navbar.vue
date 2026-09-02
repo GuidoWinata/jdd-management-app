@@ -13,8 +13,8 @@ const props = defineProps({
       { label: 'TICKETS', href: '#tickets' },
     ],
   },
-  ctaLabel: { type: String, default: 'JADI MEDIA PARTNER' },
-  ctaHref: { type: String, default: 'https://s.id/partnershipjdd2026' },
+  ctaLabel: { type: String, default: 'JADI SPEAKER' },
+  ctaHref: { type: String, default: 'https://sessionize.com/jdd-2026' },
 })
 
 const navLinks = props.links
