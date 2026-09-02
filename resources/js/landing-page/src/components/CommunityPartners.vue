@@ -39,7 +39,7 @@
                     <div
                         v-for="(partner, index) in communityLogos"
                         :key="`${set}-${index}`"
-                        class="shrink-0 w-24 h-16 md:w-32 md:h-24 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 cursor-pointer"
+                        class="shrink-0 w-24 h-16 md:w-32 md:h-24 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300 md:grayscale hover:grayscale-0 cursor-pointer"
                     >
                         <img
                             :src="partner.src"

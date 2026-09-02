@@ -22,7 +22,7 @@
         <!-- IMAGE AREA -->
         <div class="absolute inset-x-0 bottom-0 top-12 flex justify-center z-0 pointer-events-none">
           <div
-            class="w-full h-full bg-center bg-cover bg-no-repeat opacity-60"
+            class="w-full h-full bg-center bg-cover bg-no-repeat opacity-90"
             :style="speakerPhoto(speaker.photo_path)
               ? { backgroundImage: `url('${speakerPhoto(speaker.photo_path)}')` }
               : {}"
@@ -40,8 +40,8 @@
             class="absolute inset-0 bg-gradient-to-t"
             :class="
               speaker.is_active
-                ? 'from-jd-cyan via-jd-cyan/30 to-transparent'
-                : 'from-[#22313b] via-[#22313b]/30 to-transparent'
+                ? 'from-jd-cyan/60 via-jd-cyan/10 to-transparent'
+                : 'from-[#22313b]/60 via-[#22313b]/10 to-transparent'
             "
           ></div>
         </div>

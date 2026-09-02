@@ -107,7 +107,7 @@ import mascotImg from '../assets/mascot-double.png'
 const props = defineProps({
   badgeText: {
     type: String,
-    default: 'East Java Premier Tech Gathering · Nov 7, 2026',
+    default: 'ITB Yadika Pasuruan · Nov 7, 2026',
   },
   titleLine1: { type: String, default: 'Jatim Tech Hub' },
   titleLine2: { type: String, default: 'Inclusive Tech ' },

@@ -26,7 +26,7 @@ useReveal();
     />
     <main>
       <Hero
-        badge-text="Call for Speakers 2026 · East Java Premier Tech Gathering"
+        badge-text="Call for Speakers 2026 · ITB Yadika Pasuruan"
         primary-label="DAFTAR JADI PEMBICARA"
         :primary-href="formUrl"
         secondary-label="KETAHUI LEBIH LANJUT"

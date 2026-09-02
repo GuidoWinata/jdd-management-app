@@ -89,7 +89,7 @@
       <div
         class="flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] md:text-xs text-jd-cyan/80 tracking-widest font-semibold uppercase"
       >
-        <div>JDD TEAM &copy; 2025, ALL RIGHTS RESERVED</div>
+        <div>JDD TEAM &copy; 2026, ALL RIGHTS RESERVED</div>
 
         <div class="flex flex-wrap justify-center gap-6 md:gap-8">
           <a href="#" class="hover:text-jd-cyan transition duration-300">FAQ</a>

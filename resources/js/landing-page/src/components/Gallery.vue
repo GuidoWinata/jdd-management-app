@@ -24,7 +24,7 @@
             <img
               :src="item.image"
               :alt="item.label"
-              class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-110"
+              class="w-full h-full object-cover md:grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-110"
             />
           </div>
 
