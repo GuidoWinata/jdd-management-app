@@ -7,6 +7,19 @@
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon/jdd-logo.svg') }}" />
     <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico') }}" />
     <meta name="description" content="JDD 2026 - Konferensi teknologi terbesar untuk developer Jawa Timur. 3 hari penuh insight, workshop, dan networking.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="JDD 2026 - Jatim Developer Day">
+    <meta property="og:description" content="Jatim Tech Hub - Inclusive Tech, Real Impact. Konferensi teknologi terbesar untuk developer Jawa Timur.">
+    <meta property="og:image" content="{{ asset('images/Web - Meta OG Image.png') }}">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JDD 2026 - Jatim Developer Day">
+    <meta name="twitter:description" content="Jatim Tech Hub - Inclusive Tech, Real Impact. Konferensi teknologi terbesar untuk developer Jawa Timur.">
+    <meta name="twitter:image" content="{{ asset('images/Web - Meta OG Image.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
