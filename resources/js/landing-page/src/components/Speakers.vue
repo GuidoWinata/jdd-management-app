@@ -40,8 +40,8 @@
             class="absolute inset-0 bg-gradient-to-t"
             :class="
               speaker.is_active
-                ? 'from-jd-cyan/60 via-jd-cyan/10 to-transparent'
-                : 'from-[#22313b]/60 via-[#22313b]/10 to-transparent'
+                ? 'from-jd-cyan/30 via-jd-cyan/5 to-transparent'
+                : 'from-[#22313b]/30 via-[#22313b]/5 to-transparent'
             "
           ></div>
         </div>
