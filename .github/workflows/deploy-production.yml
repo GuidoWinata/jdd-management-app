@@ -28,7 +28,7 @@ jobs:
           source: ".env"
           target: "/var/www/2026.jatimdevday.com/public/"
 
-      - name: Run deploy commands
+      - name: Update git repository
         uses: appleboy/ssh-action@v1.2.2
         with:
           host: ${{ secrets.DEPLOY_HOST }}
@@ -38,5 +38,24 @@ jobs:
           script: |
             cd /var/www/2026.jatimdevday.com/public
             git pull origin master
-            php artisan storage:link
-            bun run build
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build assets
+        run: bun run build
+
+      - name: Copy build assets to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          port: 22
+          source: "public/build"
+          target: "/var/www/2026.jatimdevday.com/public/public/build"
