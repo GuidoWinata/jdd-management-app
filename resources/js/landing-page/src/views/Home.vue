@@ -36,6 +36,7 @@ useReveal();
           'PANEL DISCUSSION',
           'OPEN SOURCE ECOSYSTEM',
         ]"
+        direction="right"
       />
       <Schedule />
       <Tickets />
