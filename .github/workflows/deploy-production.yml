@@ -3,7 +3,7 @@ name: Deploy to Production
 on:
   push:
     branches:
-      - master
+      - fix/build-wrong-folder-2
 
 jobs:
   deploy:
@@ -50,6 +50,10 @@ jobs:
       - name: Build assets
         run: bun run build
 
+      - name: Package build assets
+        run: |
+          tar -C public/build -czf build-assets.tar.gz .
+
       - name: Copy build assets to server
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -57,5 +61,17 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           port: 22
-          source: "public/build/*"
+          source: "build-assets.tar.gz"
           target: "/var/www/2026.jatimdevday.com/public/public/build/"
+
+      - name: Extract build assets on server
+        uses: appleboy/ssh-action@v1.2.2
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          port: 22
+          script: |
+            cd /var/www/2026.jatimdevday.com/public/public/build
+            tar -xzf build-assets.tar.gz
+            rm -f build-assets.tar.gz
