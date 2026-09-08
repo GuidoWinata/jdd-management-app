@@ -16,7 +16,7 @@
         <!-- Social Icons -->
         <div class="flex gap-4">
           <a
-            href="#"
+            href="https://www.instagram.com/jatimdevday"
             class="w-10 h-10 rounded-full border border-gray-700/60 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition duration-300"
           >
             <!-- Instagram Icon -->
