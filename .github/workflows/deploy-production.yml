@@ -57,5 +57,5 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           port: 22
-          source: "public/build"
-          target: "/var/www/2026.jatimdevday.com/public/public/build"
+          source: "public/build/*"
+          target: "/var/www/2026.jatimdevday.com/public/public/build/"
