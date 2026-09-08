@@ -116,12 +116,20 @@ export interface Ticket {
   slug: string
   description: string | null
   price: number
+  compare_price: number | null
   ticket_type: 'single' | 'bundle' | string
   capacity: number | null
   sold: number
   benefits: string[] | null
+  description_html: string | null
+  label: string | null
+  label_color: string | null
+  sales_starts_at: string | null
+  sales_ends_at: string | null
+  cta_label: string | null
+  cta_url: string | null
+  sort_order: number
   is_active: boolean
-  order: number
   created_at: string
   updated_at: string
   merchandises?: Merchandise[]

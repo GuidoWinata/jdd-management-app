@@ -1,7 +1,7 @@
 import client from './client'
 import type { ApiResponse } from './types'
 import type { Event, Speaker, Material, AgendaGroup, AgendaItem, Ticket, Merchandise, Partner, EventSection } from './types'
-import { normalizeSpeakers } from './normalizers'
+import { normalizeSpeakers, normalizeTickets } from './normalizers'
 
 export async function getEvents() {
   const { data } = await client.get<ApiResponse<Event[]>>('/api/events')
@@ -87,15 +87,15 @@ export async function getAgendaItemDetail(agendaItemId: number) {
   return data.data
 }
 
-export async function getTickets(eventId: number, ticketType?: string) {
-  const { data } = await client.get<ApiResponse<Ticket[]>>('/api/tickets', {
-    params: { 
-      event_id: eventId, 
-      ticket_type: ticketType || '', 
-      no_pagination: true 
-    }
-  })
-  return data.data
+export async function getTickets(eventId: number, ticketType?: string): Promise<Ticket[]> {
+  const params: Record<string, string | boolean> = { event_id: eventId, no_pagination: true }
+  if (ticketType) {
+    params.ticket_type = ticketType
+  }
+
+  const response = await client.get('/api/tickets', { params })
+  const rawList = response.data?.data?.list ?? response.data?.data ?? []
+  return normalizeTickets(Array.isArray(rawList) ? rawList : [])
 }
 
 export async function getTicketDetail(ticketId: number) {
