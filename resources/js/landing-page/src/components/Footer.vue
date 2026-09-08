@@ -92,9 +92,9 @@
         <div>JDD TEAM &copy; 2026, ALL RIGHTS RESERVED</div>
 
         <div class="flex flex-wrap justify-center gap-6 md:gap-8">
-          <a href="#" class="hover:text-jd-cyan transition duration-300">FAQ</a>
+          <router-link to="/faq" class="hover:text-jd-cyan transition duration-300">FAQ</router-link>
           <a href="#" class="hover:text-jd-cyan transition duration-300">Term of Service</a>
-          <a href="#" class="hover:text-jd-cyan transition duration-300">Refund Policy</a>
+          <router-link to="/refund-policy" class="hover:text-jd-cyan transition duration-300">Refund Policy</router-link>
         </div>
       </div>
     </div>

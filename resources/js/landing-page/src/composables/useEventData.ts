@@ -108,13 +108,27 @@ export function useTickets(eventId?: number): ComputedRef<Ticket[] | undefined> 
   const id = eventId ?? config.eventId
   const useApi = isApiEnabled('tickets')
 
-  const { data: apiData } = useQuery({
+  const { data: apiData, isPending, isError } = useQuery({
     queryKey: ['tickets', id],
     queryFn: () => api.getTickets(id),
     enabled: useApi
   })
 
-  return computed(() => useApi ? apiData.value : staticData.staticTickets)
+  return computed(() => {
+    if (!useApi) {
+      return staticData.staticTickets as unknown as Ticket[]
+    }
+
+    if (isPending.value) {
+      return undefined
+    }
+
+    if (isError.value) {
+      return []
+    }
+
+    return apiData.value ?? []
+  })
 }
 
 export function useMerchandises(eventId?: number): ComputedRef<Merchandise[] | undefined> {

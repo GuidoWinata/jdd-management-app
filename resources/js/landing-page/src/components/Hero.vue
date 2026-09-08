@@ -14,12 +14,12 @@
         <!-- KIRI: Teks & Tombol -->
         <div class="w-full lg:w-3/5 z-10">
           <!-- Top Badge -->
-          <div class="inline-flex items-center px-5 py-2 rounded-full bg-[#031c22] border border-jd-cyan/20 mb-8 reveal">
+          <!-- <div class="inline-flex items-center px-5 py-2 rounded-full bg-[#031c22] border border-jd-cyan/20 mb-8 reveal">
             <span class="w-2 h-2 rounded-full bg-jd-cyan mr-3"></span>
             <span class="text-jd-cyan text-xs font-bold tracking-[0.15em] uppercase">
               {{ badgeText }}
             </span>
-          </div>
+          </div> -->
 
           <!-- Main Headline -->
           <h1

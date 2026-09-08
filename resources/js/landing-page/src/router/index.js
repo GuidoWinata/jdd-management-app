@@ -6,6 +6,16 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/refund-policy',
+    name: 'RefundPolicy',
+    component: () => import('../views/RefundPolicyPage.vue')
+  },
+  {
+    path: '/faq',
+    name: 'Faq',
+    component: () => import('../views/FaqPage.vue')
   }
 ]
 

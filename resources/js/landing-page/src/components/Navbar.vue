@@ -15,6 +15,7 @@ const props = defineProps({
   },
   ctaLabel: { type: String, default: 'JADI SPEAKERS' },
   ctaHref: { type: String, default: 'https://sessionize.com/jdd-2026' },
+  backHref: { type: String, default: '' },
 })
 
 const navLinks = props.links
@@ -84,9 +85,21 @@ onUnmounted(() => {
       >
     </div>
 
-    <!-- Bagian Kanan: Call to Action Button -->
+    <!-- Bagian Kanan: Back Button / Call to Action Button -->
     <div class="flex items-center">
+      <router-link
+        v-if="backHref"
+        :to="backHref"
+        class="flex items-center gap-2 text-jd-cyan hover:text-white text-sm font-semibold transition-colors duration-300"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span class="hidden sm:inline">Kembali</span>
+      </router-link>
       <a
+        v-else
         :href="ctaHref"
         class="bg-jd-cyan hover:bg-jd-cyan-dark text-[#0B1A24] font-bold text-xs sm:text-sm px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full flex items-center gap-2 transition-colors duration-300 shadow-md whitespace-nowrap"
       >

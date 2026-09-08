@@ -6,8 +6,8 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\SidebarMenuController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
-use Illuminate\Support\Benchmark;
 use Illuminate\Http\Request;
+use Illuminate\Support\Benchmark;
 use Illuminate\Support\Facades\Route;
 
 Route::get('test', function () {
@@ -31,6 +31,18 @@ Route::get('/__debug-proxy', function (Request $request) {
 Route::get('/', function () {
     return view('landing');
 })->name('landing');
+
+Route::get('/committee', function () {
+    return view('landing');
+})->name('committee');
+
+Route::get('/refund-policy', function () {
+    return view('landing');
+})->name('refund-policy');
+
+Route::get('/faq', function () {
+    return view('landing');
+})->name('faq');
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'doLogin'])->name('login.post');
