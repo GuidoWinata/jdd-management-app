@@ -160,7 +160,7 @@ export const staticAgendaGroups: any = {
       description: 'Sesi pembukaan',
       sort_order: 1,
       items: [
-        { id: 1, title: 'Registration', starts_at: '08:00:00', ends_at: '09:20:00', place: 'Main Hall', description: null, sort_order: 1, material: null, speakers: [] },
+        { id: 1, title: 'Registration', starts_at: '08:00:00', ends_at: '09:00:00', place: 'Main Hall', description: null, sort_order: 1, material: null, speakers: [] },
       ],
     },
     {
@@ -170,9 +170,9 @@ export const staticAgendaGroups: any = {
       description: 'Sesi keynote',
       sort_order: 2,
       items: [
-        { id: 2, title: 'TBA', starts_at: '09:20:00', ends_at: '09:50:00', place: 'Main Hall', description: null, sort_order: 1, material: null, speakers: [{ name: 'Nosa Shandy' }] },
-        { id: 3, title: 'TBA', starts_at: '10:00:00', ends_at: '10:30:00', place: 'Main Hall', description: null, sort_order: 2, material: null, speakers: [{ name: 'Eko Kurniawan Khannedy' }] },
-        { id: 4, title: 'TBA', starts_at: '10:50:00', ends_at: '11:20:00', place: 'Main Hall', description: null, sort_order: 3, material: null, speakers: [{ name: 'Sandhika Galih' }] },
+        { id: 2, title: 'Security Matters: AI Is the New Attack Surface', starts_at: '09:20:00', ends_at: '10:00:00', place: 'Main Hall', description: null, sort_order: 1, material: null, speakers: [{ name: 'Nosa Shandy' }] },
+        { id: 3, title: 'AI Can Write Code. Can You Design the System? (TBC)', starts_at: '10:00:00', ends_at: '10:45:00', place: 'Main Hall', description: null, sort_order: 2, material: null, speakers: [{ name: 'Eko Kurniawan Khannedy' }] },
+        { id: 4, title: 'Tech Talent 2.0: Cara Belajar, Beradaptasi, dan Tetap Relevan di Tengah Gelombang AI (TBC)', starts_at: '11:00:00', ends_at: '11:45:00', place: 'Main Hall', description: null, sort_order: 3, material: null, speakers: [{ name: 'Sandhika Galih' }] },
       ],
     },
     {
@@ -182,10 +182,12 @@ export const staticAgendaGroups: any = {
       description: 'Sesi paralel',
       sort_order: 3,
       items: [
-        { id: 5, title: 'Interactive Session 1', starts_at: '13:20:00', ends_at: '15:20:00', place: 'Multiple Rooms', description: null, sort_order: 1, material: null, speakers: [] },
-        { id: 6, title: 'Interactive Session 2', starts_at: '13:20:00', ends_at: '15:20:00', place: 'Multiple Rooms', description: null, sort_order: 2, material: null, speakers: [] },
-        { id: 7, title: 'Workshop', starts_at: '13:20:00', ends_at: '15:20:00', place: 'Multiple Rooms', description: null, sort_order: 3, material: null, speakers: [] },
-        { id: 8, title: 'Lightning Talk', starts_at: '13:20:00', ends_at: '15:20:00', place: 'Multiple Rooms', description: null, sort_order: 4, material: null, speakers: [] },
+        { id: 5, title: 'Career Consultation', starts_at: '13:20:00', ends_at: '15:20:00', place: 'Multiple Rooms', description: null, sort_order: 1, material: null, speakers: [] },
+        { id: 6, title: 'Application Pitching', starts_at: '13:20:00', ends_at: '15:20:00', place: 'Multiple Rooms', description: null, sort_order: 2, material: null, speakers: [] },
+        { id: 7, title: 'Showcase Portfolio', starts_at: '13:20:00', ends_at: '15:20:00', place: 'Multiple Rooms', description: null, sort_order: 3, material: null, speakers: [] },
+        { id: 8, title: 'Technical Workshop', starts_at: '13:20:00', ends_at: '15:20:00', place: 'Multiple Rooms', description: null, sort_order: 4, material: null, speakers: [] },
+        { id: 9, title: 'Lightning Talk', starts_at: '13:20:00', ends_at: '15:20:00', place: 'Multiple Rooms', description: null, sort_order: 4, material: null, speakers: [] },
+        { id: 10, title: 'Community Management FGD', starts_at: '13:20:00', ends_at: '15:20:00', place: 'Multiple Rooms', description: null, sort_order: 4, material: null, speakers: [] },
       ],
     },
     {
@@ -195,7 +197,7 @@ export const staticAgendaGroups: any = {
       description: 'Penutupan',
       sort_order: 4,
       items: [
-        { id: 9, title: 'Documentation & Closing', starts_at: '15:20:00', ends_at: '15:30:00', place: 'Main Hall', description: null, sort_order: 1, material: null, speakers: [] },
+        { id: 11, title: 'Documentation & Closing', starts_at: '15:20:00', ends_at: '15:30:00', place: 'Main Hall', description: null, sort_order: 1, material: null, speakers: [] },
       ],
     },
   ],
