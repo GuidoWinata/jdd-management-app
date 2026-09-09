@@ -110,6 +110,7 @@ const props = defineProps({
     type: Array,
     default: () => [
       { label: 'Tentang', href: '#about' },
+      { label: 'Venue', href: '#venue' },
       { label: 'Speaker', href: '#speakers' },
       { label: 'Agenda', href: '#agenda' },
     ],
