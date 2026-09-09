@@ -4,6 +4,7 @@ import Hero from "../components/Hero.vue";
 import CommunityPartners from "../components/CommunityPartners.vue";
 import TextMarquee from "../components/ui/TextMarquee.vue";
 import Vision from "../components/Vision.vue";
+import Venue from "../components/Venue.vue";
 import StatsBar from "../components/StatsBar.vue";
 import Speakers from "../components/Speakers.vue";
 import Schedule from "../components/Schedule.vue";
@@ -25,6 +26,7 @@ useReveal();
       <CommunityPartners />
       <TextMarquee />
       <Vision />
+      <Venue />
       <StatsBar />
       <Speakers />
       <TextMarquee

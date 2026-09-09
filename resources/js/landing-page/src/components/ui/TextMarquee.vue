@@ -32,7 +32,7 @@ defineProps({
       '500+ DEVELOPERS',
       '500+ TECH LEADERS & DEVS',
       '1 DAY OF SESSIONS',
-      '7 SESSION TRACKS',
+      '6 SESSION TRACKS',
     ],
   },
   speed: {

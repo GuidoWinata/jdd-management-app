@@ -8,6 +8,7 @@ const props = defineProps({
     default: () => [
       { label: 'HOME', href: '#home' },
       { label: 'ABOUT', href: '#about' },
+      { label: 'VENUE', href: '#venue' },
       { label: 'SPEAKERS', href: '#speakers' },
       { label: 'AGENDA', href: '#agenda' },
       { label: 'TICKETS', href: '#tickets' },
