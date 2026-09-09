@@ -1,7 +1,7 @@
 <template>
   <Section id="agenda">
     <SectionHeader
-      number="03"
+      number="04"
       label="The Symposium"
       description="Agenda lengkap symposium dari registrasi hingga sesi workshop bersama para praktisi industri."
     >

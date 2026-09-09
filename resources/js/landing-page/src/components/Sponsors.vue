@@ -1,6 +1,6 @@
 <template>
   <Section id="sponsorship">
-    <SectionHeader number="06" label="Partners & Sponsors">
+    <SectionHeader number="07" label="Partners & Sponsors">
       BECOME OUR <span class="text-jd-cyan">SPONSOR</span>
     </SectionHeader>
 

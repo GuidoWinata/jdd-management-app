@@ -1,6 +1,7 @@
 <template>
   <Section id="venue" border-top variant="base">
     <SectionHeader
+      number="02"
       label="Location & Venue"
       :description="subtitle"
       headline-class="font-montserrat text-4xl md:text-5xl lg:text-[3.5rem] font-black uppercase leading-[1.1] tracking-tight max-w-4xl"

@@ -117,8 +117,8 @@ const props = defineProps({
     default:
       'Konferensi teknologi terbesar di Jawa Timur yang menghubungkan talenta, industri, dan masyarakat demi ekosistem digital yang inklusif dan berdampak nyata.',
   },
-  primaryLabel: { type: String, default: 'JADI MEDIA PARTNER' },
-  primaryHref: { type: String, default: 'https://s.id/partnershipjdd2026' },
+  primaryLabel: { type: String, default: 'BELI TIKET' },
+  primaryHref: { type: String, default: 'https://avora.id/jatimdeveloperday/jatim-developer-day-2026' },
   secondaryLabel: { type: String, default: 'JADI SPONSOR' },
   secondaryHref: {
     type: String,

@@ -1,7 +1,7 @@
 <template>
   <Section id="gallery">
     <SectionHeader
-      number="05"
+      number="06"
       label="Gallery"
       description="Momen-momen terbaik dari perjalanan Jatim Developer Day di tahun-tahun sebelumnya."
     >

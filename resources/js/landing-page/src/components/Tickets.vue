@@ -1,7 +1,7 @@
 <template>
   <Section id="tickets">
     <SectionHeader
-      number="04"
+      number="05"
       label="Invitation Pass"
       description="Akses eksklusif untuk pembelajaran intensif, networking eksekutif, dan suvenir spesial edisi Maskot Jawa Timur."
     >

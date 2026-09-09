@@ -268,7 +268,7 @@ export const staticTickets: Ticket[] = [
     label_color: null,
     sales_starts_at: null,
     sales_ends_at: null,
-    cta_label: 'Beli Tiket',
+    cta_label: 'Beli Tiket Presale #1',
     cta_url: 'https://avora.id/jatimdeveloperday/jatim-developer-day-2026',
     sort_order: 1,
     is_active: true,

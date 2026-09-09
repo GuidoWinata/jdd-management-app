@@ -1,7 +1,7 @@
 <template>
   <Section id="speakers">
     <SectionHeader
-      number="02"
+      number="03"
       label="Meet Our Speakers"
       description="Para praktisi global yang telah menguji keahlian mereka di skala produksi industri teknologi terbesar."
     >
