@@ -60,7 +60,7 @@
             <h3 class="text-xl font-bold text-white mb-1">{{ speaker.name }}</h3>
             <p
               class="text-xs font-semibold"
-              :class="speaker.is_active ? 'text-[#0b4251]' : 'text-jd-cyan'"
+              :class="speaker.is_active ? 'text-white' : 'text-jd-cyan'"
             >
               {{ speaker.job_title }}
             </p>
