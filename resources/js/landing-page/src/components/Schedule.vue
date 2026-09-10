@@ -75,9 +75,7 @@
             <div class="hidden md:flex w-16 flex-shrink-0 justify-end">
               <div class="w-12 h-12 rounded-xl bg-gray-800 border border-gray-700 overflow-hidden relative">
                 <div class="absolute inset-0 bg-gray-600/50 mix-blend-luminosity"></div>
-                <svg class="w-full h-full text-gray-500 opacity-50 p-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
+                <PhUser class="w-full h-full text-gray-500 opacity-50 p-2" :size="24" :weight="'regular'" />
               </div>
             </div>
           </div>
@@ -101,6 +99,7 @@
 import Section from './ui/Section.vue'
 import SectionHeader from './ui/SectionHeader.vue'
 import AppButton from './ui/AppButton.vue'
+import { PhUser } from '@phosphor-icons/vue'
 import { useSchedule } from '../composables/useEventData'
 
 const agendaGroups = useSchedule()

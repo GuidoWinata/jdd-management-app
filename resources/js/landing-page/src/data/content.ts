@@ -236,7 +236,7 @@ export const communityPartners: CommunityPartner[] = [
 ]
 
 export const stats: Stat[] = [
-  { icon: 'people', number: '1,000+', label: 'Tech Leaders & Devs' },
+  { icon: 'people', number: '500 +', label: 'Tech Leaders & Devs' },
   { icon: 'building', number: '20+', label: 'Industry Experts' },
   { icon: 'calendar', number: '1', label: 'Full-Day Session' },
   { icon: 'briefcase', number: '6', label: 'Session Tracks' },

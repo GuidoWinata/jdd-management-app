@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[#020b10] py-20 px-6 font-sans">
+  <section class="bg-[#020b10] py-10 px-6 font-sans">
     <div class="container mx-auto max-w-4xl">
       
       <!-- List FAQ -->
@@ -15,15 +15,12 @@
             class="w-full flex items-center justify-start text-left p-5 focus:outline-none hover:bg-[#071c29] transition-colors duration-300"
           >
             <!-- Icon Chevron -->
-            <svg 
+            <PhCaretDown
               class="w-4 h-4 text-white mr-4 transform transition-transform duration-300 flex-shrink-0"
               :class="activeIndex === index ? 'rotate-180' : 'rotate-0'"
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
-            </svg>
+              :size="16"
+              :weight="'bold'"
+            />
             
             <span class="text-white font-bold text-sm md:text-base">
               {{ faq.question }}
@@ -51,6 +48,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import { PhCaretDown } from '@phosphor-icons/vue'
 
 const activeIndex = ref(0);
 

@@ -129,9 +129,7 @@
       </p>
       <AppButton href="https://sessionize.com/jdd-2026" target="_blank" :glow="true">
         JADI SPEAKERS
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 19L20 5m0 0H9m11 0v11"></path>
-        </svg>
+        <PhArrowUpRight :size="16" :weight="'bold'" />
       </AppButton>
     </div>
   </Section>
@@ -141,6 +139,7 @@
 import Section from './ui/Section.vue'
 import SectionHeader from './ui/SectionHeader.vue'
 import AppButton from './ui/AppButton.vue'
+import { PhArrowUpRight } from '@phosphor-icons/vue'
 import { useSpeakers } from '../composables/useEventData'
 import { useConfig } from '../config'
 

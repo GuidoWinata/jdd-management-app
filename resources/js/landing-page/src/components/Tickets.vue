@@ -50,9 +50,7 @@
         <!-- Ticket Features -->
         <ul class="flex-1 space-y-4 mb-10">
           <li v-for="(feature, fi) in (ticket.benefits || [])" :key="fi" class="flex items-start">
-            <svg class="w-5 h-5 text-jd-cyan mr-4 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
+            <PhCheck :size="20" :weight="'bold'" class="text-jd-cyan mr-4 flex-shrink-0 mt-0.5" />
             <span class="text-gray-300 text-sm font-medium leading-relaxed">{{ feature }}</span>
           </li>
         </ul>
@@ -87,6 +85,7 @@
 <script setup>
 import Section from './ui/Section.vue'
 import SectionHeader from './ui/SectionHeader.vue'
+import { PhCheck } from '@phosphor-icons/vue'
 import { useTickets } from '../composables/useEventData'
 
 const tickets = useTickets()

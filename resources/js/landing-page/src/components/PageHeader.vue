@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full py-24 md:py-36 px-6 bg-[#020b10] relative overflow-hidden font-sans">
+  <header class="w-full py-16 md:py-24 px-6 bg-[#020b10] relative overflow-hidden font-sans">
     
     <!-- Latar Belakang Grid Pattern -->
     <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
@@ -11,7 +11,7 @@
         <!-- Teks Solid (Baris Pertama) -->
         <span class="block text-[#e0f0f1]">{{ titleSolid }}</span>
         <!-- Teks Outline (Baris Kedua) -->
-        <span class="block text-transparent text-stroke-cyan">{{ titleOutline }}</span>
+        <span class="block text-jd-cyan">{{ titleOutline }}</span>
       </h1>
 
       <!-- Subtitle -->

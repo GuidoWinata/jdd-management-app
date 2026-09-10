@@ -19,29 +19,13 @@
             href="https://www.instagram.com/jatimdevday"
             class="w-10 h-10 rounded-full border border-gray-700/60 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition duration-300"
           >
-            <!-- Instagram Icon -->
-            <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4z"
-              ></path>
-            </svg>
+            <PhInstagramLogo :size="18" :weight="'regular'" />
           </a>
           <a
             href="#"
             class="w-10 h-10 rounded-full border border-gray-700/60 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition duration-300"
           >
-            <!-- WhatsApp Icon -->
-            <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="1.5"
-                d="M17.498 14.382c-.301-.15-1.767-.867-2.04-.966-.274-.101-.473-.15-.673.15-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.068-.301-.15-1.265-.464-2.409-1.485-.888-.795-1.484-1.77-1.66-2.07-.174-.3-.019-.465.13-.615.136-.135.301-.345.451-.523.146-.181.194-.301.297-.496.098-.2.05-.375-.025-.524-.075-.15-.672-1.62-.922-2.206-.24-.584-.487-.51-.672-.51-.172-.015-.371-.015-.571-.015-.2 0-.523.074-.797.359-.273.3-1.045 1.02-1.045 2.475s1.07 2.865 1.219 3.075c.149.195 2.105 3.195 5.1 4.485.714.3 1.27.48 1.704.629.714.227 1.365.195 1.88.121.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.36z"
-              ></path>
-            </svg>
+            <PhWhatsappLogo :size="18" :weight="'regular'" />
           </a>
         </div>
 
@@ -104,6 +88,7 @@
 <script setup>
 import bgFooter from "../assets/bg-footer.png";
 import jddLogo from "../assets/jdd-logo.svg";
+import { PhInstagramLogo, PhWhatsappLogo } from '@phosphor-icons/vue'
 
 const props = defineProps({
   navLinks: {

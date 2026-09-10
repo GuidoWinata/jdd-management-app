@@ -53,26 +53,7 @@
               <div
                 class="w-10 h-10 rounded-xl bg-jd-cyan/10 border border-jd-cyan/30 flex items-center justify-center text-jd-cyan flex-shrink-0 mt-0.5"
               >
-                <!-- Location Pin Icon -->
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.8"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.8"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
+                <PhMapPin :size="20" :weight="'bold'" />
               </div>
 
               <div>
@@ -91,25 +72,25 @@
             <div
               class="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-900/50 border border-gray-800/80 text-xs text-gray-300 font-medium"
             >
-              <span class="text-jd-cyan text-sm">🚆</span>
+              <PhTrain :size="16" :weight="'regular'" class="text-jd-cyan" />
               <span>±5 Menit dari Stasiun Bangil</span>
             </div>
             <div
               class="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-900/50 border border-gray-800/80 text-xs text-gray-300 font-medium"
             >
-              <span class="text-jd-cyan text-sm">🏛️</span>
+              <PhBuildings :size="16" :weight="'regular'" class="text-jd-cyan" />
               <span>Auditorium & Ruang Paralel</span>
             </div>
             <div
               class="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-900/50 border border-gray-800/80 text-xs text-gray-300 font-medium"
             >
-              <span class="text-jd-cyan text-sm">🚗</span>
+              <PhCar :size="16" :weight="'regular'" class="text-jd-cyan" />
               <span>±10 Menit dari Exit Tol Bangil</span>
             </div>
             <div
               class="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-900/50 border border-gray-800/80 text-xs text-gray-300 font-medium"
             >
-              <span class="text-jd-cyan text-sm">⚡</span>
+              <PhLightning :size="16" :weight="'regular'" class="text-jd-cyan" />
               <span>High-Speed Wi-Fi & Lounge</span>
             </div>
           </div>
@@ -124,39 +105,9 @@
             :glow="true"
             class="w-full flex items-center justify-center gap-2"
           >
-            <svg
-              class="w-4 h-4 text-black"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              />
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-              />
-            </svg>
+            <PhMapPin :size="16" :weight="'bold'" class="text-black" />
             <span>Buka di Google Maps</span>
-            <svg
-              class="w-4 h-4 text-black"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
+            <PhArrowSquareOut :size="16" :weight="'bold'" class="text-black" />
           </AppButton>
         </div>
       </div>
@@ -225,19 +176,11 @@
             class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-jd-cyan hover:text-white transition-colors group/link self-start sm:self-auto"
           >
             <span>Petunjuk Arah</span>
-            <svg
+            <PhArrowSquareOut
               class="w-3.5 h-3.5 transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
+              :size="14"
+              :weight="'bold'"
+            />
           </a>
         </div>
       </div>
@@ -249,6 +192,7 @@
 import Section from './ui/Section.vue'
 import SectionHeader from './ui/SectionHeader.vue'
 import AppButton from './ui/AppButton.vue'
+import { PhMapPin, PhArrowSquareOut, PhTrain, PhBuildings, PhCar, PhLightning } from '@phosphor-icons/vue'
 import auditoriumImg from '../assets/auditorium-yadika.webp'
 
 interface Props {

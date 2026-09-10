@@ -14,12 +14,16 @@
         <!-- KIRI: Teks & Tombol -->
         <div class="w-full lg:w-3/5 z-10">
           <!-- Top Badge -->
-          <!-- <div class="inline-flex items-center px-5 py-2 rounded-full bg-[#031c22] border border-jd-cyan/20 mb-8 reveal">
-            <span class="w-2 h-2 rounded-full bg-jd-cyan mr-3"></span>
-            <span class="text-jd-cyan text-xs font-bold tracking-[0.15em] uppercase">
-              {{ badgeText }}
+          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-jd-cyan/10 border border-jd-cyan/30 mb-8 reveal">
+            <span class="relative flex size-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-jd-cyan opacity-75"></span>
+              <span class="relative inline-flex rounded-full size-2 bg-jd-cyan"></span>
             </span>
-          </div> -->
+            <PhTicket :size="14" :weight="'bold'" class="text-jd-cyan" />
+            <span class="text-jd-cyan text-xs font-bold tracking-wider uppercase">
+              Presale #1 Open Now
+            </span>
+          </div>
 
           <!-- Main Headline -->
           <h1
@@ -44,9 +48,7 @@
           <div class="flex flex-wrap items-center gap-6 reveal" style="transition-delay: 0.3s">
             <AppButton :glow="true" :href="primaryHref">
               {{ primaryLabel }}
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 19L20 5m0 0H9m11 0v11"></path>
-              </svg>
+              <PhArrowUpRight :size="16" :weight="'bold'" />
             </AppButton>
 
             <AppButton variant="outline" :href="secondaryHref">
@@ -101,14 +103,11 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import AppButton from './ui/AppButton.vue'
+import { PhArrowUpRight, PhTicket } from '@phosphor-icons/vue'
 import heroImg from '../assets/hero-img.png'
 import mascotImg from '../assets/mascot-double.png'
 
 const props = defineProps({
-  badgeText: {
-    type: String,
-    default: 'ITB Yadika Pasuruan · Nov 7, 2026',
-  },
   titleLine1: { type: String, default: 'Jatim Tech Hub' },
   titleLine2: { type: String, default: 'Inclusive Tech ' },
   titleAccent: { type: String, default: 'Real Impact' },

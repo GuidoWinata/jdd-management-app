@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[#020b10] text-white py-20 px-6 font-sans">
+  <section class="bg-[#020b10] text-white py-10 px-6 font-sans">
     <div class="container mx-auto max-w-6xl flex flex-col md:flex-row gap-8 items-start">
       
       <!-- SIDEBAR NAVIGATION -->

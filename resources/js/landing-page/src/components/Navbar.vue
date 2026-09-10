@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { PhArrowLeft, PhArrowUpRight } from '@phosphor-icons/vue'
 import jddLogo from '../assets/jdd-logo.svg'
 
 const props = defineProps({
@@ -60,7 +61,7 @@ onUnmounted(() => {
     :class="hidden ? '-translate-y-[150%] opacity-0 pointer-events-none' : 'opacity-100'"
   >
     <!-- Bagian Kiri: Logo & Judul -->
-    <a href="#home" class="flex items-center gap-3 sm:gap-4 cursor-pointer">
+    <a href="/" class="flex items-center gap-3 sm:gap-4 cursor-pointer">
       <img :src="jddLogo" alt="JDD Logo" class="w-9 sm:w-11 h-auto" />
 
       <div class="flex flex-col text-jd-cyan font-bold text-[11px] sm:text-[13px] leading-tight tracking-wider">
@@ -93,10 +94,7 @@ onUnmounted(() => {
         :to="backHref"
         class="flex items-center gap-2 text-jd-cyan hover:text-white text-sm font-semibold transition-colors duration-300"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="19" y1="12" x2="5" y2="12"></line>
-          <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
+        <PhArrowLeft :size="18" :weight="'bold'" />
         <span class="hidden sm:inline">Kembali</span>
       </router-link>
       <a
@@ -105,10 +103,7 @@ onUnmounted(() => {
         class="bg-jd-cyan hover:bg-jd-cyan-dark text-[#0B1A24] font-bold text-xs sm:text-sm px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full flex items-center gap-2 transition-colors duration-300 shadow-md whitespace-nowrap"
       >
         <span>{{ ctaLabel }}</span>
-        <svg class="hidden sm:block" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="7" y1="17" x2="17" y2="7"></line>
-          <polyline points="7 7 17 7 17 17"></polyline>
-        </svg>
+        <PhArrowUpRight class="hidden sm:block" :size="16" :weight="'bold'" />
       </a>
     </div>
   </nav>
