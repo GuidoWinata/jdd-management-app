@@ -3,7 +3,7 @@
     <SectionHeader
       number="05"
       label="Invitation Pass"
-      description="Akses eksklusif untuk pembelajaran intensif, networking eksekutif, dan suvenir spesial edisi Maskot Jawa Timur."
+      description="Akses eksklusif untuk pembelajaran intensif, networking eksekutif, dan souvenir spesial edisi Maskot JDD 2026."
     >
       <span class="text-jd-cyan">SELECT</span> YOUR SESSIONS
     </SectionHeader>
@@ -36,7 +36,7 @@
             {{ (ticket.label || 'TBA').toUpperCase() }}
           </span>
           <h3 class="text-2xl font-black uppercase tracking-wide text-white mb-3">
-            {{ ticket.name.toUpperCase() }} PASS
+            {{ ticket.name.toUpperCase() }}
           </h3>
           <div class="text-4xl md:text-[2.5rem] font-black" :class="priceClass(ticket.ticket_type)">
             <span v-if="ticket.price === 0">TBA</span>

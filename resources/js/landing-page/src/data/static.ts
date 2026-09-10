@@ -249,8 +249,8 @@ export const staticTickets: Ticket[] = [
   {
     id: 1,
     event_id: 1,
-    name: 'Flash Sale 9.9',
-    slug: 'flash-sale-99',
+    name: 'Presale Ticket #1',
+    slug: 'presale-ticket-1',
     description: null,
     price: 35000,
     compare_price: null,
