@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full py-16 md:py-24 px-6 bg-[#020b10] relative overflow-hidden font-sans">
+  <header class="w-full py-16 md:py-24 px-6 bg-jd-bg-deep relative overflow-hidden font-sans">
     
     <!-- Latar Belakang Grid Pattern -->
     <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
@@ -9,13 +9,13 @@
       <!-- Headline Utama -->
       <h1 class="font-montserrat text-5xl md:text-7xl lg:text-[5.5rem] font-black uppercase tracking-tight leading-[1.1] mb-6">
         <!-- Teks Solid (Baris Pertama) -->
-        <span class="block text-[#e0f0f1]">{{ titleSolid }}</span>
+        <span class="block text-jd-text-light">{{ titleSolid }}</span>
         <!-- Teks Outline (Baris Kedua) -->
         <span class="block text-jd-cyan">{{ titleOutline }}</span>
       </h1>
 
       <!-- Subtitle -->
-      <p class="text-[#8ebdbd] text-base md:text-lg font-medium max-w-2xl">
+      <p class="text-jd-text-muted text-base md:text-lg font-medium max-w-2xl">
         {{ subtitle }}
       </p>
 
@@ -46,17 +46,17 @@ defineProps({
 .grid-pattern {
   background-size: 80px 80px;
   background-image:
-    linear-gradient(to right, rgba(24, 188, 188, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(24, 188, 188, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(207, 221, 17, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(207, 221, 17, 0.05) 1px, transparent 1px);
 }
 
 .text-stroke-cyan {
-  -webkit-text-stroke: 2px #18BCBC;
+  -webkit-text-stroke: 2px #CFDD11;
 }
 
 @media (max-width: 768px) {
   .text-stroke-cyan {
-    -webkit-text-stroke: 1.5px #18BCBC;
+    -webkit-text-stroke: 1.5px #CFDD11;
   }
 }
 </style>

@@ -1,12 +1,5 @@
 <template>
   <Section id="gallery">
-    <SectionHeader
-      number="06"
-      label="Gallery"
-      description="Momen-momen terbaik dari perjalanan Jatim Developer Day di tahun-tahun sebelumnya."
-    >
-      PREVIOUS <span class="text-jd-cyan">MOMENTS</span>
-    </SectionHeader>
 
     <!-- GALLERY GRID (Edge-to-edge on large screens) -->
     <template #full>

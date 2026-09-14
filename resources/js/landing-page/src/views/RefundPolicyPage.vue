@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#031118] text-white font-sans min-h-screen">
+  <div class="bg-jd-bg text-white font-sans min-h-screen">
     <Navbar backHref="/" />
     <main>
       <PageHeader

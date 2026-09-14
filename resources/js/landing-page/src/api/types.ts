@@ -130,6 +130,7 @@ export interface Ticket {
   cta_url: string | null
   sort_order: number
   is_active: boolean
+  is_sold_out?: boolean
   created_at: string
   updated_at: string
   merchandises?: Merchandise[]

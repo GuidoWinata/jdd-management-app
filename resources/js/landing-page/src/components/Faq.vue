@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[#020b10] py-10 px-6 font-sans">
+  <section class="bg-background py-10 px-6 font-sans">
     <div class="container mx-auto max-w-4xl">
       
       <!-- List FAQ -->
@@ -7,22 +7,22 @@
         <div 
           v-for="(faq, index) in faqs" 
           :key="index"
-          class="bg-[#05141e] border border-[#0a2333] rounded-md border-l-[4px] border-l-[#547b97] overflow-hidden"
+          class="bg-white border border-gray-200 rounded-md border-l-[4px] border-l-jd-cyan overflow-hidden"
         >
           <!-- Header (Pertanyaan) -->
           <button 
             @click="toggleFaq(index)"
-            class="w-full flex items-center justify-start text-left p-5 focus:outline-none hover:bg-[#071c29] transition-colors duration-300"
+            class="w-full flex items-center justify-start text-left p-5 focus:outline-none hover:bg-gray-50 transition-colors duration-300"
           >
             <!-- Icon Chevron -->
             <PhCaretDown
-              class="w-4 h-4 text-white mr-4 transform transition-transform duration-300 flex-shrink-0"
+              class="w-4 h-4 text-jd-dark mr-4 transform transition-transform duration-300 flex-shrink-0"
               :class="activeIndex === index ? 'rotate-180' : 'rotate-0'"
               :size="16"
               :weight="'bold'"
             />
             
-            <span class="text-white font-bold text-sm md:text-base">
+            <span class="text-jd-dark font-bold text-sm md:text-base">
               {{ faq.question }}
             </span>
           </button>
@@ -33,7 +33,7 @@
             :class="activeIndex === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
           >
             <div class="overflow-hidden">
-              <div class="p-5 pt-0 pl-13 text-[#8ba7b8] text-sm md:text-sm leading-relaxed">
+              <div class="p-5 pt-0 pl-13 text-gray-600 text-sm md:text-sm leading-relaxed">
                 {{ faq.answer }}
               </div>
             </div>

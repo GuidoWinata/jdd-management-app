@@ -25,10 +25,10 @@ const descriptionClass = computed(
   <div class="flex flex-col items-center text-center mb-16 reveal">
     <div v-if="label || number" class="flex items-center gap-4 mb-6">
       <template v-if="number">
-        <span class="text-jd-cyan text-xs font-bold tracking-widest">{{ number }}</span>
+        <span class="text-jd-dark text-xs font-bold tracking-widest">{{ number }}</span>
         <div class="w-12 h-px bg-gray-700"></div>
       </template>
-      <span v-if="label" class="text-gray-400 text-xs font-semibold tracking-[0.2em] uppercase">{{ label }}</span>
+      <span v-if="label" class="text-jd-dark text-sm font-semibold tracking-[0.2em] uppercase">{{ label }}</span>
     </div>
 
     <h2 :class="headlineClass">

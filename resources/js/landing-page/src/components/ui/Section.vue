@@ -9,13 +9,13 @@ const props = defineProps({
   container: { type: String, default: 'max-w-6xl' },
 })
 
-const bgClass = computed(() => (props.variant === 'deep' ? 'bg-jd-bg-deep' : 'bg-jd-bg'))
+const bgClass = computed(() => (props.variant === 'deep' ? 'bg-background' : 'bg-background'))
 
 const sectionClass = computed(() => [
-  'text-white font-sans overflow-hidden',
+  'text-jd-dark font-sans overflow-hidden',
   bgClass.value,
   props.size === 'lg' ? 'py-32' : 'py-24',
-  props.borderTop ? 'border-t border-gray-900' : '',
+  props.borderTop ? 'border-t border-jd-dark/10' : '',
 ])
 </script>
 

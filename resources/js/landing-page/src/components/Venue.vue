@@ -4,63 +4,50 @@
       number="02"
       label="Location & Venue"
       :description="subtitle"
-      headline-class="font-montserrat text-4xl md:text-5xl lg:text-[3.5rem] font-black uppercase leading-[1.1] tracking-tight max-w-4xl"
-      description-class="text-gray-300 text-base md:text-lg font-medium max-w-3xl leading-relaxed"
+      headline-class="text-5xl md:text-6xl font-semibold leading-[1.1] max-w-5xl mx-auto"
+      description-class="text-gray-600 text-sm md:text-base max-w-3xl mx-auto mb-12 mt-5 leading-relaxed"
     >
-      JDD 2026 LANDS IN <span class="text-jd-cyan">PASURUAN</span>
+      JDD 2026 Lands in Pasuruan
     </SectionHeader>
 
     <!-- VENUE CONTENT GRID -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch mt-4">
       <!-- LEFT COLUMN: Location Details & CTA -->
       <div
-        class="lg:col-span-5 bg-[#0B1519] border border-gray-800 hover:border-jd-cyan/40 rounded-3xl p-6 sm:p-8 md:p-10 transition-all duration-300 shadow-2xl relative overflow-hidden flex flex-col justify-between reveal-left group"
+        class="lg:col-span-5 bg-background border border-gray-300 rounded-3xl p-6 sm:p-8 md:p-10 transition-all duration-300 relative overflow-hidden flex flex-col justify-between reveal-left group"
       >
-        <!-- Background Ambient Glow -->
-        <div
-          class="absolute -top-24 -left-24 w-72 h-72 bg-jd-cyan/10 rounded-full blur-3xl pointer-events-none"
-        ></div>
-
-        <!-- Corner Tech Brackets -->
-        <div class="absolute top-6 right-6 w-3 h-3 border-t-2 border-r-2 border-jd-cyan/40"></div>
-        <div class="absolute bottom-6 left-6 w-3 h-3 border-b-2 border-l-2 border-jd-cyan/40"></div>
-
         <div>
-          <!-- Tag Badge -->
-          <div
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-jd-cyan/10 border border-jd-cyan/30 text-jd-cyan text-[11px] font-bold tracking-widest uppercase mb-5"
-          >
-            <span class="w-2 h-2 rounded-full bg-jd-cyan animate-pulse"></span>
-            <span>Official Venue</span>
+          <div class="mb-3">
+            <span class="text-jd-dark text-[11px] font-bold tracking-widest uppercase">Official Venue</span>
           </div>
 
           <!-- Venue Title -->
           <h3
-            class="text-2xl sm:text-3xl font-black text-white tracking-wide uppercase mb-3 font-montserrat"
+            class="text-2xl sm:text-3xl font-semibold text-gray-900 tracking-wide mb-3"
           >
             {{ locationName }}
           </h3>
 
-          <p class="text-gray-400 text-sm leading-relaxed mb-6 font-medium">
+          <p class="text-gray-500 text-sm leading-relaxed mb-6 ">
             Pusat perhelatan utama Jatim Developer Day 2026. Menghadirkan panggung konferensi, ruang workshop kolaboratif, dan ekosistem networking yang nyaman bagi para penggiat teknologi.
           </p>
 
           <!-- Address Box -->
           <div
-            class="bg-[#031118]/80 border border-gray-800/90 rounded-2xl p-4 sm:p-5 mb-6 backdrop-blur-sm relative z-10"
+            class="bg-gray-50 border border-gray-200 rounded-2xl p-4 sm:p-5 mb-6 relative z-10"
           >
             <div class="flex items-start gap-3.5">
               <div
-                class="w-10 h-10 rounded-xl bg-jd-cyan/10 border border-jd-cyan/30 flex items-center justify-center text-jd-cyan flex-shrink-0 mt-0.5"
+                class="w-10 h-10 rounded-xl bg-jd-dark flex items-center justify-center text-white flex-shrink-0 mt-0.5"
               >
                 <PhMapPin :size="20" :weight="'bold'" />
               </div>
 
               <div>
-                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 block mb-1">
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500 block mb-1">
                   Alamat Lengkap
                 </span>
-                <p class="text-sm font-semibold text-gray-200 leading-snug">
+                <p class="text-sm font-semibold text-gray-800 leading-snug">
                   {{ address }}
                 </p>
               </div>
@@ -70,27 +57,35 @@
           <!-- Highlight Highlights -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-8">
             <div
-              class="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-900/50 border border-gray-800/80 text-xs text-gray-300 font-medium"
+              class="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-100 border border-gray-200 text-xs text-gray-700 font-medium"
             >
-              <PhTrain :size="16" :weight="'regular'" class="text-jd-cyan" />
+            <div class="w-6 h-6 rounded-lg bg-jd-dark flex items-center justify-center text-white shrink-0">
+              <PhTrain :size="17" :weight="'regular'"/>
+            </div>
               <span>±5 Menit dari Stasiun Bangil</span>
             </div>
             <div
-              class="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-900/50 border border-gray-800/80 text-xs text-gray-300 font-medium"
+              class="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-100 border border-gray-200 text-xs text-gray-700 font-medium"
             >
-              <PhBuildings :size="16" :weight="'regular'" class="text-jd-cyan" />
+              <div class="w-6 h-6 rounded-lg bg-jd-dark flex items-center justify-center text-white shrink-0">
+                <PhBuildings :size="17" :weight="'regular'" />
+              </div>
               <span>Auditorium & Ruang Paralel</span>
             </div>
             <div
-              class="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-900/50 border border-gray-800/80 text-xs text-gray-300 font-medium"
+              class="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-100 border border-gray-200 text-xs text-gray-700 font-medium"
             >
-              <PhCar :size="16" :weight="'regular'" class="text-jd-cyan" />
+              <div class="w-6 h-6 rounded-lg bg-jd-dark flex items-center justify-center text-white shrink-0">
+                <PhCar :size="17" :weight="'regular'" />
+              </div>
               <span>±10 Menit dari Exit Tol Bangil</span>
             </div>
             <div
-              class="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-900/50 border border-gray-800/80 text-xs text-gray-300 font-medium"
+              class="flex items-center gap-2.5 p-2.5 rounded-xl bg-gray-100 border border-gray-200 text-xs text-gray-700 font-medium"
             >
-              <PhLightning :size="16" :weight="'regular'" class="text-jd-cyan" />
+              <div class="w-6 h-6 rounded-lg bg-jd-dark flex items-center justify-center text-white shrink-0">
+                <PhLightning :size="17" :weight="'regular'" />
+              </div>
               <span>High-Speed Wi-Fi & Lounge</span>
             </div>
           </div>
@@ -105,7 +100,6 @@
             :glow="true"
             class="w-full flex items-center justify-center gap-2"
           >
-            <PhMapPin :size="16" :weight="'bold'" class="text-black" />
             <span>Buka di Google Maps</span>
             <PhArrowSquareOut :size="16" :weight="'bold'" class="text-black" />
           </AppButton>
@@ -114,7 +108,7 @@
 
       <!-- RIGHT COLUMN: Venue Photo Showcase -->
       <div
-        class="lg:col-span-7 relative rounded-3xl overflow-hidden border border-gray-800 bg-[#071922] shadow-2xl group min-h-[380px] sm:min-h-[460px] md:min-h-[520px] flex flex-col justify-between p-6 sm:p-8 reveal-right"
+        class="lg:col-span-7 relative rounded-3xl overflow-hidden border border-gray-200 bg-gray-100 shadow-lg group min-h-[380px] sm:min-h-[460px] md:min-h-[520px] flex flex-col justify-between p-6 sm:p-8 reveal-right"
       >
         <!-- Photo with Zoom & Grayscale hover -->
         <img
@@ -126,45 +120,18 @@
 
         <!-- Gradient Overlays for Readability & Seamless Theme Integration -->
         <div
-          class="absolute inset-0 bg-gradient-to-t from-[#031118] via-[#031118]/40 to-transparent pointer-events-none"
+          class="absolute inset-0 bg-gradient-to-t from-jd-cyan/40 via-jd-cyan/20 to-transparent pointer-events-none"
         ></div>
-        <div
-          class="absolute inset-0 bg-gradient-to-b from-[#031118]/60 via-transparent to-transparent pointer-events-none"
-        ></div>
-
-        <!-- Tech Corner Accents -->
-        <div class="absolute top-6 left-6 w-4 h-4 border-t-2 border-l-2 border-white/60 pointer-events-none z-10"></div>
-        <div class="absolute top-6 right-6 w-4 h-4 border-t-2 border-r-2 border-white/60 pointer-events-none z-10"></div>
-        <div class="absolute bottom-6 left-6 w-4 h-4 border-b-2 border-l-2 border-white/60 pointer-events-none z-10"></div>
-        <div class="absolute bottom-6 right-6 w-4 h-4 border-b-2 border-r-2 border-white/60 pointer-events-none z-10"></div>
-
-        <!-- Top Row Tags -->
-        <div class="relative z-10 flex items-center justify-between">
-          <span
-            class="text-[11px] font-mono tracking-[0.2em] uppercase text-white/80 bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10"
-          >
-            [ HOST_LOCATION // 2026 ]
-          </span>
-
-          <div
-            class="bg-black/50 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full flex items-center gap-2"
-          >
-            <span class="w-2 h-2 rounded-full bg-jd-cyan"></span>
-            <span class="text-white text-xs font-semibold tracking-wider uppercase">
-              Pasuruan, ID
-            </span>
-          </div>
-        </div>
 
         <!-- Bottom Glassmorphism Overlay Card -->
         <div
-          class="relative z-10 bg-[#031118]/85 backdrop-blur-md border border-white/10 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-auto"
+          class="relative z-10 bg-white/90 backdrop-blur-md border border-gray-300 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-auto"
         >
           <div>
-            <h4 class="text-white text-lg font-bold tracking-wide mb-0.5">
+            <h4 class="text-gray-900 text-lg font-bold tracking-wide mb-0.5">
               {{ locationName }}
             </h4>
-            <span class="text-xs text-gray-400 font-medium tracking-wide">
+            <span class="text-xs text-gray-600 font-medium tracking-wide">
               Kec. Bangil, Kab. Pasuruan, Jawa Timur
             </span>
           </div>
@@ -173,7 +140,7 @@
             :href="mapsUrl"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-jd-cyan hover:text-white transition-colors group/link self-start sm:self-auto"
+            class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-jd-cyan hover:text-gray-900 transition-colors group/link self-start sm:self-auto"
           >
             <span>Petunjuk Arah</span>
             <PhArrowSquareOut

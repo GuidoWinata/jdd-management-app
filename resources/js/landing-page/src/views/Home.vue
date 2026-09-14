@@ -19,7 +19,7 @@ useReveal();
 </script>
 
 <template>
-  <div class="bg-[#031118] text-white font-sans min-h-screen">
+  <div class="bg-background text-jd-dark font-sans min-h-screen">
     <Navbar />
     <main>
       <Hero />
@@ -44,7 +44,7 @@ useReveal();
       <Tickets />
       <Gallery />
       <Sponsors />
-      <Cta />
+      <!-- <Cta /> -->
       <Footer />
     </main>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <!-- Container dengan border atas-bawah dan background terang -->
-  <div class="w-full overflow-hidden border-t-[3px] border-b-[3px] border-[#0c2f3c] py-4 flex items-center select-none">
+  <div class="w-full bg-gray-200 overflow-hidden border-t border-b border-jd-border py-4 flex items-center select-none">
     <!-- Track Animasi: durasi dikontrol props 'speed', arah dikontrol props 'direction' -->
     <div
       class="flex w-max animate-text-marquee items-center"
@@ -9,7 +9,7 @@
       <!-- Render 2 set text untuk infinite loop tanpa putus -->
       <div v-for="set in 2" :key="set" class="flex items-center">
         <div v-for="(item, index) in items" :key="`${set}-${index}`" class="flex items-center">
-          <span class="text-[#629d9e] font-bold text-sm md:text-base tracking-[0.2em] uppercase whitespace-nowrap px-6 md:px-10">
+          <span class="text-jd-dark font-bold text-sm md:text-base tracking-[0.2em] uppercase whitespace-nowrap px-6 md:px-10">
             {{ item }}
           </span>
 

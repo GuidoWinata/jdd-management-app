@@ -1,5 +1,5 @@
 <template>
-    <div ref="containerRef" class="relative w-full overflow-hidden bg-[#020b10]">
+    <div ref="containerRef" class="relative w-full overflow-hidden bg-jd-bg-deep">
         <canvas
             ref="canvasRef"
             class="absolute inset-0 z-0 pointer-events-auto"
@@ -30,7 +30,7 @@
                 </h2>
 
                 <p
-                    class="text-[#98b6c2] text-lg md:text-xl font-medium leading-relaxed max-w-3xl mb-12 reveal"
+                    class="text-jd-subtitle text-lg md:text-xl font-medium leading-relaxed max-w-3xl mb-12 reveal"
                     style="transition-delay: 0.3s"
                 >
                     Bergabunglah bersama 500+ developer dan tech leader Jawa
@@ -94,7 +94,7 @@ const config = {
     linkOpacity: 0.09,
     dotOpacity: 0.35,
     dotOpacityNearMouse: 0.4,
-    color: "#18BCBC",
+    color: "#CFDD11",
     idleSpeed: 0.001,
     idleAmplitude: 5,
     idleAmplitude2: 2.5,
