@@ -1,5 +1,5 @@
 <template>
-    <Section id="partners" variant="white">
+    <Section id="partners" variant="white" container="w-full">
         <div class="container mx-auto">
             <h2
                 class="text-center text-gray-500 text-xs md:text-sm font-semibold tracking-[0.2em] uppercase mb-10 md:mb-16"
@@ -8,7 +8,7 @@
             </h2>
 
             <div
-                class="flex flex-wrap justify-center gap-4 md:gap-6 items-center"
+                class="flex flex-wrap justify-center gap-4 md:gap-6 items-center"   
             >
                 <div
                     v-for="(partner, index) in communityLogos"

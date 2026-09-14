@@ -159,7 +159,7 @@
             >
                 <!-- Primary Button -->
                 <AppButton
-                    href="https://avora.id/jatimdeveloperday/jatim-developer-day-2026"
+                    :href="URLS.TICKET"
                     variant="primary"
                 >
                     Beli Tiket Pre-Sale 2
@@ -167,7 +167,7 @@
 
                 <!-- Secondary Button (Glassmorphism) -->
                 <AppButton
-                    href="https://s.id/sponsorshipjdd2026"
+                    :href="URLS.SPONSORSHIP"
                     variant="glass"
                     :showArrow="true"
                 >
@@ -184,6 +184,7 @@ import heroImg from "../assets/background-img.png";
 import mascotWow from "../assets/mascot-wow.png";
 import mascotThumbUp from "../assets/mascot-thumb-up.png";
 import AppButton from "./ui/AppButton.vue";
+import { URLS } from "../constants";
 
 const timer = ref({
     days: "00",

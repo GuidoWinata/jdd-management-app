@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { PhArrowLeft, PhArrowUpRight } from '@phosphor-icons/vue'
 import jddLogo from '../assets/jdd-logo-white.svg'
+import { URLS } from '../constants'
 
 const props = defineProps({
   links: {
@@ -16,7 +17,7 @@ const props = defineProps({
     ],
   },
   ctaLabel: { type: String, default: 'BELI TIKET' },
-  ctaHref: { type: String, default: 'https://sessionize.com/jdd-2026' },
+  ctaHref: { type: String, default: URLS.SPEAKER_FORM },
   backHref: { type: String, default: '' },
 })
 

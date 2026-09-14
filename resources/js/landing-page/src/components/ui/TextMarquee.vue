@@ -1,6 +1,6 @@
 <template>
   <!-- Container dengan border atas-bawah dan background terang -->
-  <div class="w-full bg-backgroun overflow-hidden border-t border-b border-jd-border py-4 flex items-center select-none">
+  <div class="w-full bg-background overflow-hidden border-t border-b border-jd-border py-4 flex items-center select-none">
     <!-- Track Animasi: durasi dikontrol props 'speed', arah dikontrol props 'direction' -->
     <div
       class="flex w-max animate-text-marquee items-center"

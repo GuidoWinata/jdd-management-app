@@ -34,7 +34,6 @@ useReveal();
       />
       <CommunityPartners />
       <Vision />
-      <!-- <CfsHowItWorks /> -->
       <Cta
         primary-label="DAFTAR JADI PEMBICARA"
         :primary-href="formUrl"

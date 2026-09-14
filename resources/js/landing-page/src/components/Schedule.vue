@@ -144,22 +144,12 @@
             </div>
         </div>
 
-        <!-- DOWNLOAD BUTTON -->
-        <!-- <div class="mt-16 flex justify-center reveal-scale">
-            <AppButton variant="primary">
-                DOWNLOAD RUNDOWN
-                <span class="text-lg leading-none transform -translate-y-[1px]"
-                    >↗</span
-                >
-            </AppButton>
-        </div> -->
     </Section>
 </template>
 
 <script setup>
 import Section from "./ui/Section.vue";
 import SectionHeader from "./ui/SectionHeader.vue";
-import AppButton from "./ui/AppButton.vue";
 import { PhUser } from "@phosphor-icons/vue";
 import { useSchedule } from "../composables/useEventData";
 

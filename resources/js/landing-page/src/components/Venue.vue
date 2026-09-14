@@ -138,7 +138,7 @@
                 <img
                     :src="photoUrl"
                     :alt="locationName"
-                    class="absolute inset-0 w-full h-full object-cover md:grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                    class="absolute inset-0 w-full h-full object-cover hover-colorize"
                     loading="lazy"
                 />
 
@@ -196,6 +196,7 @@ import {
     PhLightning,
 } from "@phosphor-icons/vue";
 import auditoriumImg from "../assets/auditorium-yadika.webp";
+import { URLS } from "../constants";
 
 interface Props {
     title?: string;
@@ -213,7 +214,7 @@ withDefaults(defineProps<Props>(), {
     locationName: "ITB Yadika Pasuruan",
     address:
         "Jl. Salem No.3, Kersikan, Kec. Bangil, Pasuruan, Jawa Timur 67153",
-    mapsUrl: "https://maps.app.goo.gl/CgoMiDGV3hHBSpwL7",
+    mapsUrl: URLS.VENUE_MAP,
     photoUrl: auditoriumImg,
 });
 </script>

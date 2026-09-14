@@ -29,7 +29,7 @@
                     <img
                         :src="img1"
                         alt="Kiri Atas"
-                        class="w-full h-full object-cover md:grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-110"
+                        class="w-full h-full object-cover hover-colorize"
                     />
                 </div>
             </div>
@@ -45,7 +45,7 @@
                     <img
                         :src="img3"
                         alt="Kanan Atas"
-                        class="w-full h-full object-cover object-top md:grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-110"
+                        class="w-full h-full object-cover object-top hover-colorize"
                     />
                 </div>
             </div>
@@ -61,25 +61,8 @@
                     <img
                         :src="img5"
                         alt="Gambar Utama / Video"
-                        class="w-full h-full object-cover md:grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-110"
+                        class="w-full h-full object-cover hover-colorize"
                     />
-
-                    <!-- Play Button (Diaktifkan kembali & disesuaikan) -->
-                    <!-- <div
-                        class="absolute inset-0 flex items-center justify-center bg-black/20 transition-all duration-300 group-hover:bg-transparent"
-                    >
-                        <div
-                            class="w-14 h-14 md:w-20 md:h-20 bg-white rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 shadow-xl"
-                        >
-                            <svg
-                                class="w-6 h-6 md:w-8 md:h-8 text-black ml-1 md:ml-2"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
-                        </div>
-                    </div> -->
                 </div>
             </div>
 
@@ -95,7 +78,7 @@
                     <img
                         :src="img2"
                         alt="Kiri Bawah"
-                        class="w-full h-full object-cover md:grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-110"
+                        class="w-full h-full object-cover hover-colorize"
                     />
                 </div>
             </div>
@@ -111,7 +94,7 @@
                     <img
                         :src="img4"
                         alt="Kanan Tengah"
-                        class="w-full h-full object-cover md:grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-110"
+                        class="w-full h-full object-cover hover-colorize"
                     />
                 </div>
             </div>

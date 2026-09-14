@@ -11,7 +11,6 @@ import Schedule from "../components/Schedule.vue";
 import Tickets from "../components/Tickets.vue";
 import Gallery from "../components/Gallery.vue";
 import Sponsors from "../components/Sponsors.vue";
-import Cta from "../components/Cta.vue";
 import Footer from "../components/Footer.vue";
 import { useReveal } from "@/composables/useReveal.ts";
 
@@ -44,7 +43,6 @@ useReveal();
       <Tickets />
       <Gallery />
       <Sponsors />
-      <!-- <Cta /> -->
       <Footer />
     </main>
   </div>

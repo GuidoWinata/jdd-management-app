@@ -152,9 +152,3 @@ const policies = ref([
   }
 ]);
 </script>
-
-<style scoped>
-html {
-  scroll-behavior: smooth;
-}
-</style>

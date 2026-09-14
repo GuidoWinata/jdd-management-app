@@ -129,7 +129,7 @@
                 More speakers to be announced soon
             </p>
             <AppButton
-                href="https://sessionize.com/jdd-2026"
+                :href="URLS.SPEAKER_FORM"
                 target="_blank"
                 variant="primary"
             >
@@ -147,6 +147,7 @@ import AppButton from "./ui/AppButton.vue";
 import { PhArrowUpRight } from "@phosphor-icons/vue";
 import { useSpeakers } from "../composables/useEventData";
 import { useConfig } from "../config";
+import { URLS } from "../constants";
 
 const speakersData = useSpeakers();
 const { baseUrl } = useConfig();

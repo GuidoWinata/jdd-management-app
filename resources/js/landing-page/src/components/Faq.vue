@@ -95,9 +95,3 @@ const faqs = ref([
   }
 ]);
 </script>
-
-<style scoped>
-.pl-13 {
-  padding-left: 3.25rem;
-}
-</style>

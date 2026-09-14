@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full py-16 md:py-52 px-6 bg-red-300 relative overflow-hidden">
+  <header class="w-full py-16 md:py-52 px-6 relative overflow-hidden">
     
     <!-- Background Image (same as Hero) -->
     <div
@@ -25,7 +25,6 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
 import heroImg from "../assets/background-img.png";
 
 defineProps({

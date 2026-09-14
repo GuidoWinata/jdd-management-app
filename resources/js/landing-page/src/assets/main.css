@@ -94,3 +94,14 @@ html {
   opacity: 1;
   transform: scale(1);
 }
+
+/* Hover Colorize: grayscale → full color on hover */
+.hover-colorize {
+  filter: grayscale(100%);
+  transition: filter 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-colorize:hover,
+.group:hover .hover-colorize {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}

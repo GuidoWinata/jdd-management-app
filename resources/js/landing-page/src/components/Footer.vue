@@ -16,7 +16,7 @@
         <!-- Social Icons -->
         <div class="flex gap-4">
           <a
-            href="https://www.instagram.com/jatimdevday"
+            :href="URLS.INSTAGRAM"
             class="w-10 h-10 rounded-full border border-gray-700/60 flex items-center justify-center text-gray-400 hover:text-white hover:border-white transition duration-300"
           >
             <PhInstagramLogo :size="18" :weight="'regular'" />
@@ -91,6 +91,7 @@ import bgFooter from "../assets/background-img.png";
 import jddLogo from "../assets/jdd-logo.svg";
 import { PhInstagramLogo, PhWhatsappLogo } from '@phosphor-icons/vue'
 import AppButton from "./ui/AppButton.vue";
+import { URLS } from "../constants";
 
 const props = defineProps({
   navLinks: {

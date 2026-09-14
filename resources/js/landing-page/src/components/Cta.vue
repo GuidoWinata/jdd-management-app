@@ -69,12 +69,13 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import Section from "./ui/Section.vue";
 import AppButton from "./ui/AppButton.vue";
+import { URLS } from "../constants";
 
 defineProps({
     primaryLabel: { type: String, default: "JADI MEDIA PARTNER" },
-    primaryHref: { type: String, default: "https://s.id/partnershipjdd2026" },
+    primaryHref: { type: String, default: URLS.PARTNERSHIP },
     secondaryLabel: { type: String, default: "JADI SPONSOR" },
-    secondaryHref: { type: String, default: "https://s.id/sponsorshipjdd2026" },
+    secondaryHref: { type: String, default: URLS.SPONSORSHIP },
 });
 
 const canvasRef = ref(null);
