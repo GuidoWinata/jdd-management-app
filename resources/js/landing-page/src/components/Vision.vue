@@ -29,6 +29,7 @@
                     <img
                         :src="img1"
                         alt="Kiri Atas"
+                        loading="lazy"
                         class="w-full h-full object-cover hover-colorize"
                     />
                 </div>
@@ -45,6 +46,7 @@
                     <img
                         :src="img3"
                         alt="Kanan Atas"
+                        loading="lazy"
                         class="w-full h-full object-cover object-top hover-colorize"
                     />
                 </div>
@@ -61,6 +63,7 @@
                     <img
                         :src="img5"
                         alt="Gambar Utama / Video"
+                        loading="lazy"
                         class="w-full h-full object-cover hover-colorize"
                     />
                 </div>
@@ -78,6 +81,7 @@
                     <img
                         :src="img2"
                         alt="Kiri Bawah"
+                        loading="lazy"
                         class="w-full h-full object-cover hover-colorize"
                     />
                 </div>
@@ -94,6 +98,7 @@
                     <img
                         :src="img4"
                         alt="Kanan Tengah"
+                        loading="lazy"
                         class="w-full h-full object-cover hover-colorize"
                     />
                 </div>

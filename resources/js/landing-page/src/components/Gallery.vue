@@ -17,6 +17,7 @@
             <img
               :src="item.image"
               :alt="item.label"
+              loading="lazy"
               class="w-full h-full object-cover hover-colorize"
             />
           </div>

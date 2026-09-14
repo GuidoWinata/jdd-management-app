@@ -38,6 +38,7 @@
                         v-if="speakerPhoto(speaker.photo_path)"
                         :src="speakerPhoto(speaker.photo_path)"
                         :alt="speaker.name"
+                        loading="lazy"
                         class="w-[85%] h-auto max-h-full object-cover object-bottom grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105 relative z-0"
                     />
 
