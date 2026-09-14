@@ -1,6 +1,6 @@
 <template>
-  <section class="bg-background text-jd-dark py-10 px-6 font-sans">
-    <div class="container mx-auto max-w-6xl flex flex-col md:flex-row gap-8 items-start">
+  <section class="bg-background text-jd-dark py-10 px-6 font-sans relative z-10">
+    <div class="container mx-auto max-w-6xl flex flex-col md:flex-row gap-8 items-start -mt-16 md:-mt-36">
       
       <!-- SIDEBAR NAVIGATION -->
       <aside class="w-full md:w-1/4 sticky top-24 shrink-0 z-10">
@@ -28,7 +28,7 @@
           v-for="(policy, index) in policies" 
           :key="index"
           :id="'policy-' + index"
-          class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-md scroll-mt-28"
+          class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-md scroll-mt-28 border-l-[4px] border-l-jd-cyan"
         >
           <!-- Card Header / Title -->
           <h3 class="text-lg md:text-xl font-bold text-jd-dark mb-4 flex items-center gap-3">

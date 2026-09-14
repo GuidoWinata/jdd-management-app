@@ -1,21 +1,22 @@
 <template>
-  <header class="w-full py-16 md:py-24 px-6 bg-jd-bg-deep relative overflow-hidden font-sans">
+  <header class="w-full py-16 md:py-52 px-6 bg-red-300 relative overflow-hidden">
     
-    <!-- Latar Belakang Grid Pattern -->
-    <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+    <!-- Background Image (same as Hero) -->
+    <div
+      class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+      :style="{ backgroundImage: `url(${heroImg})` }"
+    ></div>
 
     <div class="container mx-auto max-w-6xl relative z-10">
       
       <!-- Headline Utama -->
-      <h1 class="font-montserrat text-5xl md:text-7xl lg:text-[5.5rem] font-black uppercase tracking-tight leading-[1.1] mb-6">
-        <!-- Teks Solid (Baris Pertama) -->
-        <span class="block text-jd-text-light">{{ titleSolid }}</span>
-        <!-- Teks Outline (Baris Kedua) -->
-        <span class="block text-jd-cyan">{{ titleOutline }}</span>
+      <h1 class="text-5xl md:text-6xl  font-semibold leading-[1.1] mb-6">
+        <span v-if="titleSolid" class="block text-jd-text-light">{{ titleSolid }}</span>
+        <span v-if="titleOutline" class="block text-jd-cyan">{{ titleOutline }}</span>
       </h1>
 
       <!-- Subtitle -->
-      <p class="text-jd-text-muted text-base md:text-lg font-medium max-w-2xl">
+      <p v-if="subtitle" class="text-jd-text-muted text-base max-w-2xl">
         {{ subtitle }}
       </p>
 
@@ -25,38 +26,20 @@
 
 <script setup>
 import { defineProps } from 'vue';
+import heroImg from "../assets/background-img.png";
 
 defineProps({
   titleSolid: {
     type: String,
-    default: 'KEBIJAKAN PENGEMBALIAN'
+    default: ''
   },
   titleOutline: {
     type: String,
-    default: 'DANA'
+    default: ''
   },
   subtitle: {
     type: String,
-    default: 'Harap baca kebijakan pengembalian dana dengan teliti sebelum melakukan pembelian tiket.'
+    default: ''
   }
 });
 </script>
-
-<style scoped>
-.grid-pattern {
-  background-size: 80px 80px;
-  background-image:
-    linear-gradient(to right, rgba(207, 221, 17, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(207, 221, 17, 0.05) 1px, transparent 1px);
-}
-
-.text-stroke-cyan {
-  -webkit-text-stroke: 2px #CFDD11;
-}
-
-@media (max-width: 768px) {
-  .text-stroke-cyan {
-    -webkit-text-stroke: 1.5px #CFDD11;
-  }
-}
-</style>

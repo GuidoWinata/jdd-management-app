@@ -1,18 +1,18 @@
 <template>
-  <section class="bg-background py-10 px-6 font-sans">
-    <div class="container mx-auto max-w-4xl">
+  <section class="bg-background p-16 px-6 relative z-10">
+    <div class="container mx-auto max-w-7xl">
       
       <!-- List FAQ -->
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-4 -mt-16 md:-mt-36">
         <div 
           v-for="(faq, index) in faqs" 
           :key="index"
-          class="bg-white border border-gray-200 rounded-md border-l-[4px] border-l-jd-cyan overflow-hidden"
+          class="bg-white py-3 border border-gray-200 rounded-md border-l-[4px] hover:bg-gray-50 border-l-jd-cyan overflow-hidden"
         >
           <!-- Header (Pertanyaan) -->
           <button 
             @click="toggleFaq(index)"
-            class="w-full flex items-center justify-start text-left p-5 focus:outline-none hover:bg-gray-50 transition-colors duration-300"
+            class="w-full flex items-center justify-start text-left p-5 focus:outline-none transition-colors duration-300"
           >
             <!-- Icon Chevron -->
             <PhCaretDown
