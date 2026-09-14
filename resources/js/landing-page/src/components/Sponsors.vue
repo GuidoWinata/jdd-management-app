@@ -1,5 +1,5 @@
 <template>
-  <Section id="sponsorship">
+  <Section id="sponsorship" variant="white">
     <SectionHeader
       number="06"
       label="Partners & Sponsors"

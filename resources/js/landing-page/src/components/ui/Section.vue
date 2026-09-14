@@ -3,13 +3,13 @@ import { computed } from 'vue'
 
 const props = defineProps({
   id: { type: String, default: undefined },
-  variant: { type: String, default: 'base' }, // 'base' | 'deep'
+  variant: { type: String, default: 'base' }, // 'base' | 'white'
   size: { type: String, default: 'md' }, // 'md' | 'lg'
   borderTop: { type: Boolean, default: false },
   container: { type: String, default: 'max-w-6xl' },
 })
 
-const bgClass = computed(() => (props.variant === 'deep' ? 'bg-background' : 'bg-background'))
+const bgClass = computed(() => (props.variant === 'white' ? 'bg-white' : 'bg-background'))
 
 const sectionClass = computed(() => [
   'text-jd-dark font-sans overflow-hidden',

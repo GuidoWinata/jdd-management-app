@@ -1,5 +1,5 @@
 <template>
-    <Section id="tickets">
+    <Section id="tickets" variant="white">
         <SectionHeader
             number="05"
             label="Invitation Pass"

@@ -62,9 +62,9 @@ onUnmounted(() => {
   >
     <!-- Bagian Kiri: Logo & Judul -->
     <a href="/" class="flex items-center gap-3 sm:gap-4 cursor-pointer">
-      <img :src="jddLogo" alt="JDD Logo" class="w-9 sm:w-11 h-auto" />
+      <img :src="jddLogo" alt="JDD Logo" class="w-9 sm:w-11 h-auto drop-shadow-[0_0_25px_rgba(207,221,17,0.25)]" />
 
-      <div class="flex flex-col text-white font-bold text-[11px] sm:text-[13px] leading-tight tracking-wider">
+      <div class="flex flex-col text-white font-bold text-[11px] sm:text-[13px] leading-tight tracking-wider drop-shadow-[0_0_25px_rgba(207,221,17,0.25)]">
         <span>JATIM</span>
         <span>DEVELOPER</span>
         <span>DAY</span>

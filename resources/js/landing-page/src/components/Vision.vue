@@ -1,5 +1,5 @@
 <template>
-    <Section id="about" class="relative">
+    <Section id="about" class="relative" variant="white">
         <SectionHeader
             number="01"
             label="The Vision"

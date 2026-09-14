@@ -1,9 +1,9 @@
 <template>
-  <Section id="gallery">
+  <Section id="gallery" variant="white">
 
     <!-- GALLERY GRID (Edge-to-edge on large screens) -->
     <template #full>
-      <div class="w-full bg-black grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 lg:auto-rows-[300px]">
+      <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 lg:auto-rows-[300px]">
         <div
           v-for="(item, index) in galleryItems"
           :key="item.id"
@@ -13,7 +13,7 @@
           ]"
           :style="{ transitionDelay: `${(index % 4) * 0.08}s` }"
         >
-          <div class="w-full h-full min-h-[250px] overflow-hidden bg-gray-900 border border-gray-800">
+          <div class="w-full h-full min-h-[250px] overflow-hidden">
             <img
               :src="item.image"
               :alt="item.label"

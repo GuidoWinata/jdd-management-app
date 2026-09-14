@@ -1,7 +1,7 @@
 <template>
   <!-- Container dengan background putih dan border atas-bawah -->
-  <div class="w-full border-t-[3px] border-b-[3px] border-jd-cyan py-8 font-sans bg-background">
-    <div class="container mx-auto px-4 max-w-7xl">
+  <div class="w-full border-t border-b border-jd-dark py-8 font-sans bg-background">
+    <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0">
         <template v-for="(stat, index) in stats" :key="index">
           <!-- Stat Item -->
@@ -23,10 +23,10 @@
           </div>
 
           <!-- Vertical Separator (Desktop) -->
-          <div v-if="index < stats.length - 1" class="hidden md:block w-[1px] h-14 bg-jd-cyan opacity-80 flex-shrink-0"></div>
+          <div v-if="index < stats.length - 1" class="hidden md:block w-[1px] h-14 bg-jd-dark opacity-80 flex-shrink-0"></div>
 
           <!-- Horizontal Separator (Mobile) -->
-          <div v-if="index < stats.length - 1" class="block md:hidden w-16 h-[1px] bg-jd-cyan opacity-30"></div>
+          <div v-if="index < stats.length - 1" class="block md:hidden w-16 h-[1px] bg-jd-dark opacity-30"></div>
         </template>
       </div>
     </div>

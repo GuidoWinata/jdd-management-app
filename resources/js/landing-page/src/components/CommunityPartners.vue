@@ -1,8 +1,5 @@
 <template>
-    <section
-        id="partners"
-        class="py-20 px-6 font-sans border-t border-gray-900/50"
-    >
+    <Section id="partners" variant="white">
         <div class="container mx-auto">
             <h2
                 class="text-center text-gray-500 text-xs md:text-sm font-semibold tracking-[0.2em] uppercase mb-10 md:mb-16"
@@ -27,10 +24,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </Section>
 </template>
 
 <script setup>
+import Section from './ui/Section.vue'
 import bangkalanDev from "../assets/Logo Komunitas/Fix Join/BangkalanDev.png";
 import pasuruanDev from "../assets/Logo Komunitas/Fix Join/PasuruanDev.png";
 import sidoarjoDev from "../assets/Logo Komunitas/Fix Join/SidoarjoDev.png";
