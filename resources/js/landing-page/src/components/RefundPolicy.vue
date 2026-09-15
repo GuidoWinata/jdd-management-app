@@ -1,10 +1,10 @@
 <template>
-  <section class="bg-[#020b10] text-white py-20 px-6 font-sans">
-    <div class="container mx-auto max-w-6xl flex flex-col md:flex-row gap-8 items-start">
+  <section class="bg-background text-jd-dark py-10 px-6 font-sans relative z-10">
+    <div class="container mx-auto max-w-6xl flex flex-col md:flex-row gap-8 items-start -mt-16 md:-mt-36">
       
       <!-- SIDEBAR NAVIGATION -->
       <aside class="w-full md:w-1/4 sticky top-24 shrink-0 z-10">
-        <div class="bg-[#061621] border border-[#0d283b] rounded-2xl p-4 flex flex-col gap-2 shadow-lg">
+        <div class="bg-white border border-gray-200 rounded-2xl p-4 flex flex-col gap-2 shadow-lg">
           <a 
             v-for="(menu, index) in policies" 
             :key="index"
@@ -13,8 +13,8 @@
             :class="[
               'px-4 py-3 rounded-xl text-sm font-medium transition-colors duration-300',
               activeMenu === index 
-                ? 'bg-[#0d283b] text-white' 
-                : 'text-[#6b8b9d] hover:text-white hover:bg-[#0a1e2d]'
+                ? 'bg-jd-cyan/10 text-jd-dark' 
+                : 'text-gray-500 hover:text-jd-dark hover:bg-gray-50'
             ]"
           >
             {{ menu.shortTitle }}
@@ -28,18 +28,18 @@
           v-for="(policy, index) in policies" 
           :key="index"
           :id="'policy-' + index"
-          class="bg-[#061621] border border-[#0d283b] rounded-2xl p-6 md:p-8 shadow-md scroll-mt-28"
+          class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-md scroll-mt-28 border-l-[4px] border-l-jd-cyan"
         >
           <!-- Card Header / Title -->
-          <h3 class="text-lg md:text-xl font-bold text-white mb-4 flex items-center gap-3">
-            <svg class="w-4 h-4 text-[#6b8b9d] transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <h3 class="text-lg md:text-xl font-bold text-jd-dark mb-4 flex items-center gap-3">
+            <svg class="w-4 h-4 text-gray-400 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
             {{ policy.title }}
           </h3>
 
           <!-- Card Content / Body -->
-          <div class="text-[#8ba7b8] text-sm md:text-base leading-relaxed pl-7">
+          <div class="text-gray-600 text-sm md:text-base leading-relaxed pl-7">
             <!-- Deskripsi Utama (jika ada) -->
             <p v-if="policy.description" class="mb-3">
               {{ policy.description }}
@@ -48,29 +48,29 @@
             <!-- Bullet Points -->
             <ul v-if="policy.bullets && policy.bullets.length" class="list-none space-y-2 mb-4">
               <li v-for="(bullet, bIndex) in policy.bullets" :key="bIndex" class="flex items-start">
-                <span class="mr-2 text-[#18BCBC]">-</span>
+                <span class="mr-2 text-jd-cyan">-</span>
                 <span>{{ bullet }}</span>
               </li>
             </ul>
 
             <!-- Box Khusus / Sub-konten (Format Transfer) -->
-            <div v-if="policy.formatBox" class="mt-4 p-4 border border-[#0d283b] rounded-xl bg-[#030d14]">
-              <p class="font-medium text-white mb-2">Format Transfer:</p>
-              <ul class="space-y-1 text-sm text-[#8ba7b8]">
+            <div v-if="policy.formatBox" class="mt-4 p-4 border border-gray-200 rounded-xl bg-gray-50">
+              <p class="font-medium text-jd-dark mb-2">Format Transfer:</p>
+              <ul class="space-y-1 text-sm text-gray-600">
                 <li>Nama asal: [Nama pembeli tiket asli]</li>
                 <li>Pemegang tiket: [Nama orang yang akan hadir]</li>
               </ul>
             </div>
 
             <!-- Box Peringatan Khusus (Ketentuan Khusus) -->
-            <div v-if="policy.warningBox" class="mt-6 p-4 border border-[#3b2a1a] rounded-xl bg-[#1c130b]">
-              <p class="font-bold text-[#e6a23c] mb-2 flex items-center gap-2">
+            <div v-if="policy.warningBox" class="mt-6 p-4 border border-amber-200 rounded-xl bg-amber-50">
+              <p class="font-bold text-amber-600 mb-2 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                 </svg>
                 Peringatan Penting
               </p>
-              <p class="text-sm text-[#d4bca4]">
+              <p class="text-sm text-amber-700">
                 {{ policy.warningBox }}
               </p>
             </div>
@@ -152,9 +152,3 @@ const policies = ref([
   }
 ]);
 </script>
-
-<style scoped>
-html {
-  scroll-behavior: smooth;
-}
-</style>

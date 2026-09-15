@@ -20,6 +20,8 @@
     },
     "dependencies": {
         "@lucide/vue": "^1.26.0",
+        "@phosphor-icons/vue": "^2.2.1",
+        "@phosphor-icons/web": "^2.1.2",
         "@tanstack/vue-query": "^5.101.4",
         "croppie": "^2.6.5",
         "flatpickr": "^4.6.13",

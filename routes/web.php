@@ -32,9 +32,9 @@ Route::get('/', function () {
     return view('landing');
 })->name('landing');
 
-Route::get('/committee', function () {
-    return view('landing');
-})->name('committee');
+// Route::get('/committee', function () {
+//     return view('landing');
+// })->name('committee');
 
 Route::get('/refund-policy', function () {
     return view('landing');

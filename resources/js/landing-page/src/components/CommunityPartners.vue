@@ -1,60 +1,34 @@
 <template>
-    <section
-        id="partners"
-        class=" py-12 border-t border-b border-gray-900 overflow-hidden"
-    >
-        <div class="container mx-auto px-6 mb-6">
-            <h3
-                class="text-center text-gray-500 text-xs font-bold tracking-[0.2em] uppercase"
+    <Section id="partners" variant="white" container="w-full">
+        <div class="container mx-auto">
+            <h2
+                class="text-center text-gray-500 text-xs md:text-sm font-semibold tracking-[0.2em] uppercase mb-10 md:mb-16"
             >
                 Community Partners
-            </h3>
-        </div>
+            </h2>
 
-        <div
-            class="relative w-full overflow-hidden flex items-center"
-            style="
-                -webkit-mask-image: linear-gradient(
-                    to right,
-                    transparent,
-                    black 10%,
-                    black 90%,
-                    transparent
-                );
-                mask-image: linear-gradient(
-                    to right,
-                    transparent,
-                    black 10%,
-                    black 90%,
-                    transparent
-                );
-            "
-        >
-            <div class="flex w-max animate-marquee pause-on-hover items-center">
+            <div
+                class="flex flex-wrap justify-center gap-4 md:gap-6 items-center"   
+            >
                 <div
-                    v-for="set in 1"
-                    :key="set"
-                    class="flex items-center gap-8 md:gap-10 px-8 md:px-12"
+                    v-for="(partner, index) in communityLogos"
+                    :key="index"
+                    class="h-12 md:h-16 lg:h-24 w-24 md:w-32 lg:w-48 flex items-center justify-center hover:scale-105 transition-transform duration-300"
                 >
-                    <div
-                        v-for="(partner, index) in communityLogos"
-                        :key="`${set}-${index}`"
-                        class="shrink-0 w-24 h-16 md:w-32 md:h-24 flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-300 md:grayscale hover:grayscale-0 cursor-pointer"
-                    >
-                        <img
-                            :src="partner.src"
-                            :alt="partner.name"
-                            class="max-w-full max-h-full object-contain"
-                            loading="lazy"
-                        />
-                    </div>
+                    <img
+                        :src="partner.src"
+                        :alt="partner.name"
+                        class="max-h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                        loading="lazy"
+                    />
                 </div>
             </div>
         </div>
-    </section>
+    </Section>
 </template>
 
 <script setup>
+import Section from './ui/Section.vue'
 import bangkalanDev from "../assets/Logo Komunitas/Fix Join/BangkalanDev.png";
 import pasuruanDev from "../assets/Logo Komunitas/Fix Join/PasuruanDev.png";
 import sidoarjoDev from "../assets/Logo Komunitas/Fix Join/SidoarjoDev.png";
@@ -103,22 +77,3 @@ const communityLogos = [
     { name: "Gatherloop", src: gatherloop },
 ];
 </script>
-
-<style scoped>
-.animate-marquee {
-    animation: marquee 30s linear infinite;
-}
-
-@keyframes marquee {
-    0% {
-        transform: translateX(-50%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-.pause-on-hover:hover {
-    animation-play-state: paused;
-}
-</style>

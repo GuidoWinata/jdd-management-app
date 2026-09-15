@@ -1,107 +1,158 @@
 <template>
-  <Section id="agenda">
-    <SectionHeader
-      number="04"
-      label="The Symposium"
-      description="Agenda lengkap symposium dari registrasi hingga sesi workshop bersama para praktisi industri."
-    >
-      AGENDA & <span class="text-jd-cyan">SESSIONS</span>
-    </SectionHeader>
+    <Section id="agenda">
+        <SectionHeader
+            number="04"
+            label="The Symposium"
+            headline-class="text-5xl md:text-6xl font-semibold leading-[1.1] max-w-5xl mx-auto"
+            description-class="text-gray-600 text-sm md:text-base max-w-3xl mx-auto mb-12 mt-5 leading-relaxed"
+            description="Agenda lengkap symposium dari registrasi hingga sesi workshop bersama para praktisi industri."
+        >
+            Agenda & Sessions
+        </SectionHeader>
 
-    <!-- AGENDA LIST -->
-    <div v-if="!agendaGroups" class="flex flex-col gap-8">
-      <div v-for="i in 3" :key="i" class="flex flex-col animate-pulse">
-        <div class="bg-gray-800 text-transparent font-bold text-xs tracking-[0.2em] uppercase py-3 px-6 rounded-md mb-2 w-48">
-          Loading...
+        <!-- LOADING STATE -->
+        <div v-if="!agendaGroups" class="flex flex-col gap-8 mt-10">
+            <div v-for="i in 3" :key="i" class="flex flex-col animate-pulse">
+                <div
+                    class="bg-gray-800 text-transparent font-bold text-xs tracking-[0.2em] uppercase py-4 px-6 rounded-xl md:rounded-2xl mb-2 w-full md:w-1/3"
+                >
+                    Loading...
+                </div>
+                <div class="flex flex-col">
+                    <div
+                        v-for="j in 3"
+                        :key="j"
+                        class="flex flex-col md:flex-row items-start md:items-center py-6 px-4 md:px-6 border-b border-gray-800/50 gap-6"
+                    >
+                        <div
+                            class="w-full md:w-1/4 flex flex-col md:text-right flex-shrink-0 gap-2"
+                        >
+                            <div
+                                class="h-4 bg-gray-800 rounded w-32 ml-auto"
+                            ></div>
+                            <div
+                                class="h-3 bg-gray-800 rounded w-24 ml-auto"
+                            ></div>
+                        </div>
+                        <div
+                            class="w-full md:w-auto flex-1 flex flex-col gap-2"
+                        >
+                            <div class="h-3 bg-gray-800 rounded w-32"></div>
+                            <div class="h-5 bg-gray-800 rounded w-64"></div>
+                        </div>
+                        <div
+                            class="hidden md:block w-14 h-14 rounded-xl bg-gray-800 ml-auto"
+                        ></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="flex flex-col">
-          <div v-for="j in 3" :key="j" class="flex flex-col md:flex-row items-start md:items-center py-6 px-4 md:px-6 border-b border-gray-900 gap-6">
-            <div class="w-full md:w-1/4 flex flex-col md:text-right flex-shrink-0 gap-2">
-              <div class="h-4 bg-gray-800 rounded w-32 ml-auto"></div>
-              <div class="h-3 bg-gray-800 rounded w-24 ml-auto"></div>
-            </div>
-            <div class="w-full md:w-auto flex-1 flex flex-col gap-2">
-              <div class="h-3 bg-gray-800 rounded w-20"></div>
-              <div class="h-5 bg-gray-800 rounded w-64"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div v-else-if="agendaGroups.length === 0" class="text-center py-12">
-      <p class="text-gray-500">Jadwal belum tersedia.</p>
-    </div>
-
-    <div v-else class="flex flex-col gap-8">
-      <div v-for="group in agendaGroups" :key="group.category" class="flex flex-col">
-        <!-- Category Bar -->
-        <div class="bg-jd-cyan text-black font-bold text-xs tracking-[0.2em] uppercase py-3 px-6 rounded-md mb-2">
-          {{ group.category }}
+        <!-- EMPTY STATE -->
+        <div
+            v-else-if="agendaGroups.length === 0"
+            class="text-center py-12 mt-10"
+        >
+            <p class="text-gray-500 font-mono tracking-widest uppercase">
+                Jadwal belum tersedia.
+            </p>
         </div>
 
-        <!-- Session Items -->
-        <div class="flex flex-col">
-          <div
-            v-for="(session, sessionIndex) in group.sessions"
-            :key="sessionIndex"
-            class="flex flex-col md:flex-row items-start md:items-center py-6 px-4 md:px-6 border-b border-gray-900 hover:bg-[#030d12] transition-colors duration-300 gap-6 reveal"
-            :style="{ transitionDelay: `${(sessionIndex % 3) * 0.1}s` }"
-          >
-            <!-- Left: Time & Location -->
-            <div class="w-full md:w-1/4 flex flex-col md:text-right flex-shrink-0">
-              <span class="text-jd-cyan font-medium tracking-wider text-sm md:text-base">
-                {{ session.time }}
-              </span>
-              <span class="text-gray-500 text-[10px] tracking-[0.15em] uppercase mt-1.5 font-semibold">
-                {{ session.location }}
-              </span>
-            </div>
+        <!-- AGENDA LIST -->
+        <div v-else class="flex flex-col gap-10 mt-10">
+            <div
+                v-for="(group, groupIndex) in agendaGroups"
+                :key="group.category"
+                class="flex flex-col"
+            >
+                <!-- Category Bar (Solid Neon) -->
+                <div
+                    class="bg-jd-cyan text-jd-on-cyan font-semibold text-xs md:text-sm tracking-widest uppercase py-3.5 px-6 rounded-xl md:rounded-2xl mb-2 shadow-sm"
+                >
+                    {{ group.category }}
+                </div>
 
-            <!-- Middle: Session Details -->
-            <div class="w-full md:w-auto flex-1 flex flex-col">
-              <span class="text-gray-500 text-[10px] tracking-[0.15em] uppercase mb-1.5 font-bold">
-                {{ session.type }}
-              </span>
-              <h3 class="text-white font-bold text-lg md:text-xl leading-tight">
-                {{ session.title }}
-              </h3>
-              <span v-if="session.speaker" class="text-gray-400 text-xs mt-2 font-medium">
-                {{ session.speaker }}
-              </span>
-            </div>
+                <!-- Session Items -->
+                <div class="flex flex-col">
+                    <div
+                        v-for="(session, sessionIndex) in group.sessions"
+                        :key="sessionIndex"
+                        class="flex flex-col md:flex-row items-start md:items-center py-6 px-4 md:px-6 border-b border-white/10 hover:bg-gray-200 transition-colors duration-300 gap-6 reveal group"
+                        :style="{
+                            transitionDelay: `${(sessionIndex % 3) * 0.1}s`,
+                        }"
+                    >
+                        <!-- Left: Time & Location -->
+                        <div
+                            class="w-1/5 flex flex-col md:text-right flex-shrink-0"
+                        >
+                            <span
+                                class="text-jd-dark font-medium tracking-wider text-sm md:text-base"
+                            >
+                                {{ session.time }}
+                            </span>
+                            <span
+                                class="text-gray-500 text-[10px] tracking-[0.15em] uppercase mt-1.5 font-bold"
+                            >
+                                {{ session.location }}
+                            </span>
+                        </div>
 
-            <!-- Right: Speaker Thumbnail -->
-            <div class="hidden md:flex w-16 flex-shrink-0 justify-end">
-              <div class="w-12 h-12 rounded-xl bg-gray-800 border border-gray-700 overflow-hidden relative">
-                <div class="absolute inset-0 bg-gray-600/50 mix-blend-luminosity"></div>
-                <svg class="w-full h-full text-gray-500 opacity-50 p-2" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                </svg>
-              </div>
+                        <!-- Middle: Session Details -->
+                        <div class="w-full md:w-auto flex-1 flex flex-col">
+                            <span
+                                class="text-gray-500 text-[10px] tracking-[0.15em] uppercase mb-1.5 font-bold"
+                            >
+                                {{ session.type }}
+                            </span>
+                            <h3
+                                class="text-jd-dark font-bold text-base md:text-lg leading-snug transition-colors"
+                            >
+                                {{ session.title }}
+                            </h3>
+                            <span
+                                v-if="session.speaker"
+                                class="text-gray-500 text-xs mt-1.5 font-medium"
+                            >
+                                {{ session.speaker }}
+                            </span>
+                        </div>
+
+                        <!-- Right: Speaker Thumbnail (Solid Neon Box) -->
+                        <div class="hidden md:flex flex-shrink-0 justify-end">
+                            <div
+                                class="w-14 h-14 md:w-16 md:h-16 rounded-xl bg-jd-cyan overflow-hidden relative shadow-md flex items-center justify-center"
+                            >
+                                <!-- Jika ada foto speaker -->
+                                <img
+                                    v-if="session.speaker_photo"
+                                    :src="session.speaker_photo"
+                                    :alt="session.speaker"
+                                    class="w-full h-full object-cover object-bottom"
+                                />
+                                <!-- Fallback Icon jika tidak ada foto -->
+                                <PhUser
+                                    v-else
+                                    class="text-jd-on-cyan opacity-50"
+                                    :size="28"
+                                    weight="fill"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
 
-    <!-- DOWNLOAD BUTTON -->
-    <!-- <div class="mt-16 flex justify-center reveal-scale">
-      <AppButton variant="outline-fill">
-        Download Rundown
-        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-        </svg>
-      </AppButton>
-    </div> -->
-  </Section>
+    </Section>
 </template>
 
 <script setup>
-import Section from './ui/Section.vue'
-import SectionHeader from './ui/SectionHeader.vue'
-import AppButton from './ui/AppButton.vue'
-import { useSchedule } from '../composables/useEventData'
+import Section from "./ui/Section.vue";
+import SectionHeader from "./ui/SectionHeader.vue";
+import { PhUser } from "@phosphor-icons/vue";
+import { useSchedule } from "../composables/useEventData";
 
-const agendaGroups = useSchedule()
+// Mengambil data jadwal dari composable
+const agendaGroups = useSchedule();
 </script>

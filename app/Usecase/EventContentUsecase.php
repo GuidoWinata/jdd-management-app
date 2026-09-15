@@ -470,7 +470,7 @@ class EventContentUsecase extends Usecase
                 'agenda_items' => ['required', 'array', 'min:1'],
                 'agenda_items.*.id' => ['nullable', 'integer'],
                 'agenda_items.*.material_id' => [
-                    'required',
+                    'nullable',
                     'integer',
                     Rule::exists(DatabaseConst::VALIDATION_TABLE(DatabaseConst::MATERIAL()), 'id')
                         ->where('event_id', $data->input('event_id'))
@@ -814,6 +814,7 @@ class EventContentUsecase extends Usecase
 
                     return (object) [
                         'id' => $row->id,
+                        'material_id' => $row->material_id,
                         'title' => $row->item_title ?? $row->material_title,
                         'starts_at' => $row->starts_at,
                         'ends_at' => $row->ends_at,
@@ -971,7 +972,7 @@ class EventContentUsecase extends Usecase
             $payload = [
                 'event_id' => $eventId,
                 'agenda_group_id' => $agendaGroupId,
-                'material_id' => (int) $item['material_id'],
+                'material_id' => $item['material_id'] ? (int) $item['material_id'] : null,
                 'title' => null,
                 'category' => $groupTitle,
                 'starts_at' => $this->time($item['starts_at']),
