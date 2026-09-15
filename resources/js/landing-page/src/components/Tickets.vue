@@ -27,7 +27,7 @@
                 <!-- Bundle Ribbon -->
                 <div
                     v-if="ticket.ticket_type === 'bundle'"
-                    class="absolute top-6 -right-10 bg-jd-cyan text-jd-bg-deep text-[9px] font-black px-12 py-1.5 uppercase tracking-[0.2em] transform rotate-45 shadow-md"
+                    class="absolute top-6 -right-10 bg-jd-cyan text-jd-on-cyan text-[9px] font-black px-12 py-1.5 uppercase tracking-[0.2em] transform rotate-45 shadow-md"
                 >
                     EXCLUSIVE
                 </div>
@@ -56,7 +56,7 @@
                         class="text-2xl font-bold uppercase tracking-wide mb-3"
                         :class="
                             ticket.ticket_type === 'bundle'
-                                ? 'text-gray-800'
+                                ? 'text-white'
                                 : 'text-gray-900'
                         "
                     >
@@ -64,7 +64,11 @@
                     </h3>
                     <div
                         class="text-4xl md:text-[2.5rem] font-semibold text-jd-dark"
-                        :class="priceClass(ticket.ticket_type)"
+                        :class="
+                            ticket.ticket_type === 'bundle'
+                                ? 'text-white'
+                                : 'text-gray-900'
+                        "
                     >
                         <span v-if="ticket.price === 0">TBA</span>
                         <template v-else>
@@ -95,7 +99,7 @@
                             class="text-sm font-medium leading-relaxed"
                             :class="
                                 ticket.ticket_type === 'bundle'
-                                    ? 'text-jd-dark'
+                                    ? 'text-white'
                                     : 'text-gray-700'
                             "
                         >
@@ -166,6 +170,6 @@ const priceClass = (type) =>
 
 const buttonClass = (type) =>
     type === "bundle"
-        ? "bg-jd-cyan text-jd-bg-deep hover:brightness-110"
+        ? "bg-jd-cyan text-jd-on-cyan hover:brightness-110"
         : "bg-gray-900 text-white hover:bg-gray-800";
 </script>
