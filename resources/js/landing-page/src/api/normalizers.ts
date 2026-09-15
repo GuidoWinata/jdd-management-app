@@ -1,4 +1,4 @@
-import type { Speaker, Ticket } from './types'
+import type { Speaker, Ticket, EventSection } from './types'
 
 interface RawSpeaker {
   id: number
@@ -90,4 +90,51 @@ export function normalizeTicket(raw: RawTicket): Ticket {
 
 export function normalizeTickets(raw: RawTicket[]): Ticket[] {
   return raw.map(normalizeTicket)
+}
+
+interface RawEventSection {
+  id: number
+  event_id: number
+  section_key: string
+  section_type: string
+  title: string | null
+  description: string | null
+  image_path: string | null
+  settings_json: Record<string, any> | string | null
+  sort_order: number
+  is_active: boolean | number
+  event_name?: string
+  created_at?: string
+  updated_at?: string
+}
+
+export function normalizeSection(raw: RawEventSection): EventSection {
+  let settings = raw.settings_json
+  if (typeof settings === 'string') {
+    try {
+      settings = JSON.parse(settings)
+    } catch {
+      settings = null
+    }
+  }
+
+  return {
+    id: raw.id,
+    event_id: raw.event_id,
+    section_key: raw.section_key,
+    section_type: raw.section_type,
+    title: raw.title,
+    description: raw.description,
+    image_path: raw.image_path,
+    settings_json: settings,
+    sort_order: raw.sort_order,
+    is_active: Boolean(raw.is_active),
+    event_name: raw.event_name,
+    created_at: raw.created_at ?? '',
+    updated_at: raw.updated_at ?? '',
+  }
+}
+
+export function normalizeSections(raw: RawEventSection[]): EventSection[] {
+  return raw.map(normalizeSection)
 }

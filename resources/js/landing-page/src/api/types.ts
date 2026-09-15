@@ -36,11 +36,15 @@ export interface Event {
 export interface EventSection {
   id: number
   event_id: number
-  name: string
-  slug: string
-  content: string
-  order: number
+  section_key: string
+  section_type: 'content' | 'static' | string
+  title: string | null
+  description: string | null
+  image_path: string | null
+  settings_json: Record<string, any> | null
+  sort_order: number
   is_active: boolean
+  event_name?: string
   created_at: string
   updated_at: string
 }

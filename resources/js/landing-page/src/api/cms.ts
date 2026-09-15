@@ -1,7 +1,7 @@
 import client from './client'
 import type { ApiResponse } from './types'
 import type { Event, Speaker, Material, AgendaGroup, AgendaItem, Ticket, Merchandise, Partner, EventSection } from './types'
-import { normalizeSpeakers, normalizeTickets } from './normalizers'
+import { normalizeSpeakers, normalizeTickets, normalizeSections } from './normalizers'
 
 export async function getEvents() {
   const { data } = await client.get<ApiResponse<Event[]>>('/api/events')
@@ -23,11 +23,12 @@ export async function getAgendaGlobal() {
   return data.data
 }
 
-export async function getSections(eventId: number) {
-  const { data } = await client.get<ApiResponse<EventSection[]>>('/api/event-sections', {
+export async function getSections(eventId: number): Promise<EventSection[]> {
+  const response = await client.get('/api/event-sections', {
     params: { event_id: eventId, no_pagination: true }
   })
-  return data.data
+  const rawList = response.data?.data?.list ?? response.data?.data ?? []
+  return normalizeSections(Array.isArray(rawList) ? rawList : [])
 }
 
 export async function getSectionDetail(sectionId: number) {
