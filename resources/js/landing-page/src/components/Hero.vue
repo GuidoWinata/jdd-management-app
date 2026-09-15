@@ -1,155 +1,111 @@
 <template>
-  <section
-    id="home"
-    class="relative bg-jd-bg text-white min-h-screen pt-32 pb-20 px-6 font-sans flex items-center overflow-hidden lg:pt-20"
-  >
-    <!-- Background Image -->
-    <div
-      class="absolute inset-0 bg-cover bg-center opacity-40"
-      :style="{ backgroundImage: `url(${heroImg})` }"
-    ></div>
+    <section
+        class="min-h-screen text-white pt-56 pb-16 px-6 font-sans flex flex-col items-center text-center overflow-hidden relative"
+    >
+        <!-- Background Image -->
+        <div
+            class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+            :style="{ backgroundImage: `url(${heroImg})` }"
+        ></div>
 
-    <div class="container mx-auto relative">
-      <div class="flex flex-col lg:flex-row justify-between items-end">
-        <!-- KIRI: Teks & Tombol -->
-        <div class="w-full lg:w-3/5 z-10">
-          <!-- Top Badge -->
-          <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-jd-cyan/10 border border-jd-cyan/30 mb-8 reveal">
-            <span class="relative flex size-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-jd-cyan opacity-75"></span>
-              <span class="relative inline-flex rounded-full size-2 bg-jd-cyan"></span>
-            </span>
-            <PhTicket :size="14" :weight="'bold'" class="text-jd-cyan" />
-            <span class="text-jd-cyan text-xs font-bold tracking-wider uppercase">
-              Presale #1 Open Now
-            </span>
-          </div>
+        <!-- Overlay gelap -->
+        <div
+            class="absolute inset-0 bg-jd-bg-deep/10 z-0 pointer-events-none"
+        ></div>
 
-          <!-- Main Headline -->
-          <h1
-            class="font-montserrat text-5xl md:text-[5rem] lg:text-[5.5rem] font-black leading-[1.05] tracking-tight uppercase mb-8 reveal"
-            style="transition-delay: 0.1s"
-          >
-            <span class="text-[#f0f6f9]">{{ titleLine1 }}</span>
-            <br />
-            <span class="text-[#f0f6f9]">{{ titleLine2 }}</span>
-            <span class="text-jd-cyan">{{ titleAccent }}</span>
-          </h1>
-
-          <!-- Description -->
-          <p
-            class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-2xl mb-12 font-medium reveal-right"
-            style="transition-delay: 0.2s"
-          >
-            {{ description }}
-          </p>
-
-          <!-- Action Buttons -->
-          <div class="flex flex-wrap items-center gap-6 reveal" style="transition-delay: 0.3s">
-            <AppButton :glow="true" :href="primaryHref">
-              {{ primaryLabel }}
-              <PhArrowUpRight :size="16" :weight="'bold'" />
-            </AppButton>
-
-            <AppButton variant="outline" :href="secondaryHref">
-              {{ secondaryLabel }}
-              <span class="text-lg leading-none">→</span>
-            </AppButton>
-          </div>
-        </div>
-
-        <!-- KANAN: Mascot & Countdown -->
-        <div class="w-full lg:w-2/5 flex flex-col items-end relative z-10">
-          <div class="relative w-[350px] h-[350px] mb-[-19px] z-20 flex justify-end mr-8 reveal-scale" style="transition-delay: 0.3s">
+        <div class="container mx-auto max-w-5xl relative z-10">
+            
+            <!-- Mascot Kiri (Wow) -->
             <img
-              :src="mascotImg"
-              alt="Mascot"
-              class="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(24,188,188,0.35)]"
+                :src="mascotWow"
+                alt="Mascot Wow"
+                class="absolute -bottom-10 -left-12 md:-left-24 lg:-left-32 w-40 md:w-52 lg:w-64 z-20 pointer-events-none hidden md:block drop-shadow-2xl"
             />
-          </div>
 
-          <!-- Countdown Card -->
-          <div
-            class="w-full bg-gradient-to-br from-[#09222c] to-[#051116] border-4 border-jd-cyan/30 rounded-2xl p-8 lg:p-10 shadow-[0_0_40px_rgba(24,188,188,0.1)] relative z-10 reveal"
-            style="transition-delay: 0.4s"
-          >
-            <p class="text-gray-300 text-center text-xs tracking-[0.2em] uppercase font-semibold mb-8">
-              Counting down to launch
+            <!-- Mascot Kanan (Thumb Up) -->
+            <img
+                :src="mascotThumbUp"
+                alt="Mascot Thumb Up"
+                class="absolute -bottom-10 -right-12 md:-right-24 lg:-right-32 w-40 md:w-52 lg:w-64 z-20 pointer-events-none hidden md:block drop-shadow-2xl"
+            />
+
+            <!-- Headline -->
+            <h1
+                class="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] mb-6"
+            >
+                Jatim Tech Hub Inclusive <br />
+                Tech <span class="text-jd-cyan">Real Impact</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p
+                class="text-gray-300 text-sm md:text-base max-w-3xl mx-auto mb-12 leading-relaxed"
+            >
+                Konferensi eksklusif bagi para arsitek teknologi, developer, dan
+                pemimpin industri Jawa Timur. <br class="hidden md:block" />
+                Membangun masa depan digital dengan standar keunggulan kelas
+                dunia.
             </p>
 
-            <div class="flex justify-between items-center px-2">
-              <template v-for="(item, index) in countdown" :key="index">
-                <div class="flex flex-col items-center flex-1">
-                  <span class="text-5xl md:text-6xl font-light text-[#f0f6f9] tracking-tight">
-                    {{ item.value }}
-                  </span>
-                  <span class="text-gray-500 text-[10px] md:text-xs tracking-[0.2em] uppercase mt-3 font-semibold">
-                    {{ item.label }}
-                  </span>
-                </div>
+            <!-- Countdown Banner -->
+            <div class="relative w-full py-3 px-6 mb-12">
+                <!-- Latar Belakang Blur & Faded Edges -->
+                <div
+                    class="absolute inset-0 backdrop-blur-sm bg-white/5 pointer-events-none"
+                    style="
+                        -webkit-mask-image: linear-gradient(
+                            to right,
+                            transparent,
+                            black 15%,
+                            black 85%,
+                            transparent
+                        );
+                        mask-image: linear-gradient(
+                            to right,
+                            transparent,
+                            black 15%,
+                            black 85%,
+                            transparent
+                        );
+                    "
+                ></div>
 
-                <div v-if="index < countdown.length - 1" class="text-jd-cyan text-3xl font-light pb-6 px-1 md:px-3">
-                  :
+                <!-- Countdown Timer (Isolated Component) -->
+                <div class="relative z-10">
+                    <CountdownTimer />
                 </div>
-              </template>
             </div>
-          </div>
+
+            <!-- Action Buttons -->
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
+                <!-- Primary Button -->
+                <AppButton
+                    :href="URLS.TICKET"
+                    variant="primary"
+                >
+                    Beli Tiket Pre-Sale 2
+                </AppButton>
+
+                <!-- Secondary Button (Glassmorphism) -->
+                <AppButton
+                    :href="URLS.SPONSORSHIP"
+                    variant="glass"
+                    :showArrow="true"
+                >
+                    Jadi Sponsorship
+                </AppButton>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
-import AppButton from './ui/AppButton.vue'
-import { PhArrowUpRight, PhTicket } from '@phosphor-icons/vue'
-import heroImg from '../assets/hero-img.png'
-import mascotImg from '../assets/mascot-double.png'
-
-const props = defineProps({
-  titleLine1: { type: String, default: 'Jatim Tech Hub' },
-  titleLine2: { type: String, default: 'Inclusive Tech ' },
-  titleAccent: { type: String, default: 'Real Impact' },
-  description: {
-    type: String,
-    default:
-      'Konferensi teknologi terbesar di Jawa Timur yang menghubungkan talenta, industri, dan masyarakat demi ekosistem digital yang inklusif dan berdampak nyata.',
-  },
-  primaryLabel: { type: String, default: 'BELI TIKET' },
-  primaryHref: { type: String, default: 'https://avora.id/jatimdeveloperday/jatim-developer-day-2026' },
-  secondaryLabel: { type: String, default: 'JADI SPONSOR' },
-  secondaryHref: {
-    type: String,
-    default: 'https://s.id/sponsorshipjdd2026',
-  },
-})
-
-const eventDate = new Date(window.APP_CONFIG?.eventDate || '2026-11-07').getTime()
-const now = ref(Date.now())
-let timer = null
-
-const countdown = computed(() => {
-  const diff = Math.max(0, eventDate - now.value)
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24))
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24)
-  const mins = Math.floor((diff / (1000 * 60)) % 60)
-  const secs = Math.floor((diff / 1000) % 60)
-  return [
-    { value: String(days).padStart(2, '0'), label: 'Days' },
-    { value: String(hours).padStart(2, '0'), label: 'Hours' },
-    { value: String(mins).padStart(2, '0'), label: 'Mins' },
-    { value: String(secs).padStart(2, '0'), label: 'Secs' },
-  ]
-})
-
-onMounted(() => {
-  timer = setInterval(() => {
-    now.value = Date.now()
-  }, 1000)
-})
-
-onUnmounted(() => {
-  clearInterval(timer)
-})
+import heroImg from "../assets/background-img.png";
+import mascotWow from "../assets/mascot-wow.png";
+import mascotThumbUp from "../assets/mascot-thumb-up.png";
+import AppButton from "./ui/AppButton.vue";
+import CountdownTimer from "./ui/CountdownTimer.vue";
+import { URLS } from "../constants";
 </script>

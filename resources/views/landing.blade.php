@@ -34,7 +34,7 @@
                 event: false,
                 materials: false,
                 agenda: false,
-                tickets: false,
+                tickets: true,
                 merchandises: false,
                 partners: false,
                 sections: false,

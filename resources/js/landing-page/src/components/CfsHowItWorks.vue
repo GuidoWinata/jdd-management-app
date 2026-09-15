@@ -21,7 +21,7 @@
         :style="{ transitionDelay: `${index * 0.1}s` }"
       >
         <div
-          class="relative w-20 h-20 rounded-full bg-[#0a1c26] border-2 border-jd-cyan/40 flex items-center justify-center text-jd-cyan mb-6 z-10"
+          class="relative w-20 h-20 rounded-full bg-jd-icon border-2 border-jd-cyan/40 flex items-center justify-center text-jd-cyan mb-6 z-10"
         >
           <component :is="step.icon" :size="30" :stroke-width="1.5" />
           <span

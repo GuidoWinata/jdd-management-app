@@ -1,16 +1,9 @@
 <template>
-  <Section id="gallery">
-    <SectionHeader
-      number="06"
-      label="Gallery"
-      description="Momen-momen terbaik dari perjalanan Jatim Developer Day di tahun-tahun sebelumnya."
-    >
-      PREVIOUS <span class="text-jd-cyan">MOMENTS</span>
-    </SectionHeader>
+  <Section id="gallery" variant="white">
 
     <!-- GALLERY GRID (Edge-to-edge on large screens) -->
     <template #full>
-      <div class="w-full bg-black grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 lg:auto-rows-[300px]">
+      <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 lg:auto-rows-[300px]">
         <div
           v-for="(item, index) in galleryItems"
           :key="item.id"
@@ -20,11 +13,12 @@
           ]"
           :style="{ transitionDelay: `${(index % 4) * 0.08}s` }"
         >
-          <div class="w-full h-full min-h-[250px] overflow-hidden bg-gray-900 border border-gray-800">
+          <div class="w-full h-full min-h-[250px] overflow-hidden">
             <img
               :src="item.image"
               :alt="item.label"
-              class="w-full h-full object-cover md:grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-110"
+              loading="lazy"
+              class="w-full h-full object-cover hover-colorize"
             />
           </div>
 
@@ -37,6 +31,5 @@
 
 <script setup>
 import Section from './ui/Section.vue'
-import SectionHeader from './ui/SectionHeader.vue'
 import { galleryItems } from '../data/content'
 </script>

@@ -272,6 +272,7 @@ export const staticTickets: Ticket[] = [
     cta_url: 'https://avora.id/jatimdeveloperday/jatim-developer-day-2026',
     sort_order: 1,
     is_active: true,
+    is_sold_out: true,
     created_at: '2024-01-01T00:00:00Z',
     updated_at: '2024-01-01T00:00:00Z'
   },
