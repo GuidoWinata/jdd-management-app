@@ -48,7 +48,7 @@
 
             <!-- Event Location & Date -->
             <div
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-sm md:text-base text-gray-200 mb-10 shadow-sm"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-sm md:text-base text-gray-200 mb-4 md:mb-10 shadow-sm"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@
             </div>
 
             <!-- Countdown Banner -->
-            <div class="relative w-full py-3 px-6 mb-12">
+            <div class="relative w-full py-3 px-6 mb-6 md:mb-12">
                 <!-- Latar Belakang Blur & Faded Edges -->
                 <div
                     class="absolute inset-0 backdrop-blur-sm bg-white/5 pointer-events-none"
