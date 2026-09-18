@@ -22,33 +22,33 @@
                 class="rounded-3xl overflow-hidden flex flex-col shadow-lg transition-transform duration-300 hover:-translate-y-2 cursor-pointer group"
                 :style="{ transitionDelay: `${(index % 3) * 0.1}s` }"
             >
-                <!-- TOP SECTION (Dark Green & Photo) -->
+                <!-- TOP SECTION (Full Photo) -->
                 <div
-                    class="relative bg-jd-dark h-72 md:h-80 flex items-end justify-center overflow-hidden"
+                    class="relative h-72 md:h-80 overflow-hidden"
                 >
+                    <!-- Speaker Photo (Full Cover) -->
+                    <img
+                        v-if="speakerPhoto(speaker.photo_path)"
+                        :src="speakerPhoto(speaker.photo_path)"
+                        :alt="speaker.name"
+                        loading="lazy"
+                        class="absolute inset-0 w-full h-full object-cover object-bottom grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
+                    />
+
+                    <!-- Fallback Background -->
+                    <div
+                        v-else
+                        class="absolute inset-0 bg-jd-dark flex items-center justify-center"
+                    >
+                        <span class="text-white/30 text-sm tracking-widest uppercase">[No Photo]</span>
+                    </div>
+
                     <!-- Top Right Badge -->
                     <div
                         class="absolute top-5 right-5 bg-jd-cyan text-jd-dark text-[10px] md:text-xs font-bold px-4 py-1.5 rounded-full tracking-wider uppercase z-10 shadow-sm"
                     >
                         {{ speaker.speaker_group || "KEYNOTE SPEAKER" }}
                     </div>
-
-                    <!-- Speaker Photo -->
-                    <img
-                        v-if="speakerPhoto(speaker.photo_path)"
-                        :src="speakerPhoto(speaker.photo_path)"
-                        :alt="speaker.name"
-                        loading="lazy"
-                        class="w-[85%] h-auto max-h-full object-cover object-bottom grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105 relative z-0"
-                    />
-
-                    <!-- Fallback Text -->
-                    <span
-                        v-else
-                        class="text-white/30 text-sm mb-10 tracking-widest uppercase"
-                    >
-                        [No Photo]
-                    </span>
                 </div>
 
                 <!-- BOTTOM SECTION (Neon Block) -->
