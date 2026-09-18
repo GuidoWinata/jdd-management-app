@@ -3,8 +3,8 @@
         <SectionHeader
             number="01"
             label="The Vision"
-            headline-class="text-5xl md:text-6xl font-semibold  leading-[1.1] max-w-5xl mx-auto"
-            description-class="text-gray-600 text-sm md:text-base max-w-3xl mx-auto mb-12 mt-5 leading-relaxed"
+            headline-class="text-3xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] max-w-5xl mx-auto"
+            description-class="text-gray-600 text-sm md:text-base max-w-3xl mx-auto mb-6 sm:mb-12 mt-5 leading-relaxed"
             description="Jatim Developer Day (JDD) 2026 bukan sekadar konferensi teknologi. Ini adalah ruang perjumpaan para inovator untuk merancang standar baru dalam arsitektur perangkat lunak, cloud scaling, dan kecerdasan buatan."
             class="relative z-30 text-center"
         >
@@ -14,9 +14,8 @@
         </SectionHeader>
 
         <!-- IMAGE COLLAGE SECTION -->
-        <!-- mt-24 memberikan ruang agar gambar top-left & top-right bisa naik ke samping teks -->
         <div
-            class="relative mx-auto h-[300px] sm:h-[400px] md:h-[500px] lg:h-[550px] mt-16 md:mt-24"
+            class="relative mx-auto h-[280px] sm:h-[400px] md:h-[500px] lg:h-[550px] mt-2 sm:mt-16 md:mt-24"
         >
             <!-- TOP LEFT IMAGE (Mengapit teks di kiri) -->
             <div

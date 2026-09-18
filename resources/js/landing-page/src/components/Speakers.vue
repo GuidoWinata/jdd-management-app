@@ -3,8 +3,8 @@
         <SectionHeader
             number="03"
             label="Meet Our Speakers"
-            headline-class="text-5xl md:text-6xl font-semibold leading-[1.1] max-w-5xl mx-auto"
-            description-class="text-gray-600 text-sm md:text-base max-w-3xl mx-auto mb-12 mt-5 leading-relaxed"
+            headline-class="text-3xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] max-w-5xl mx-auto"
+            description-class="text-gray-600 text-sm md:text-base max-w-3xl mx-auto lg:mb-12 mt-5 leading-relaxed"
             description="Para praktisi global yang telah menguji keahlian mereka di skala produksi industri teknologi terbesar."
         >
             Meet Our Headliners

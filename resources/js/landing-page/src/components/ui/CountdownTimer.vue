@@ -10,72 +10,72 @@
         <!-- Konten Timer -->
         <div class="relative z-10">
             <h3
-                class="text-white text-[10px] md:text-sm font-semibold tracking-[0.3em] uppercase mb-8"
+                class="text-white text-[10px] sm:text-[10px] md:text-sm font-semibold tracking-[0.3em] uppercase mb-6 sm:mb-8"
             >
                 Counting Down To Launch
             </h3>
 
             <!-- Timer Grid -->
-            <div class="flex items-center justify-center gap-4 md:gap-5">
+            <div class="flex items-center justify-center gap-2 sm:gap-4 md:gap-5">
                 <!-- Days -->
-                <div class="flex flex-col items-center w-16 md:w-24">
+                <div class="flex flex-col items-center w-14 sm:w-16 md:w-24">
                     <span
-                        class="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2 tracking-tight"
+                        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-1 sm:mb-2 tracking-tight"
                         >{{ timer.days }}</span
                     >
                     <span
-                        class="text-jd-cyan text-sm font-semibold tracking-widest uppercase"
+                        class="text-jd-cyan text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase"
                         >Days</span
                     >
                 </div>
 
                 <span
-                    class="text-2xl md:text-4xl font-light text-gray-500/50 mb-6"
+                    class="text-xl sm:text-2xl md:text-4xl font-light text-gray-500/50 mb-6"
                     >:</span
                 >
 
                 <!-- Hours -->
-                <div class="flex flex-col items-center w-16 md:w-24">
+                <div class="flex flex-col items-center w-14 sm:w-16 md:w-24">
                     <span
-                        class="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2 tracking-tight"
+                        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-1 sm:mb-2 tracking-tight"
                         >{{ timer.hours }}</span
                     >
                     <span
-                        class="text-jd-cyan text-sm font-semibold tracking-widest uppercase"
+                        class="text-jd-cyan text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase"
                         >Hours</span
                     >
                 </div>
 
                 <span
-                    class="text-2xl md:text-4xl font-light text-gray-500/50 mb-6"
+                    class="text-xl sm:text-2xl md:text-4xl font-light text-gray-500/50 mb-6"
                     >:</span
                 >
 
                 <!-- Minutes -->
-                <div class="flex flex-col items-center w-16 md:w-24">
+                <div class="flex flex-col items-center w-14 sm:w-16 md:w-24">
                     <span
-                        class="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2 tracking-tight"
+                        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-1 sm:mb-2 tracking-tight"
                         >{{ timer.minutes }}</span
                     >
                     <span
-                        class="text-jd-cyan text-sm font-semibold tracking-widest uppercase"
+                        class="text-jd-cyan text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase"
                         >Mins</span
                     >
                 </div>
 
                 <span
-                    class="text-2xl md:text-4xl font-light text-gray-500/50 mb-6"
+                    class="text-xl sm:text-2xl md:text-4xl font-light text-gray-500/50 mb-6"
                     >:</span
                 >
 
                 <!-- Seconds -->
-                <div class="flex flex-col items-center w-16 md:w-24">
+                <div class="flex flex-col items-center w-14 sm:w-16 md:w-24">
                     <span
-                        class="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-2 tracking-tight"
+                        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-1 sm:mb-2 tracking-tight"
                         >{{ timer.seconds }}</span
                     >
                     <span
-                        class="text-jd-cyan text-sm font-semibold tracking-widest uppercase"
+                        class="text-jd-cyan text-[10px] sm:text-xs md:text-sm font-semibold tracking-widest uppercase"
                         >Secs</span
                     >
                 </div>

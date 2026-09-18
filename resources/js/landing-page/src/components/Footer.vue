@@ -11,7 +11,7 @@
     <div class="container mx-auto relative z-10">
       <!-- TOP ROW: Social Icons & Nav Pills -->
       <div
-        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-24"
+        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10"
       >
         <!-- Social Icons -->
         <div class="flex gap-4">
@@ -44,9 +44,9 @@
       </div>
 
       <!-- CENTER BIG LOGO & TEXT -->
-      <div class="flex items-center gap-6 md:gap-12 mb-28">
+      <div class="flex items-center gap-4 ms-12 sm:ms-0 sm:gap-6 md:gap-12 mb-10 md:mb-28">
         <!-- JDD Logo -->
-        <div class="relative w-28 h-28 md:w-44 md:h-44 flex-shrink-0">
+        <div class="relative w-20 h-20 sm:w-24 sm:h-24 md:w-44 md:h-44 flex-shrink-0">
           <img
             :src="jddLogo"
             alt="JDD Logo"
@@ -55,16 +55,16 @@
         </div>
 
         <!-- Text Title -->
-        <div class="flex flex-col tracking-wide text-white">
+        <div class="flex flex-col tracking-wide text-white w-full">
           <span
-            class="text-4xl md:text-[3.5rem] font-montserrat font-bold leading-[1.05]"
+            class="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-montserrat font-bold leading-[1.05]"
             >JATIM</span
           >
           <span
-            class="text-4xl md:text-[3.5rem] font-montserrat font-bold leading-[1.05]"
+            class="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-montserrat font-bold leading-[1.05]"
             >DEVELOPER</span
           >
-          <span class="text-4xl md:text-[3.5rem] font-montserrat font-bold leading-[1.05]"
+          <span class="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-montserrat font-bold leading-[1.05]"
             >DAY</span
           >
         </div>

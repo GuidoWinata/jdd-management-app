@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { PhArrowLeft, PhArrowUpRight } from '@phosphor-icons/vue'
+import { PhArrowLeft, PhArrowUpRight, PhList, PhX } from '@phosphor-icons/vue'
 import jddLogo from '../assets/jdd-logo-white.svg'
 import { URLS } from '../constants'
 
@@ -25,6 +25,7 @@ const navLinks = props.links
 
 const activeId = ref('home')
 const hidden = ref(false)
+const menuOpen = ref(false)
 
 let lastScrollY = 0
 let observer = null
@@ -33,6 +34,22 @@ function onScroll() {
   const y = window.scrollY
   hidden.value = y > lastScrollY && y > 120
   lastScrollY = y
+}
+
+function toggleMenu() {
+  menuOpen.value = !menuOpen.value
+}
+
+function closeMenu() {
+  menuOpen.value = false
+}
+
+function navigateTo(href) {
+  closeMenu()
+  const el = document.querySelector(href)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+  }
 }
 
 onMounted(() => {
@@ -57,6 +74,48 @@ onUnmounted(() => {
 </script>
 
 <template>
+  <!-- Mobile Menu Overlay -->
+  <div
+    v-if="menuOpen"
+    class="fixed inset-0 z-[59] bg-black/60 backdrop-blur-sm lg:hidden"
+    @click="closeMenu"
+  ></div>
+
+  <!-- Mobile Menu Drawer -->
+  <div
+    class="fixed top-0 right-0 h-full w-72 z-[60] bg-jd-bg/95 backdrop-blur-md border-l border-white/10 transform transition-transform duration-300 lg:hidden"
+    :class="menuOpen ? 'translate-x-0' : 'translate-x-full'"
+  >
+    <div class="flex items-center justify-between px-6 py-5 border-b border-white/10">
+      <span class="text-white font-bold text-sm tracking-widest uppercase">Menu</span>
+      <button @click="closeMenu" class="text-gray-400 hover:text-white transition-colors">
+        <PhX :size="24" :weight="'bold'" />
+      </button>
+    </div>
+    <nav class="flex flex-col px-6 py-6 gap-1">
+      <a
+        v-for="link in navLinks"
+        :key="link.href"
+        :href="link.href"
+        @click.prevent="navigateTo(link.href)"
+        :class="[
+          'py-3 px-4 rounded-xl text-sm font-semibold tracking-wide transition-colors duration-300',
+          activeId === link.href.slice(1)
+            ? 'text-jd-cyan bg-white/5'
+            : 'text-gray-400 hover:text-white hover:bg-white/5',
+        ]"
+      >{{ link.label }}</a>
+      <a
+        :href="ctaHref"
+        class="mt-4 bg-jd-cyan hover:bg-jd-cyan-dark text-jd-on-cyan font-bold text-xs px-6 py-3 rounded-full flex items-center justify-center gap-2 transition-colors duration-300 shadow-md"
+      >
+        <span>{{ ctaLabel }}</span>
+        <PhArrowUpRight :size="16" :weight="'bold'" />
+      </a>
+    </nav>
+  </div>
+
+  <!-- Main Navbar -->
   <nav
     class="fixed top-4 sm:top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 bg-white/5 backdrop-blur-md shadow-2xl rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between transition-all duration-500"
     :class="hidden ? '-translate-y-[150%] opacity-0 pointer-events-none' : 'opacity-100'"
@@ -72,7 +131,7 @@ onUnmounted(() => {
       </div>
     </a>
 
-    <!-- Bagian Tengah: Navigation Links -->
+    <!-- Bagian Tengah: Navigation Links (Desktop) -->
     <div class="hidden lg:flex items-center gap-8 text-sm font-semibold">
       <a
         v-for="link in navLinks"
@@ -88,12 +147,12 @@ onUnmounted(() => {
       >
     </div>
 
-    <!-- Bagian Kanan: Back Button / Call to Action Button -->
-    <div class="flex items-center">
+    <!-- Bagian Kanan: Hamburger (Mobile) / Back or CTA (Desktop) -->
+    <div class="flex items-center gap-3">
       <router-link
         v-if="backHref"
         :to="backHref"
-        class="flex items-center gap-2 text-jd-cyan hover:text-white text-sm font-semibold transition-colors duration-300"
+        class="hidden sm:flex items-center gap-2 text-jd-cyan hover:text-white text-sm font-semibold transition-colors duration-300"
       >
         <PhArrowLeft :size="18" :weight="'bold'" />
         <span class="hidden sm:inline">Kembali</span>
@@ -101,11 +160,20 @@ onUnmounted(() => {
       <a
         v-else
         :href="ctaHref"
-        class="bg-jd-cyan hover:bg-jd-cyan-dark text-jd-on-cyan font-bold text-xs sm:text-sm px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full flex items-center gap-2 transition-colors duration-300 shadow-md whitespace-nowrap"
+        class="bg-jd-cyan hover:bg-jd-cyan-dark text-jd-on-cyan font-bold text-xs sm:text-sm px-3.5 sm:px-6 py-2 sm:py-2.5 rounded-full items-center gap-2 transition-colors duration-300 shadow-md whitespace-nowrap hidden lg:flex"
       >
         <span>{{ ctaLabel }}</span>
-        <PhArrowUpRight class="hidden sm:block" :size="16" :weight="'bold'" />
+        <PhArrowUpRight :size="16" :weight="'bold'" />
       </a>
+
+      <!-- Hamburger Button (Mobile) -->
+      <button
+        @click="toggleMenu"
+        class="lg:hidden text-white hover:text-jd-cyan transition-colors duration-300 p-1"
+        aria-label="Toggle navigation menu"
+      >
+        <PhList :size="24" :weight="'bold'" />
+      </button>
     </div>
   </nav>
 </template>

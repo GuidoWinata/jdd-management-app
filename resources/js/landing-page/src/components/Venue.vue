@@ -4,15 +4,15 @@
             number="02"
             label="Location & Venue"
             :description="subtitle"
-            headline-class="text-5xl md:text-6xl font-semibold leading-[1.1] max-w-5xl mx-auto"
-            description-class="text-gray-600 text-sm md:text-base max-w-3xl mx-auto mb-12 mt-5 leading-relaxed"
+            headline-class="text-3xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] max-w-5xl mx-auto"
+            description-class="text-gray-600 text-sm md:text-base max-w-3xl mx-auto lg:mb-12 mt-5 leading-relaxed"
         >
             JDD 2026 Lands in Pasuruan
         </SectionHeader>
 
         <!-- VENUE CONTENT GRID -->
         <div
-            class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch mt-4"
+            class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch mt-2 md:mt-4"
         >
             <!-- LEFT COLUMN: Location Details & CTA -->
             <div
