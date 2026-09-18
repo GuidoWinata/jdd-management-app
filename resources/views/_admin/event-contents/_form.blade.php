@@ -135,29 +135,31 @@
                 ->map(fn ($item) => [
                     'id' => is_array($item) ? $item['id'] ?? null : ($item->id ?? null),
                     'material_id' => is_array($item) ? $item['material_id'] ?? null : ($item->material_id ?? null),
+                    'title' => is_array($item) ? $item['title'] ?? null : ($item->title ?? null),
                     'starts_at' => is_array($item) ? $item['starts_at'] ?? null : ($item->starts_at ?? null),
                     'ends_at' => is_array($item) ? $item['ends_at'] ?? null : ($item->ends_at ?? null),
                 ])
                 ->values();
-            $agendaRows = $agendaRows->isEmpty() ? collect([['id' => null, 'material_id' => '', 'starts_at' => '', 'ends_at' => '']]) : $agendaRows;
+            $agendaRows = $agendaRows->isEmpty() ? collect([['id' => null, 'material_id' => '', 'title' => '', 'starts_at' => '', 'ends_at' => '']]) : $agendaRows;
         @endphp
         <div class="space-y-2 md:col-span-2" data-field-name="{{ $name }}">
             <div class="flex items-center justify-between gap-3">
                 <label class="text-sm font-medium text-gray-700 dark:text-neutral-200">{{ $field['label'] }}</label>
                 <button type="button" class="js-add-agenda-item inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400">
                     @include('_admin._layout.icons.add')
-                    Tambah materi
+                    Tambah item
                 </button>
             </div>
-            <div class="hidden lg:grid lg:grid-cols-[minmax(0,1fr)_130px_130px_40px] gap-2 px-3 text-xs font-medium text-gray-500 dark:text-neutral-400">
-                <span>Materi</span>
+            <div class="hidden lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_120px_120px_40px] gap-2 px-3 text-xs font-medium text-gray-500 dark:text-neutral-400">
+                <span>Materi (opsional)</span>
+                <span>Judul Custom (opsional)</span>
                 <span>Mulai</span>
                 <span>Selesai</span>
                 <span></span>
             </div>
             <div class="js-agenda-item-list space-y-2" data-next-index="{{ $agendaRows->count() }}">
                 @foreach ($agendaRows as $index => $item)
-                    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_130px_130px_auto] gap-2 rounded-lg border border-gray-200 p-3 dark:border-neutral-700 js-agenda-item-row">
+                    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_120px_120px_auto] gap-2 rounded-lg border border-gray-200 p-3 dark:border-neutral-700 js-agenda-item-row">
                         <input type="hidden" name="agenda_items[{{ $index }}][id]" value="{{ $item['id'] }}">
                         <select name="agenda_items[{{ $index }}][material_id]"
                             class="js-select2 py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
@@ -168,6 +170,9 @@
                                 </option>
                             @endforeach
                         </select>
+                        <input name="agenda_items[{{ $index }}][title]" value="{{ $item['title'] }}" type="text"
+                            class="py-2.5 sm:py-3 px-4 block w-full border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 placeholder-gray-400"
+                            placeholder="Atau ketik judul sendiri">
                         <input name="agenda_items[{{ $index }}][starts_at]" value="{{ $item['starts_at'] ? substr($item['starts_at'], 0, 5) : '' }}" type="text"
                             class="flatpickr-time py-2.5 sm:py-3 px-4 block w-full border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400"
                             placeholder="Mulai">
@@ -183,7 +188,7 @@
                 @endforeach
             </div>
             <template id="agenda-item-template">
-                <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_130px_130px_auto] gap-2 rounded-lg border border-gray-200 p-3 dark:border-neutral-700 js-agenda-item-row">
+                <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_120px_120px_auto] gap-2 rounded-lg border border-gray-200 p-3 dark:border-neutral-700 js-agenda-item-row">
                     <input type="hidden" name="agenda_items[__INDEX__][id]" value="">
                     <select name="agenda_items[__INDEX__][material_id]"
                         class="js-select2 py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400">
@@ -192,6 +197,9 @@
                             <option value="{{ $optionValue }}">{{ $text }}</option>
                         @endforeach
                     </select>
+                    <input name="agenda_items[__INDEX__][title]" value="" type="text"
+                        class="py-2.5 sm:py-3 px-4 block w-full border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 placeholder-gray-400"
+                        placeholder="Atau ketik judul sendiri">
                     <input name="agenda_items[__INDEX__][starts_at]" value="" type="text"
                         class="flatpickr-time py-2.5 sm:py-3 px-4 block w-full border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400"
                         placeholder="Mulai">

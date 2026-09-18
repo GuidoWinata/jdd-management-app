@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full py-16 md:py-52 px-6 relative overflow-hidden">
+  <header class="w-full py-12 md:py-52 px-6 relative overflow-hidden">
     
     <!-- Background Image (same as Hero) -->
     <div
@@ -10,7 +10,7 @@
     <div class="container mx-auto max-w-6xl relative z-10">
       
       <!-- Headline Utama -->
-      <h1 class="text-5xl md:text-6xl  font-semibold leading-[1.1] mb-6">
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] mb-6">
         <span v-if="titleSolid" class="block text-jd-text-light">{{ titleSolid }}</span>
         <span v-if="titleOutline" class="block text-jd-cyan">{{ titleOutline }}</span>
       </h1>

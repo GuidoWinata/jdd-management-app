@@ -47,7 +47,7 @@
                                 <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
                                     @forelse($data->items ?? $data->agenda_items ?? [] as $item)
                                         <tr>
-                                            <td class="px-3 py-2 text-gray-800 dark:text-neutral-200">{{ $field['options'][$item->material_id] ?? $item->material_id }}</td>
+                                            <td class="px-3 py-2 text-gray-800 dark:text-neutral-200">{{ $item->title ?? '-' }}</td>
                                             <td class="px-3 py-2 text-gray-600 dark:text-neutral-400">{{ substr($item->starts_at, 0, 5) }}</td>
                                             <td class="px-3 py-2 text-gray-600 dark:text-neutral-400">{{ $item->ends_at ? substr($item->ends_at, 0, 5) : '-' }}</td>
                                         </tr>

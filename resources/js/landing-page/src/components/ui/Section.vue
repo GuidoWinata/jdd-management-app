@@ -14,7 +14,7 @@ const bgClass = computed(() => (props.variant === 'white' ? 'bg-white' : 'bg-bac
 const sectionClass = computed(() => [
   'text-jd-dark font-sans overflow-hidden',
   bgClass.value,
-  props.size === 'lg' ? 'py-32' : 'py-24',
+  props.size === 'lg' ? 'py-20 sm:py-32' : 'py-14 sm:py-24',
   props.borderTop ? 'border-t border-jd-dark/10' : '',
 ])
 </script>

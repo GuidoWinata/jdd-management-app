@@ -1,6 +1,6 @@
 <template>
   <section class="bg-background text-jd-dark py-10 px-6 font-sans relative z-10">
-    <div class="container mx-auto max-w-6xl flex flex-col md:flex-row gap-8 items-start -mt-16 md:-mt-36">
+    <div class="container mx-auto max-w-6xl flex flex-col md:flex-row gap-8 items-start -mt-8 md:-mt-36">
       
       <!-- SIDEBAR NAVIGATION -->
       <aside class="w-full md:w-1/4 sticky top-24 shrink-0 z-10">

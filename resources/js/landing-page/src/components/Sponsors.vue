@@ -6,7 +6,7 @@
         <SectionHeader
       number="06"
       label="Partners & Sponsors"
-      headline-class="text-5xl md:text-6xl font-semibold leading-[1.1] max-w-5xl mx-auto"
+      headline-class="text-3xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] max-w-5xl mx-auto"
     >
       Become Our Sponsors
     </SectionHeader>
@@ -16,7 +16,7 @@
             :href="URLS.SPONSORSHIP"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-3 bg-jd-cyan hover:bg-jd-cyan-dark text-jd-on-cyan font-bold text-sm tracking-[0.15em] uppercase px-10 py-4 rounded-full transition-colors duration-300 shadow-[0_0_30px_rgba(207,221,17,0.25)]"
+            class="inline-flex items-center gap-3 bg-jd-cyan hover:bg-jd-cyan-dark text-jd-on-cyan font-bold text-xs sm:text-sm tracking-[0.15em] uppercase px-6 py-3 sm:px-10 sm:py-4 rounded-full transition-colors duration-300 shadow-[0_0_30px_rgba(207,221,17,0.25)]"
           >
             <PhPlus :size="20" :weight="'bold'" />
             BECOME OUR SPONSOR

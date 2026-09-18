@@ -3,8 +3,8 @@
         <SectionHeader
             number="04"
             label="The Symposium"
-            headline-class="text-5xl md:text-6xl font-semibold leading-[1.1] max-w-5xl mx-auto"
-            description-class="text-gray-600 text-sm md:text-base max-w-3xl mx-auto mb-12 mt-5 leading-relaxed"
+            headline-class="text-3xl sm:text-5xl md:text-6xl font-semibold leading-[1.1] max-w-5xl mx-auto"
+            description-class="text-gray-600 text-sm md:text-base max-w-3xl mx-auto lg:mb-12 mt-5 leading-relaxed"
             description="Agenda lengkap symposium dari registrasi hingga sesi workshop bersama para praktisi industri."
         >
             Agenda & Sessions
@@ -17,7 +17,7 @@
                     class="bg-gray-800 text-transparent font-bold text-xs tracking-[0.2em] uppercase py-4 px-6 rounded-xl md:rounded-2xl mb-2 w-full md:w-1/3"
                 >
                     Loading...
-                </div>
+                </div>1
                 <div class="flex flex-col">
                     <div
                         v-for="j in 3"
@@ -67,7 +67,7 @@
             >
                 <!-- Category Bar (Solid Neon) -->
                 <div
-                    class="bg-jd-cyan text-jd-on-cyan font-semibold text-xs md:text-sm tracking-widest uppercase py-3.5 px-6 rounded-xl md:rounded-2xl mb-2 shadow-sm"
+                    class="bg-jd-cyan text-jd-on-cyan font-semibold text-[11px] md:text-sm tracking-widest uppercase py-3 px-5 md:px-6 rounded-xl md:rounded-2xl mb-3 shadow-sm"
                 >
                     {{ group.category }}
                 </div>
@@ -77,22 +77,22 @@
                     <div
                         v-for="(session, sessionIndex) in group.sessions"
                         :key="sessionIndex"
-                        class="flex flex-col md:flex-row items-start md:items-center py-6 px-4 md:px-6 border-b border-white/10 hover:bg-gray-200 transition-colors duration-300 gap-6 reveal group"
+                        class="flex flex-col md:flex-row items-start md:items-center py-5 px-5 md:px-6 border-b border-gray-200 hover:bg-gray-100 transition-colors duration-300 gap-4 md:gap-6 reveal group"
                         :style="{
                             transitionDelay: `${(sessionIndex % 3) * 0.1}s`,
                         }"
                     >
                         <!-- Left: Time & Location -->
                         <div
-                            class="w-1/5 flex flex-col md:text-right flex-shrink-0"
+                            class="w-full md:w-1/4 flex flex-row md:flex-col items-center md:items-end gap-2 md:gap-0 flex-shrink-0"
                         >
                             <span
-                                class="text-jd-dark font-medium tracking-wider text-sm md:text-base"
+                                class="text-jd-dark font-semibold tracking-wider text-sm md:text-base"
                             >
                                 {{ session.time }}
                             </span>
                             <span
-                                class="text-gray-500 text-[10px] tracking-[0.15em] uppercase mt-1.5 font-bold"
+                                class="text-gray-400 text-[10px] md:text-[10px] tracking-[0.15em] uppercase font-bold"
                             >
                                 {{ session.location }}
                             </span>
@@ -101,12 +101,12 @@
                         <!-- Middle: Session Details -->
                         <div class="w-full md:w-auto flex-1 flex flex-col">
                             <span
-                                class="text-gray-500 text-[10px] tracking-[0.15em] uppercase mb-1.5 font-bold"
+                                class="text-jd-cyan text-[10px] tracking-[0.15em] uppercase mb-1 font-bold"
                             >
                                 {{ session.type }}
                             </span>
                             <h3
-                                class="text-jd-dark font-bold text-base md:text-lg leading-snug transition-colors"
+                                class="text-jd-dark font-bold text-sm sm:text-base md:text-lg leading-snug transition-colors"
                             >
                                 {{ session.title }}
                             </h3>
