@@ -1,9 +1,9 @@
 <template>
-  <section class="bg-background p-16 px-6 relative z-10">
+  <section class="bg-background py-10 md:py-16 px-6 relative z-10">
     <div class="container mx-auto max-w-7xl">
       
       <!-- List FAQ -->
-      <div class="flex flex-col gap-4 -mt-16 md:-mt-36">
+      <div class="flex flex-col gap-4 -mt-10 md:-mt-36">
         <div 
           v-for="(faq, index) in faqs" 
           :key="index"

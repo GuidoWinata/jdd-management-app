@@ -1,6 +1,6 @@
 <template>
     <section
-        class="min-h-screen text-white pt-56 pb-16 px-6 font-sans flex flex-col items-center text-center overflow-hidden relative"
+        class="min-h-screen text-white pt-36 lg:pt-56 pb-16 px-6 font-sans flex flex-col items-center text-center overflow-hidden relative"
     >
         <!-- Background Image -->
         <div
@@ -19,19 +19,19 @@
             <img
                 :src="mascotWow"
                 alt="Mascot Wow"
-                class="absolute -bottom-10 -left-12 md:-left-24 lg:-left-32 w-40 md:w-52 lg:w-64 z-20 pointer-events-none hidden md:block drop-shadow-2xl"
+                class="absolute -bottom-32 -left-6 sm:-bottom-12 sm:-left-12 md:-left-24 lg:-left-32 w-24 sm:w-40 md:w-52 lg:w-64 z-20 pointer-events-none drop-shadow-2xl"
             />
 
             <!-- Mascot Kanan (Thumb Up) -->
             <img
                 :src="mascotThumbUp"
                 alt="Mascot Thumb Up"
-                class="absolute -bottom-10 -right-12 md:-right-24 lg:-right-32 w-40 md:w-52 lg:w-64 z-20 pointer-events-none hidden md:block drop-shadow-2xl"
+                class="absolute -bottom-32 -right-6 sm:-bottom-12 sm:-right-12 md:-right-24 lg:-right-32 w-24 sm:w-40 md:w-52 lg:w-64 z-20 pointer-events-none drop-shadow-2xl"
             />
 
             <!-- Headline -->
             <h1
-                class="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] mb-6"
+                class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] mb-6"
             >
                 Jatim Developer Day 2026 <br />
                 <span class="text-jd-cyan">Inclusive Tech, Real Impact</span>
@@ -48,7 +48,7 @@
 
             <!-- Event Location & Date -->
             <div
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-sm md:text-base text-gray-200 mb-10 shadow-sm"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-sm md:text-base text-gray-200 mb-4 md:mb-10 shadow-sm"
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@
             </div>
 
             <!-- Countdown Banner -->
-            <div class="relative w-full py-3 px-6 mb-12">
+            <div class="relative w-full py-3 px-6 mb-6 md:mb-12">
                 <!-- Latar Belakang Blur & Faded Edges -->
                 <div
                     class="absolute inset-0 backdrop-blur-sm bg-white/5 pointer-events-none"
