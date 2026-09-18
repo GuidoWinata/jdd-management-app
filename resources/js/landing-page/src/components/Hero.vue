@@ -33,19 +33,38 @@
             <h1
                 class="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.1] mb-6"
             >
-                Jatim Tech Hub Inclusive <br />
-                Tech <span class="text-jd-cyan">Real Impact</span>
+                Jatim Developer Day 2026 <br />
+                <span class="text-jd-cyan">Inclusive Tech, Real Impact</span>
             </h1>
 
             <!-- Subtitle -->
             <p
-                class="text-gray-300 text-sm md:text-base max-w-3xl mx-auto mb-12 leading-relaxed"
+                class="text-gray-300 text-sm md:text-base max-w-3xl mx-auto mb-6 leading-relaxed"
             >
-                Konferensi eksklusif bagi para arsitek teknologi, developer, dan
-                pemimpin industri Jawa Timur. <br class="hidden md:block" />
-                Membangun masa depan digital dengan standar keunggulan kelas
-                dunia.
+                An exclusive conference for tech architects, developers, and industry leaders in East Java.
+                <br class="hidden md:block" />
+                Building a digital future with world-class standards of excellence.
             </p>
+
+            <!-- Event Location & Date -->
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-sm md:text-base text-gray-200 mb-10 shadow-sm"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-4 h-4 md:w-4.5 md:h-4.5 text-jd-cyan shrink-0"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                    <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span class="font-medium tracking-wide">Pasuruan, November 7, 2026</span>
+            </div>
 
             <!-- Countdown Banner -->
             <div class="relative w-full py-3 px-6 mb-12">
@@ -85,7 +104,7 @@
                     :href="URLS.TICKET"
                     variant="primary"
                 >
-                    Beli Tiket Pre-Sale 2
+                    Beli Tiket
                 </AppButton>
 
                 <!-- Secondary Button (Glassmorphism) -->
